@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#e3e3de",
+                      "primary-fixed-dim": "#b8ccb9",
+                      "on-tertiary-container": "#ffedd5",
+                      "primary-fixed": "#d4e8d4",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f5f4ef",
+                      "tertiary": "#61523a",
+                      "on-primary-fixed": "#0f1f13",
+                      "on-primary-fixed-variant": "#3a4b3c",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#e9e8e3",
+                      "tertiary-fixed-dim": "#d9c4a5",
+                      "secondary-container": "#d4e7b5",
+                      "inverse-primary": "#b8ccb9",
+                      "on-secondary-container": "#586841",
+                      "inverse-on-surface": "#f2f1ec",
+                      "surface-dim": "#dbdad5",
+                      "on-secondary-fixed": "#121f02",
+                      "on-secondary": "#ffffff",
+                      "inverse-surface": "#30312e",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#d6e9b8",
+                      "outline": "#737872",
+                      "secondary": "#53643d",
+                      "on-tertiary-fixed-variant": "#53452e",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#faf9f4",
+                      "secondary-fixed-dim": "#bbcd9e",
+                      "on-surface": "#1b1c19",
+                      "on-background": "#1b1c19",
+                      "background": "#faf9f4",
+                      "on-secondary-fixed-variant": "#3c4c27",
+                      "tertiary-fixed": "#f6dfc0",
+                      "outline-variant": "#c3c8c1",
+                      "tertiary-container": "#7b6a51",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#434843",
+                      "surface-variant": "#e3e3de",
+                      "primary-container": "#5f7161",
+                      "surface": "#faf9f4",
+                      "surface-container": "#efeee9",
+                      "on-tertiary-fixed": "#251a07",
+                      "primary": "#475949",
+                      "on-primary-container": "#e1f5e1",
+                      "surface-tint": "#516353"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "24px",
+                      "section-gap": "120px",
+                      "gutter": "32px",
+                      "stack-sm": "12px",
+                      "container-max": "1100px",
+                      "unit": "8px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "body-md": ["Manrope"],
+                      "display-lg": ["Noto Serif"],
+                      "headline-md": ["Noto Serif"],
+                      "body-lg": ["Manrope"],
+                      "label-caps": ["Manrope"],
+                      "headline-sm": ["Noto Serif"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 2px;
+            background-color: #5F7161;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+        .tonal-layer {
+            background-color: rgba(95, 113, 97, 0.04);
+        }
+        .ambient-shadow {
+            box-shadow: 0 10px 40px -15px rgba(95, 113, 97, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="progress-bar" style="width: 45%;"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#F5F2ED] dark:bg-stone-900 border-b border-stone-200/50 dark:border-stone-800">
+<div class="flex justify-between items-center w-full px-12 py-6 max-w-7xl mx-auto">
+<div class="flex items-center space-x-12">
+<a class="text-2xl font-serif italic text-[#5F7161] dark:text-stone-100 tracking-tight" href="#">Yoka</a>
+<nav class="hidden md:flex space-x-8">
+<a class="text-[#5F7161] dark:text-stone-100 border-b-2 border-[#5F7161] pb-1 font-medium font-serif tracking-tight transition-opacity ease-in-out duration-300" href="#">Thoughts</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300 font-serif tracking-tight" href="#">Paintings</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300 font-serif tracking-tight" href="#">Vlogs</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300 font-serif tracking-tight" href="#">Projects</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300 font-serif tracking-tight" href="#">Life Hacks</a>
+</nav>
+</div>
+<div class="flex items-center space-x-6 text-[#5F7161] dark:text-stone-200">
+<button class="hover:opacity-80 transition-opacity font-label-caps text-xs tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="translate">translate</span>
+                    EN / CN
+                </button>
+<button class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-12 pt-20 pb-16 text-center">
+<div class="mb-8">
+<span class="inline-block px-4 py-1 rounded-full bg-tertiary-fixed text-tertiary font-label-caps text-[10px] tracking-widest uppercase">Slow Living</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface max-w-4xl mx-auto mb-8">The Architecture of Silence: Finding Stillness in a Digital Age</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12 italic">Reflections on the intentional preservation of mental whitespace and the art of doing nothing.</p>
+<div class="flex items-center justify-center space-x-4 mb-16 text-on-surface-variant">
+<img class="w-12 h-12 rounded-full object-cover grayscale opacity-80" data-alt="close-up portrait of a woman with thoughtful expression in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVgwPK47HS9T3WHsrohxe2ZoUzF8HeBlTE1-bl0haXHLOC28czsTd5iyFmZtdxteilFpGpmy7N0M9I-cAB_1BXOLCpAgB8mbIOiVlo4BYGf8Lv5ijOplnuKnwuWLHAO8NjI9L1et8OEn9O4kgfzLW6K_u-Up-Vk4Xi7BCIsZ5Bil3RSceyjyPpeojubnaiugErIAWOA2MBR73sgSgmGi36IVuIeNcFnx1x5nuxJYLuypKErazdlGPyLBDDR73znlUtrS1JCXwlxuCs"/>
+<div class="text-left">
+<p class="font-label-caps text-xs tracking-widest font-bold">WRITTEN BY ELARA VANCE</p>
+<p class="text-xs font-body-md opacity-60">12 MIN READ • OCTOBER 14, 2024</p>
+</div>
+</div>
+<div class="relative w-full aspect-[21/9] overflow-hidden rounded-xl ambient-shadow">
+<img class="w-full h-full object-cover" data-alt="minimalist interior with a single wooden chair next to a large window casting soft shadows on a beige wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF8k0vU8J6P9cXNb_xPxm6y0BVX3xHFesJjuYYWeMe9TeW_eksUh7ok9gS8lky6iLwKSFTwvdGKLvlWec4zqeRSqyOyqXfDp3s9TEoM6LYwC0nTpJ_-NBxs8zz261rxIgSB8K2z26LCJGKe330C4YuFMxNsy6PYHw9psqCTxNHHTqKBHZtWtNFhOdccv5sJ7gELGDIvTf6GHJd0p7vG_R9d3GZvxJ_eVtC6U0REbnbwf_5smNKexTGc3z-BH__x59bVf1mE1SOD_tK"/>
+</div>
+</section>
+<!-- Content Section -->
+<article class="max-w-[720px] mx-auto px-6 py-20">
+<div class="space-y-12 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p class="first-letter:text-7xl first-letter:font-display-lg first-letter:mr-3 first-letter:float-left first-letter:text-primary">
+                    In the quiet corners of our modern lives, silence has become a luxury—a rare artifact of a pre-connected era. We navigate a world where the void is instantly filled by a notification, a scroll, or a fleeting digital whisper. But what happens when we choose to leave that void empty?
+                </p>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-16 mb-6">The Ritual of Unplugging</h2>
+<p>
+                    True digital restoration isn't about the complete abandonment of technology, but the reclamation of our attention. It is the architectural choice to build walls around our mental sanctuary. I find this most accessible during the "blue hour"—that transitional period between day and night where the world naturally decelerates.
+                </p>
+<div class="tonal-layer p-10 rounded-xl my-12 border-l-4 border-primary italic font-serif text-xl text-on-surface">
+                    "Silence is not the absence of sound, but the presence of focus."
+                </div>
+<p>
+                    When we remove the secondary noise, we begin to hear the primary melodies of our own thoughts. The garden feels more vibrant; the texture of the wooden table under our palms becomes a grounding force. We are no longer performing for an invisible audience; we are simply existing for ourselves.
+                </p>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-16 mb-6">The Garden of the Mind</h2>
+<p>
+                    Think of your attention as a garden. Without boundaries, the weeds of algorithmic trends and reactionary discourse take root. By intentionally limiting our inputs, we allow the more delicate, creative blooms to surface. Slow living is the gardener's patience applied to the soul.
+                </p>
+<div class="grid grid-cols-2 gap-8 my-16">
+<img class="rounded-lg aspect-square object-cover grayscale" data-alt="close-up of a small green sprout emerging from dark rich soil with soft morning dew" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6YgsI9k25dc9OJTxW7EjVK4A1xOO2vHuiiTsAaiagdEkm0pm56poyLKRSw9Qd_MeCpl1Us02neiZ0krrVl7FVvHHPtIiCPJDJgCpY3_Xf1TQ2kWBaN3sM-E_oZDZxizAtiBrXybLVZd32hLxaz-3bQKPyTyC0ueedQR5M-y1DyWgHdS_sgcLCNMltR33iWh2F3NFz1xqLrdZiaUO1GHRur9WkYK9_YJH9gs1DmW_X2QR2A3F-X5QYRar-MgAaqb5tIekwXw5DR4BR"/>
+<img class="rounded-lg aspect-square object-cover grayscale" data-alt="misty forest path at dawn with tall slender trees and ethereal soft light filtering through" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxt2h44tPFw5caOQ_uLaTycqA9-O2IoTACrpj7RXtdNfCEERnRJUVTkBJMdxuPxfuAwXAkFIjMMGSA2suZ7KCcbcg4fysa1pFBYYneupqknSmLCS_uEKnR1lR725bF6_YnDjyH14avdFy_tD2Us7SQSMoPW41n19aHd1uACVHE-bjRqpu0iblTzCFg2G-rhMwaN1BjhkRcE8fq05E1N3UUhtOiR1vtqPJaoYV14JCno0bqApe_hwyd40fEOTgCcGkEQzk1rhObXIA4"/>
+</div>
+<p>
+                    As we move forward into an increasingly loud future, the most radical act we can perform is to remain quiet. To listen to the wind, to the ink scratching against paper, and to the rhythmic breathing of our own bodies.
+                </p>
+</div>
+<!-- Tags & Sharing -->
+<div class="mt-20 pt-12 border-t border-surface-variant flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] rounded-full uppercase tracking-widest">Mindfulness</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] rounded-full uppercase tracking-widest">Philosophy</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] rounded-full uppercase tracking-widest">Digital Health</span>
+</div>
+<div class="flex items-center space-x-6 text-on-surface-variant">
+<button class="hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+<span class="font-label-caps text-[10px] tracking-widest">SHARE</span>
+</button>
+<button class="hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="bookmark">bookmark</span>
+<span class="font-label-caps text-[10px] tracking-widest">SAVE</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Newsletter / CTA -->
+<section class="max-w-4xl mx-auto my-section-gap px-12">
+<div class="bg-surface-container-low rounded-2xl p-16 text-center ambient-shadow">
+<h3 class="font-headline-md text-headline-md mb-4">Subscribe to the Sunday Journal</h3>
+<p class="font-body-md text-on-surface-variant mb-8 max-w-md mx-auto">Every Sunday, I share a single thought and a collection of curated links to help you find your center.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+<input class="flex-grow bg-transparent border-b-2 border-outline-variant focus:border-primary-container outline-none px-2 py-3 transition-colors font-body-md" placeholder="Your email address" type="email"/>
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-full font-label-caps tracking-widest hover:opacity-90 transition-opacity" type="submit">SUBSCRIBE</button>
+</form>
+</div>
+</section>
+<!-- Suggested Reading -->
+<section class="max-w-7xl mx-auto px-12 pb-section-gap">
+<h4 class="font-label-caps text-xs tracking-[0.3em] text-on-surface-variant mb-12 text-center uppercase">Continue the Journey</h4>
+<div class="grid md:grid-cols-3 gap-12">
+<!-- Card 1 -->
+<a class="group block" href="#">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6 ambient-shadow">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="still life of an open book and a ceramic mug on a weathered wooden table near a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD26NBmprgNlaDk3HG7Gn0iHURq4r_oHrUxob4sjBCzXvqA6q-t4vqhTQD72TWLx8ZoIgX6zlPNoDjhKy7zbxAPOIl_rMw9qVd81TDPFK3qiYMHBPdh-iOpJTPD3Ng2MC28NwV_JwmQjejUZcjfjZs4S7Ix1u5qtcezTICwHbHUJ0zL8YOcNSFAVSP0OpDpe6srQ6Hkqq4JNUaoeqindFQwwqYJZMG7ZWDJPA7hmGWfktnMddgSQkufLQgsN5EaSbXGmqutFV_3JhTz"/>
+</div>
+<span class="font-label-caps text-[10px] tracking-widest text-primary mb-2 block">CURIOSITY</span>
+<h5 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">The Weight of Words</h5>
+</a>
+<!-- Card 2 -->
+<a class="group block" href="#">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6 ambient-shadow">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="sweeping landscape of a tranquil lake reflecting snowy mountains under a soft pastel sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7BbCh1KREm3VmSui6bM5kBYyDtz_8etgnItJibVh2hSBDsFmy5Hz3XCdPIOwvdvIRAXswyM7K_yYQZik0rr4SWmlxcH2dD0Mp6Re4Ezwn4Ddv3gwLmw8JMOJ92OmxDQ3Aa_f6_IWcKY4R_UX5we8fBK1VuRdsSDXnTSTEpV0awy_2zx1J-Q0i_Zttao4EB02_xj5HXBNyuGtSUE3cbj6DBRawa3kHcHpLrj2NIFOQh_uEYkLVSs1pec4QmM_EHbfonPeT-2_FwvZa"/>
+</div>
+<span class="font-label-caps text-[10px] tracking-widest text-primary mb-2 block">NATURE</span>
+<h5 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Finding Home in the Wild</h5>
+</a>
+<!-- Card 3 -->
+<a class="group block" href="#">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6 ambient-shadow">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="abstract bokeh of golden lights against a dark background creating a dreamy atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3VvbO0kR6QAlQYWRE9eaGIQ7iUTcLsf4jJrI6RJNYfb6L7jXPv9FMHSICadYknUCyBEYWO7lhLmkUuB0Jpi3df3sLPTXW5GVpvLW59kh0po3fQg0R4U3PjasfLSKJfJS4CvoM4kw2EAemZwOcA1v0DWo1urUFZUs_Oebh4hipCr02fsLm3CKkDoULXE8EHq-1xs4QJGETaE6GzJmYQL9K9-29yptWfRqoIExReexc5FCzmJzFcWZXzJMshluMorhlToz57bML4Thv"/>
+</div>
+<span class="font-label-caps text-[10px] tracking-widest text-primary mb-2 block">INTENTION</span>
+<h5 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Designing a Life of Purpose</h5>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#F5F2ED] dark:bg-stone-900 border-t border-stone-200/30 dark:border-stone-800 py-20">
+<div class="flex flex-col items-center justify-center space-y-8 w-full max-w-7xl mx-auto px-12">
+<div class="font-serif italic text-2xl text-[#5F7161] dark:text-stone-100">Yoka</div>
+<div class="flex space-x-12">
+<a class="text-stone-400 dark:text-stone-500 hover:text-[#5F7161] dark:hover:text-stone-200 transition-colors font-serif text-sm" href="#">Privacy</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-[#5F7161] dark:hover:text-stone-200 transition-colors font-serif text-sm" href="#">Archive</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-[#5F7161] dark:hover:text-stone-200 transition-colors font-serif text-sm" href="#">RSS</a>
+</div>
+<div class="flex space-x-6">
+<a class="w-10 h-10 rounded-full border border-stone-200 dark:border-stone-800 flex items-center justify-center text-[#5F7161] hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="alternate_email">alternate_email</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-stone-200 dark:border-stone-800 flex items-center justify-center text-[#5F7161] hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="camera">camera</span>
+</a>
+</div>
+<p class="text-[#5F7161] dark:text-stone-200 font-serif text-sm opacity-60">© 2024 Digital Restoration. Made with intention.</p>
+</div>
+</footer>
+</body></html>

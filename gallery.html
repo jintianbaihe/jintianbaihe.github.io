@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e3e3de",
+                    "primary-fixed-dim": "#b8ccb9",
+                    "on-tertiary-container": "#ffedd5",
+                    "primary-fixed": "#d4e8d4",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f5f4ef",
+                    "tertiary": "#61523a",
+                    "on-primary-fixed": "#0f1f13",
+                    "on-primary-fixed-variant": "#3a4b3c",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e9e8e3",
+                    "tertiary-fixed-dim": "#d9c4a5",
+                    "secondary-container": "#d4e7b5",
+                    "inverse-primary": "#b8ccb9",
+                    "on-secondary-container": "#586841",
+                    "inverse-on-surface": "#f2f1ec",
+                    "surface-dim": "#dbdad5",
+                    "on-secondary-fixed": "#121f02",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#30312e",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#d6e9b8",
+                    "outline": "#737872",
+                    "secondary": "#53643d",
+                    "on-tertiary-fixed-variant": "#53452e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#faf9f4",
+                    "secondary-fixed-dim": "#bbcd9e",
+                    "on-surface": "#1b1c19",
+                    "on-background": "#1b1c19",
+                    "background": "#faf9f4",
+                    "on-secondary-fixed-variant": "#3c4c27",
+                    "tertiary-fixed": "#f6dfc0",
+                    "outline-variant": "#c3c8c1",
+                    "tertiary-container": "#7b6a51",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#434843",
+                    "surface-variant": "#e3e3de",
+                    "primary-container": "#5f7161",
+                    "surface": "#faf9f4",
+                    "surface-container": "#efeee9",
+                    "on-tertiary-fixed": "#251a07",
+                    "primary": "#475949",
+                    "on-primary-container": "#e1f5e1",
+                    "surface-tint": "#516353"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "24px",
+                    "section-gap": "120px",
+                    "gutter": "32px",
+                    "stack-sm": "12px",
+                    "container-max": "1100px",
+                    "unit": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "display-lg": ["Noto Serif"],
+                    "headline-md": ["Noto Serif"],
+                    "body-lg": ["Manrope"],
+                    "label-caps": ["Manrope"],
+                    "headline-sm": ["Noto Serif"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-underline-expand {
+            position: relative;
+        }
+        .nav-underline-expand::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 50%;
+            background-color: currentColor;
+            transition: all 0.3s ease-in-out;
+            transform: translateX(-50%);
+        }
+        .nav-underline-expand:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#F5F2ED] dark:bg-stone-900 border-b border-stone-200/50 dark:border-stone-800">
+<nav class="flex justify-between items-center w-full px-12 py-6 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-serif italic text-[#5F7161] dark:text-stone-100" href="#">Yoka</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300 font-serif" href="#">Thoughts</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300 font-serif" href="#">Paintings</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300 font-serif" href="#">Vlogs</a>
+<a class="text-[#5F7161] dark:text-stone-100 border-b-2 border-[#5F7161] pb-1 font-medium font-serif" href="#">Projects</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300 font-serif" href="#">Life Hacks</a>
+</div>
+</div>
+<div class="flex items-center gap-6 text-[#5F7161] dark:text-stone-200">
+<button class="hover:opacity-80 transition-opacity flex items-center gap-1 font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[20px]">translate</span>
+<span class="hidden sm:inline">EN/CN</span>
+</button>
+<button class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[24px]">dark_mode</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-section-gap">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-12 text-center mb-stack-md">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6">Canvas &amp; Circuits</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto italic">
+                A digital sanctuary where oil strokes meet lines of code. Exploring the intersection of traditional artistry and modern engineering.
+            </p>
+</section>
+<!-- Bento Grid Layout -->
+<section class="max-w-7xl mx-auto px-12 mt-20">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Large Featured Painting -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="relative aspect-video overflow-hidden rounded-xl bg-surface-container shadow-[0_4px_20px_-4px_rgba(95,113,97,0.06)]">
+<img alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="atmospheric oil painting of a misty morning in a zen garden with soft brushstrokes and muted green and grey tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVPAl-lB3sqA7_MF-32subLWSlGX6bfeO2yH3cnWIdlwSO5ZCYHW5jE55_B-pyPPB5rlfVDPL0XTI3BBj4kk2nuRBYzflkzFxWRz26TOWb-bhhtGgj9_G1Vvl-HIAO7evwd7W_6Cg53-wdUAFZ0HWS1zwyO81NAhTgmCHpn4uJZGD9_ct1_WPN4z_3QE1Fgf3WZ03YqepfczKXW2AsB4FPnNtG33c6dGKGtHzQemtg7TzneEFBl_EthTnohhMOlrPuGe11EjkOGqM8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="absolute bottom-6 left-6 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<span class="font-label-caps text-label-caps bg-secondary-container/20 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">OIL ON CANVAS</span>
+<h3 class="font-headline-sm text-headline-sm mt-2">Morning in Kyoto</h3>
+</div>
+</div>
+</div>
+<!-- Small Tech Project -->
+<div class="md:col-span-4 flex flex-col justify-center p-8 bg-surface-container-low rounded-xl border border-outline-variant/30">
+<span class="font-label-caps text-label-caps text-secondary mb-4">LATEST PROJECT</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Minimalist Pomodoro</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        A browser-based focus timer built with vanilla JS, focusing on e-ink aesthetics and distraction-free interaction.
+                    </p>
+<div class="flex gap-3">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-[10px] rounded-full uppercase tracking-widest">JavaScript</span>
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-[10px] rounded-full uppercase tracking-widest">UI Design</span>
+</div>
+</div>
+<!-- Tech Hardware Card -->
+<div class="md:col-span-4 group">
+<div class="aspect-square rounded-xl overflow-hidden mb-4 bg-surface-container-high transition-all duration-500 hover:shadow-xl hover:shadow-primary-container/5">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="top-down minimalist photo of a custom mechanical keyboard with wooden case and olive green keycaps on a clean desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5u8GG1cwRZ72xdNAXPKC4kFuEbH1MQBQeTBzF_-sMZT57uNNSuU8LAxwTvNGH6csdbbtxoz2jzRXkETIUrXndDSR_Nnr5Psc9qAeZqdcBNeocxVSZm86O2SuZXVDwzqYCPBn5iaL03P5c4bjqIEjZ5oAASyUgcps79ZgwWdsxMQc5_hvua4D0qiB8gnqGZcL4fOaup3AWIpaglB7SI4Sb1oyFmazz1iELCPZkpA7lsPRZEyZ9s6nEo8spFm0Wjp-C_nStrDUUN6Iv"/>
+</div>
+<span class="font-label-caps text-label-caps text-secondary">HARDWARE MOD</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-2">The Ortho-60 Wood Case</h4>
+</div>
+<!-- Abstract Painting Card -->
+<div class="md:col-span-4 group">
+<div class="aspect-[4/5] rounded-xl overflow-hidden mb-4 bg-surface-container-high transition-all duration-500 hover:shadow-xl hover:shadow-primary-container/5">
+<img alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="abstract expressionist oil painting with thick impasto texture in earthy ochre, sage, and cream colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-eewvrW54mKE8JSG4cacJrOrNl5sjIha0r0k8mWo5eHRWAqgVuJHkj5HbKJEPHAVSU6kx7dGcrAQCIpQElzbRdCzpnyd2z5CCG7kzE8xo8FUDii5O7eStdTPhnq7k_dx5qFmFyvvQQlZ1_yF_OKpbnlvc_w_e8v0wo07fpGSFv-YAP-GuTkIdn0hbfptPXhXZ3iPw6ys-I75jMwOAUEM5yf28Brf0uSpHm-FiNosdl67a-H5_jX7vusnDVW-RSH5rrEDsoOCKLYm7"/>
+</div>
+<span class="font-label-caps text-label-caps text-secondary">OIL STUDY</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-2">Tonalism Study No. 4</h4>
+</div>
+<!-- Software Project Card -->
+<div class="md:col-span-4 group">
+<div class="aspect-square rounded-xl overflow-hidden mb-4 bg-surface-container-high relative flex items-center justify-center border border-outline-variant/20 transition-all duration-500 hover:shadow-xl hover:shadow-primary-container/5">
+<div class="p-12 text-center">
+<span class="material-symbols-outlined text-[48px] text-primary-container mb-4">terminal</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">ZenTerm Theme</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">A color palette for developers who crave visual silence.</p>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-secondary">OPEN SOURCE</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-2">The CLI Aesthetic</h4>
+</div>
+<!-- Wide Interaction Card -->
+<div class="md:col-span-12 mt-12 bg-primary-container text-on-primary-container rounded-2xl p-16 flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="max-w-xl">
+<h2 class="font-headline-md text-headline-md mb-6">In search of the "Digital Restoration"</h2>
+<p class="font-body-lg text-body-lg opacity-90 leading-relaxed">
+                            Every project here is a step toward finding balance. Whether through the slow drying of oil paint or the precise logic of a script, I seek to build spaces that offer rest rather than noise.
+                        </p>
+</div>
+<div class="flex flex-col gap-4 min-w-[240px]">
+<button class="bg-surface-bright text-primary px-8 py-4 rounded-lg font-label-caps tracking-widest hover:bg-surface-container-highest transition-colors">
+                            VIEW ARCHIVE
+                        </button>
+<button class="border border-on-primary-container/30 text-on-primary-container px-8 py-4 rounded-lg font-label-caps tracking-widest hover:bg-white/10 transition-colors">
+                            REACH OUT
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed List Section (Projects) -->
+<section class="max-w-5xl mx-auto px-12 mt-section-gap">
+<div class="flex items-center justify-between mb-12 border-b border-outline-variant/30 pb-6">
+<h2 class="font-headline-md text-headline-md">Project Log</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant">2023 — 2024</span>
+</div>
+<div class="space-y-12">
+<!-- Project Item -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 group">
+<div class="md:col-span-1">
+<p class="font-label-caps text-label-caps text-secondary">OCT 2023</p>
+</div>
+<div class="md:col-span-2">
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors cursor-pointer">Semantic Canvas API</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                            A bridge between generative AI and digital oil painting simulations, allowing natural language to guide brush texture.
+                        </p>
+</div>
+<div class="md:col-span-1 flex justify-end items-start">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer">arrow_outward</span>
+</div>
+</div>
+<!-- Project Item -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 group">
+<div class="md:col-span-1">
+<p class="font-label-caps text-label-caps text-secondary">AUG 2023</p>
+</div>
+<div class="md:col-span-2">
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors cursor-pointer">Wabi-Sabi CSS Framework</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                            A lightweight utility library focusing on organic spacing, subtle imperfections, and natural typography scales.
+                        </p>
+</div>
+<div class="md:col-span-1 flex justify-end items-start">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer">arrow_outward</span>
+</div>
+</div>
+<!-- Project Item -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 group">
+<div class="md:col-span-1">
+<p class="font-label-caps text-label-caps text-secondary">MAY 2023</p>
+</div>
+<div class="md:col-span-2">
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors cursor-pointer">Restoration Series: Lake District</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                            Twelve oil sketches completed en plein air during a solo retreat to Northern England.
+                        </p>
+</div>
+<div class="md:col-span-1 flex justify-end items-start">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer">arrow_outward</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#F5F2ED] dark:bg-stone-900 border-t border-stone-200/30 dark:border-stone-800 full-width py-20">
+<div class="flex flex-col items-center justify-center space-y-4 w-full">
+<div class="font-serif italic text-lg text-[#5F7161] dark:text-stone-200">Yoka</div>
+<div class="flex gap-8">
+<a class="text-stone-400 dark:text-stone-500 hover:text-[#5F7161] dark:hover:text-stone-200 transition-colors font-serif text-sm" href="#">Privacy</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-[#5F7161] dark:hover:text-stone-200 transition-colors font-serif text-sm" href="#">Archive</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-[#5F7161] dark:hover:text-stone-200 transition-colors font-serif text-sm" href="#">RSS</a>
+</div>
+<p class="font-serif text-sm text-stone-400 dark:text-stone-500 mt-8">© 2024 Digital Restoration. Made with intention.</p>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yoka | Digital Restoration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#e3e3de",
+                      "primary-fixed-dim": "#b8ccb9",
+                      "on-tertiary-container": "#ffedd5",
+                      "primary-fixed": "#d4e8d4",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f5f4ef",
+                      "tertiary": "#61523a",
+                      "on-primary-fixed": "#0f1f13",
+                      "on-primary-fixed-variant": "#3a4b3c",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#e9e8e3",
+                      "tertiary-fixed-dim": "#d9c4a5",
+                      "secondary-container": "#d4e7b5",
+                      "inverse-primary": "#b8ccb9",
+                      "on-secondary-container": "#586841",
+                      "inverse-on-surface": "#f2f1ec",
+                      "surface-dim": "#dbdad5",
+                      "on-secondary-fixed": "#121f02",
+                      "on-secondary": "#ffffff",
+                      "inverse-surface": "#30312e",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#d6e9b8",
+                      "outline": "#737872",
+                      "secondary": "#53643d",
+                      "on-tertiary-fixed-variant": "#53452e",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#faf9f4",
+                      "secondary-fixed-dim": "#bbcd9e",
+                      "on-surface": "#1b1c19",
+                      "on-background": "#1b1c19",
+                      "background": "#faf9f4",
+                      "on-secondary-fixed-variant": "#3c4c27",
+                      "tertiary-fixed": "#f6dfc0",
+                      "outline-variant": "#c3c8c1",
+                      "tertiary-container": "#7b6a51",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#434843",
+                      "surface-variant": "#e3e3de",
+                      "primary-container": "#5f7161",
+                      "surface": "#faf9f4",
+                      "surface-container": "#efeee9",
+                      "on-tertiary-fixed": "#251a07",
+                      "primary": "#475949",
+                      "on-primary-container": "#e1f5e1",
+                      "surface-tint": "#516353"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "24px",
+                      "section-gap": "120px",
+                      "gutter": "32px",
+                      "stack-sm": "12px",
+                      "container-max": "1100px",
+                      "unit": "8px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "body-md": ["Manrope"],
+                      "display-lg": ["Noto Serif"],
+                      "headline-md": ["Noto Serif"],
+                      "body-lg": ["Manrope"],
+                      "label-caps": ["Manrope"],
+                      "headline-sm": ["Noto Serif"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-link-hover:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            background: currentColor;
+            transition: width .3s;
+            margin: 0 auto;
+        }
+        .nav-link-hover:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="fixed top-0 left-0 w-full h-0.5 bg-primary-container z-50 origin-left" style="width: 30%;"></div>
+<!-- TopAppBar -->
+<header class="bg-[#F5F2ED] dark:bg-stone-900 border-b border-stone-200/50 dark:border-stone-800 sticky top-0 z-40">
+<nav class="flex justify-between items-center w-full px-12 py-6 max-w-7xl mx-auto font-serif tracking-tight">
+<a class="text-2xl font-serif italic text-[#5F7161] dark:text-stone-100" href="#">Yoka</a>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-[#5F7161] dark:text-stone-100 border-b-2 border-[#5F7161] pb-1 font-medium transition-colors duration-300" href="#">Thoughts</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300" href="#">Paintings</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300" href="#">Vlogs</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300" href="#">Projects</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#5F7161] transition-colors duration-300" href="#">Life Hacks</a>
+</div>
+<div class="flex items-center space-x-6 text-[#5F7161] dark:text-stone-200">
+<button class="hover:opacity-80 transition-opacity flex items-center">
+<span class="material-symbols-outlined mr-1" data-icon="translate">translate</span>
+<span class="text-xs font-label-caps tracking-widest uppercase">EN/CN</span>
+</button>
+<button class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="w-full">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-12 py-[120px] text-center">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block uppercase tracking-widest">A Digital Sanctuary</span>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-8 max-w-3xl mx-auto">Cultivating focus in a world of distraction.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
+                Join our exploration of intentional living through slow travel, contemplative art, and the quiet pursuit of craftsmanship.
+            </p>
+<div class="flex justify-center gap-6">
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity shadow-sm">
+                    Read the Journal
+                </button>
+<button class="border border-primary-container text-primary-container px-8 py-3 rounded-full font-medium hover:bg-surface-container-low transition-colors">
+                    View Gallery
+                </button>
+</div>
+</section>
+<!-- Bento Grid: Featured Content -->
+<section class="max-w-7xl mx-auto px-12 mb-[120px]">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-auto md:h-[800px]">
+<!-- Large Featured Card -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-2xl bg-surface-container shadow-[0_4px_20px_-4px_rgba(95,113,97,0.06)] transition-all duration-500 hover:shadow-[0_8px_30px_-4px_rgba(95,113,97,0.12)]">
+<div class="absolute inset-0 z-0">
+<img alt="Mist-covered mountains at dawn" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Cinematic aerial view of mist-covered pine forest and jagged mountains at dawn with soft ethereal morning light and sage green tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQKwVzv_jLi8VEhQoz3B57xupc_EEgHi0uWuSfImOdCxEEcR5MP6FzkFPgkFZbs9eFUtgddsWarzlotiXkp8ITRFgbd3jNxigKpbOXs_5JGqvMtqxkJh_qUbx1a6PDAXoEZkby4DrCNM9SJbloq6UOekWWvXg80J1ALhlfQCxxcxRrCRtuAOITBooGAsnleITqKGwd8MA0hrroVVuESqyUok3Zl2uvfo0xTkFpnxfP8LSQU-PKXtxMtQVIwSSUora_SlarLOvtNpsu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+</div>
+<div class="absolute bottom-0 left-0 p-12 z-10">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label-caps mb-4 inline-block">TRAVEL VLOG</span>
+<h2 class="font-headline-md text-white text-display-lg mb-4">Finding Silence in the Highlands</h2>
+<p class="text-white/80 font-body-md max-w-lg">A cinematic journey through the remote valleys of Scotland, where the only sound is the wind.</p>
+</div>
+</div>
+<!-- Side Column Top -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-2xl bg-surface-container-highest flex flex-col transition-all duration-300">
+<div class="h-1/2 overflow-hidden">
+<img alt="Impressionist oil painting of a garden" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Impressionist style oil painting of a lush sun-drenched flower garden with soft brushstrokes and warm terracotta and sage color palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNE-GWSPzGlCWIz_lCNsSm_qcDlZRFHGjrx4V1DUPDx5NKA8TnQkcjY3XW99HM70IZ0WV11miitn8yNbLE96zXYbp_blm-7A0I-AhMeNor4k-yeKh6s4-3cl3LhyhHRjAbIfecOQFjksppjoGDjmFfQx1PAW0H9_ouiEkxU8KHT6pl2ZJIe478Z4I25CdDTnzzvzYdvO7tMrySzD6IdC6v7Ty4SIRyVEaA1mcDS8kADi_NV0x1ffQsA7-PplA8gYsTxoPSHW2uErJC"/>
+</div>
+<div class="p-8 flex flex-col justify-center flex-1">
+<span class="text-tertiary font-label-caps text-xs mb-2 tracking-widest">PAINTINGS</span>
+<h3 class="font-headline-sm text-on-surface">The Summer Study Series</h3>
+<p class="text-on-surface-variant text-body-md mt-2">Exploring light and texture through daily 30-minute oil sketches.</p>
+</div>
+</div>
+<!-- Side Column Bottom -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-2xl bg-surface-container-low border border-outline-variant p-8 transition-all duration-300 hover:border-primary-container">
+<span class="text-secondary font-label-caps text-xs mb-4 block uppercase tracking-widest">THOUGHTS</span>
+<h3 class="font-headline-sm text-on-surface mb-4 italic leading-relaxed">"The art of slow living is not about doing less, but about doing what matters with full presence."</h3>
+<div class="flex items-center mt-auto gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-serif">Z</div>
+<span class="text-xs font-label-caps text-on-surface-variant">MINUTES FROM AUGUST</span>
+</div>
+</div>
+<!-- Bottom Row Span -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-2xl bg-surface shadow-sm border border-outline-variant/30 flex transition-all duration-300">
+<div class="w-1/3 overflow-hidden border-r border-outline-variant/30">
+<img alt="Minimalist desk setup with a single lamp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Clean minimalist desk setup with a warm desk lamp casting a soft glow on a notebook, wooden desk, and a small sage plant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu9Ch7jR2Bf6mHlSMTc-OhtJy_9sccYql9fYuZIYT0D2FP0LmWr1cm1q6-Lvwqnd0WGCAiVT11v0SRw_Z1WqVMYEx5RbZZETnJShx3Xw3hN7Nx1aYPRcFoK9CqJe3MaMJDd8eir7przc-WYSoIXZesoFo6tiSoUdkDqemCXRyfhpbtp6o50HONEyNzaqknpNlCMYSxPf6tVDZ234mpBJRFbSGkF5EwSS05q6ExNIkpPfUT1lsovtl_FcV9KRWOLb90zOulhK1ZinPw"/>
+</div>
+<div class="w-2/3 p-10 flex flex-col justify-center">
+<span class="text-secondary font-label-caps text-xs mb-2 tracking-widest">LIFE HACKS</span>
+<h3 class="font-headline-md text-on-surface">The Low-Stimulus Morning Routine</h3>
+<p class="text-on-surface-variant text-body-md mt-3 mb-6">How I redesigned my first 60 minutes of the day to protect my creative energy.</p>
+<a class="text-primary font-medium flex items-center gap-2 group-hover:translate-x-2 transition-transform" href="#">
+                            Read the guide <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Section -->
+<section class="bg-surface-container-high py-[120px] px-12">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="font-headline-md text-on-surface mb-6">Quiet letters, twice a month.</h2>
+<p class="font-body-lg text-on-surface-variant mb-10">No spam, just curated thoughts on art, travel, and intentional living delivered to your inbox with care.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+<input class="bg-transparent border-b border-tertiary-container focus:border-primary-container focus:ring-0 px-4 py-2 flex-grow outline-none text-on-surface placeholder:text-stone-400 font-body-md" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-2 rounded-full font-medium hover:bg-primary-container transition-colors shadow-sm">
+                        Subscribe
+                    </button>
+</form>
+</div>
+</section>
+<!-- Projects Horizontal Scroll Area -->
+<section class="py-[120px] overflow-hidden">
+<div class="max-w-7xl mx-auto px-12 mb-12 flex justify-between items-end">
+<div>
+<span class="font-label-caps text-secondary uppercase tracking-widest">Work in Progress</span>
+<h2 class="font-headline-md text-on-surface mt-2">Ongoing Projects</h2>
+</div>
+<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">
+                    View Portfolio <span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+<div class="flex space-x-8 px-12 overflow-x-auto pb-8 snap-x no-scrollbar">
+<!-- Project 1 -->
+<div class="min-w-[400px] snap-center group">
+<div class="aspect-[3/4] rounded-2xl overflow-hidden mb-6">
+<img alt="Old books on a shelf" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Vantage point of ancient leather-bound books on dark oak library shelves with golden dust motes dancing in sunbeams" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxhRHhUn3bjuI3JmY-aA0B_DQQ65vONfLGy_g9JsK0JkPKoM_9KV7ZI3hdJJ9juZR4hlcR5kx_57YSvFTDj0F9Dytv630OMyuDd9Zlbc5wbHuLdARMd9FNc9AyI-YlC6-WdUJKrnDIXWxshX5nfuIelUq3rN5NcnFQRqMswp3m4Cc_BP78TA2wJi36a_ekSg7a0PapzE4PlNj7cb_ngYUY78i2XIP_lmUIkzYIXh11wI5mwCfdvyBs4haDmjfjB25bGWNAmH6l4SCs"/>
+</div>
+<h4 class="font-headline-sm text-on-surface">The Archive Initiative</h4>
+<p class="text-on-surface-variant font-body-md mt-2">Restoring 19th-century botanical illustrations.</p>
+</div>
+<!-- Project 2 -->
+<div class="min-w-[400px] snap-center group">
+<div class="aspect-[3/4] rounded-2xl overflow-hidden mb-6">
+<img alt="Person painting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Hands of an artist mixing oil paints on a wooden palette with several brushes in the background and soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjqu-NzXm9FJ8q6X-E7aK3-cnjlJ6-8XYLMCRUQtd4BA2PiIa24hLjzcczCm4uYkKGj7JowuE7zB2j7X5X1rbH4eGiBHUnaou2DNQVO26TK6k_31N9RRnVg81gqHv6qpMoIWRq05OcokzTSL9NnViiZiv0xDhRO1vMORbmxnPr3rpFWUV34yNhPAJJon4c780yjyiSyDjJd1etkP0InOwba1QfqSuP73QjLYpKJTc11ynGnFXjyOFIwwHLE-6hPgiXa2A4XadZxPd6"/>
+</div>
+<h4 class="font-headline-sm text-on-surface">Light &amp; Shadow Study</h4>
+<p class="text-on-surface-variant font-body-md mt-2">A 365-day watercolor exploration.</p>
+</div>
+<!-- Project 3 -->
+<div class="min-w-[400px] snap-center group">
+<div class="aspect-[3/4] rounded-2xl overflow-hidden mb-6">
+<img alt="Nature landscape" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Serene alpine lake reflecting crystal clear mountains under a soft pastel sky at twilight with cool sage green tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXrUWOQYUwRxNaQrCxNJ5DWciivmxb-fwhDQ0BgFyYQhqg8T4ciyIHfQGqWMTbiWut7wPQH4ghmXtUuG_I7qgdPQIqby69x2O-1YdfVAmr0apbbamNSMiOnxCfNsOYS75THnxbx-Plr4c2510sm3oJ-XrDNDtD5GY0LVYWsRuxUe5aH0IEtSeqofKYZudC5yH_PK0XLnB7as2BG4ABZdfknC7Qx_y9XicfqenP7f6L5dqzmOSjqnGdlI4PBvAdlHrS8AL_A4CRiWJ1"/>
+</div>
+<h4 class="font-headline-sm text-on-surface">Vernal Echoes</h4>
+<p class="text-on-surface-variant font-body-md mt-2">Soundscapes from the Pacific Northwest.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#F5F2ED] dark:bg-stone-900 border-t border-stone-200/30 dark:border-stone-800 py-20">
+<div class="flex flex-col items-center justify-center space-y-4 w-full">
+<a class="font-serif italic text-lg text-[#5F7161] dark:text-stone-200" href="#">Yoka</a>
+<div class="flex space-x-8">
+<a class="text-stone-400 dark:text-stone-500 hover:text-[#5F7161] dark:hover:text-stone-200 transition-colors font-serif text-sm" href="#">Privacy</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-[#5F7161] dark:hover:text-stone-200 transition-colors font-serif text-sm" href="#">Archive</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-[#5F7161] dark:hover:text-stone-200 transition-colors font-serif text-sm" href="#">RSS</a>
+</div>
+<div class="pt-8 flex space-x-6">
+<a class="text-[#5F7161] hover:opacity-70 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="camera">camera</span>
+</a>
+<a class="text-[#5F7161] hover:opacity-70 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+</a>
+<a class="text-[#5F7161] hover:opacity-70 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="draw">draw</span>
+</a>
+</div>
+<p class="text-stone-400 dark:text-stone-500 font-serif text-xs mt-12 opacity-80">
+                © 2024 Digital Restoration. Made with intention.
+            </p>
+</div>
+</footer>
+</body></html>
