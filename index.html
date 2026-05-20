@@ -1,207 +1,267 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    
+      Hexo
+    
+  </title>
+  <meta name="description" content="" />
+
+  <!-- Fonts (preconnect for speed) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Work+Sans:wght@400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Theme stylesheet -->
   
 <link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+  <!-- RSS -->
   
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Hexo RSS" />
   
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
 <meta name="generator" content="Hexo 8.1.2"></head>
-
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+
+  <!-- ── Header / Nav ── -->
+  
+
+<header class="site-header">
+  <div class="container">
+
+    <!-- Logo -->
+    <a href="/" class="site-logo">
+      <span class="logo-icon">
+        <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">edit_note</span>
+      </span>
+      Yoka
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="site-nav">
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
+        <a href="/archives">Essays</a>
+      
+        <a href="/projects">Projects</a>
+      
+        <a href="/about">About</a>
+      
+      
+        <button class="nav-subscribe active-press">Subscribe</button>
+      
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button class="nav-menu-btn" aria-label="Toggle menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+
   </div>
+
+  <!-- Mobile nav drawer -->
+  <nav class="mobile-nav">
+    
+      <a href="/archives">Essays</a>
+    
+      <a href="/projects">Projects</a>
+    
+      <a href="/about">About</a>
+    
+  </nav>
 </header>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/19/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-05-19T09:23:08.443Z" itemprop="datePublished">2026-05-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/19/hello-world/">Hello World</a>
-    </h1>
+
+  <!-- ── Page Content ── -->
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<main>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+  <!-- ════ Hero ════ -->
+  <div class="container">
+    <section class="hero">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/19/hello-world/" data-id="cuidyB2n4vC3zotG4gyjbVbEB" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">May 2026</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/05/19/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+      <!-- Text -->
+      <div class="hero-text">
+        <span class="hero-badge">Hello!</span>
+        <h1 class="hero-title">
+          Hello, I&#39;m
+          <span class="scribble-underline">Yoka</span>.
+          I craft <span class="highlight">. I craft stories with code.</span>
+        </h1>
+        <p class="hero-desc">I believe that technology should feel as personal and tactile as a page in a sketchbook. Welcome to my digital corner of observations.</p>
+        <a href="#content" class="hero-scroll-link">
+          Scroll to explore my world
+          <span class="material-symbols-outlined">arrow_downward</span>
+        </a>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
+
+      <!-- Portrait -->
+      <div class="hero-image-wrap">
+        <div class="hand-drawn-border sketch-shadow hero-image-frame">
+          
+            <img src="/images/hero.jpg" alt="Author portrait" />
+          
+        </div>
+        <div class="hero-washi"></div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ════ Bento Grid ════ -->
+  <div class="container" id="content">
+    <section class="bento-grid">
       
-      &copy; 2026 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+        <a href="/archives" class="bento-card hand-drawn-border active-press">
+          <div class="bento-card-icon pastel-wash-mint">
+            <span class="material-symbols-outlined text-primary">description</span>
+          </div>
+          <h3 class="bento-card-title">Writings &amp; Musings</h3>
+          <p class="bento-card-desc">Long-form essays on design philosophy, intentionality, and the slow web.</p>
+          <div class="bento-card-link">
+            <span>Read Essays</span>
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </div>
+        </a>
+      
+        <a href="/projects" class="bento-card hand-drawn-border active-press">
+          <div class="bento-card-icon pastel-wash-pink">
+            <span class="material-symbols-outlined text-primary">brush</span>
+          </div>
+          <h3 class="bento-card-title">Built with Heart</h3>
+          <p class="bento-card-desc">Open-source experiments and personal tools crafted with a charcoal soul.</p>
+          <div class="bento-card-link">
+            <span>View Projects</span>
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </div>
+        </a>
+      
+        <a href="/media" class="bento-card hand-drawn-border active-press">
+          <div class="bento-card-icon pastel-wash-lavender">
+            <span class="material-symbols-outlined text-primary">album</span>
+          </div>
+          <h3 class="bento-card-title">Gentle Observations</h3>
+          <p class="bento-card-desc">A curated log of books, music, and physical objects that spark joy.</p>
+          <div class="bento-card-link">
+            <span>See Log</span>
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </div>
+        </a>
+      
+        <a href="/about" class="bento-card hand-drawn-border active-press">
+          <div class="bento-card-icon bg-secondary-container">
+            <span class="material-symbols-outlined text-primary">favorite</span>
+          </div>
+          <h3 class="bento-card-title">The Human Behind</h3>
+          <p class="bento-card-desc">My journey from ink to bits, and why I still prefer a fountain pen.</p>
+          <div class="bento-card-link">
+            <span>My Story</span>
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </div>
+        </a>
+      
+    </section>
+  </div>
+
+  <!-- ════ Featured Post ════ -->
+  
+  <div class="container">
+    <section class="featured-section">
+      <div class="featured-header">
+        <h2>Latest Scribble</h2>
+        <span class="featured-date">
+          Entry #1 — May 19, 2026
+        </span>
+      </div>
+
+      <a href="/2026/05/19/hello-world/" class="featured-card hand-drawn-border">
+        
+        <div class="featured-content">
+          <h3 class="featured-title">Hello World</h3>
+          <p class="featured-excerpt">
+            
+          </p>
+          <span class="featured-read-more">
+            Continue reading
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </span>
+        </div>
+        <div class="featured-sticky-note">"Essential reading"</div>
+      </a>
+    </section>
+  </div>
+  
+
+  <!-- ════ Newsletter CTA ════ -->
+  
+  <section class="newsletter-section">
+    <h2>Let&#39;s stay in touch</h2>
+    <p>I send out a monthly newsletter called &#34;The Unfinished Sketch&#34; with curated links and private essays.</p>
+    
+      <!-- 未配置 newsletter.action 时，显示提示 -->
+      <form class="newsletter-form" onsubmit="return false;">
+        <input class="newsletter-input" type="email" placeholder="your@email.com" />
+        <button class="newsletter-btn active-press" type="submit">Join the list</button>
+      </form>
+    
+  </section>
+  
+
+</main>
+
+
+  <!-- ── Footer ── -->
+  
+
+<footer class="site-footer">
+  <div class="container">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <span class="footer-brand-name">
+        <span class="material-symbols-outlined"
+              style="background:var(--color-primary);color:var(--color-secondary-container);border-radius:4px;padding:2px;font-size:18px;margin-right:4px;font-variation-settings:'FILL' 1;">
+          ink_pen
+        </span>
+        Yoka
+      </span>
+      <p class="footer-copy">© 2026 John Doe. Handcrafted with care and caffeine.</p>
     </div>
+
+    <!-- Links -->
+    <div class="footer-links">
+      <a href="/atom.xml">RSS</a>
+      
+      
+      
+    </div>
+
+    <!-- Icon row -->
+    <div class="footer-icons">
+      
+        <a class="footer-icon pastel-wash-mint" href="/atom.xml" title="RSS">
+          <span class="material-symbols-outlined" style="font-size:16px;">rss_feed</span>
+        </a>
+      
+      
+      <a class="footer-icon pastel-wash-lavender" href="mailto:" title="Email">
+        <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
+      </a>
+    </div>
+
   </div>
 </footer>
 
-    </div>
-    <nav id="mobile-nav">
+
+  <!-- Theme JS -->
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+<script src="/js/main.js"></script>
 
 
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
 </html>
