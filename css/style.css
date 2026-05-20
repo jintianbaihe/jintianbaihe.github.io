@@ -201,14 +201,10 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 8px;
 }
-.site-logo .logo-icon {
-  width: 32px; height: 32px;
-  background: var(--color-secondary-container);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid var(--color-primary);
+.site-logo-img {
+  height: 40px; 
+  width: auto; 
+  mix-blend-mode: multiply;
 }
 .site-nav {
   display: none;
