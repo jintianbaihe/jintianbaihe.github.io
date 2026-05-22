@@ -44,7 +44,7 @@
       
         <a href="/traces">Traces</a>
       
-        <a href="/archives">Notes</a>
+        <a href="/notes">Notes</a>
       
         <a href="/projects">Projects</a>
       
@@ -67,7 +67,7 @@
     
       <a href="/traces">Traces</a>
     
-      <a href="/archives">Notes</a>
+      <a href="/notes">Notes</a>
     
       <a href="/projects">Projects</a>
     
@@ -78,185 +78,234 @@
 
 
   <!-- ── Page Content ── -->
-  
-
-<main class="page-main">
+  <main class="page-main">
   <div class="container">
 
-    
-    <!-- ── Generic page title ── -->
-    <div class="page-hero">
+    <!-- Page hero -->
+    <section class="page-hero">
       <h1>Traces</h1>
+      <p>A curated log of books, music, and physical objects that spark joy.</p>
+    </section>
+
+    <!-- ── Search ── -->
+    <div style="margin-bottom:24px;position:relative;">
+      <span class="material-symbols-outlined" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--color-outline);font-size:20px;">search</span>
+      <input type="text" id="traces-search" placeholder="Search books, films, music, games..."
+        style="width:100%;padding:14px 16px 14px 48px;border:1.5px solid var(--color-outline-variant);border-radius:12px;font-family:var(--font-body);font-size:15px;background:var(--color-surface-container-low);color:var(--color-on-surface);outline:none;transition:border-color 0.2s;box-sizing:border-box;"
+        onfocus="this.style.borderColor='var(--color-primary)'"
+        onblur="this.style.borderColor='var(--color-outline-variant)'"
+        oninput="searchTraces()">
     </div>
-    
 
-    <!-- ── Page content ── -->
-    <article class="post-body">
-      <!-- 分类筛选 -->
-<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;">
-  <button onclick="filterTraces('all',this)" style="display:flex;align-items:center;gap:12px;background:var(--color-tertiary-fixed);color:var(--color-on-tertiary-fixed);border-radius:9999px;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
-    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;font-size:18px;">apps</span> All
-  </button>
-  <button onclick="filterTraces('book',this)" style="display:flex;align-items:center;gap:12px;color:var(--color-on-surface-variant);border-radius:12px;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;background:none;transition:all 0.2s;">
-    <span class="material-symbols-outlined" style="font-size:18px;">auto_stories</span> Books
-  </button>
-  <button onclick="filterTraces('film',this)" style="display:flex;align-items:center;gap:12px;color:var(--color-on-surface-variant);border-radius:12px;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;background:none;transition:all 0.2s;">
-    <span class="material-symbols-outlined" style="font-size:18px;">movie</span> Films
-  </button>
-  <button onclick="filterTraces('game',this)" style="display:flex;align-items:center;gap:12px;color:var(--color-on-surface-variant);border-radius:12px;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;background:none;transition:all 0.2s;">
-    <span class="material-symbols-outlined" style="font-size:18px;">sports_esports</span> Games
-  </button>
-  <button onclick="filterTraces('music',this)" style="display:flex;align-items:center;gap:12px;color:var(--color-on-surface-variant);border-radius:12px;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;background:none;transition:all 0.2s;">
-    <span class="material-symbols-outlined" style="font-size:18px;">music_note</span> Music
-  </button>
-</div>
-
-<!-- Pinned 精选 -->
-<section style="margin-bottom:64px;">
-  <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
-    <span class="material-symbols-outlined" style="color:var(--color-secondary);">keep</span>
-    <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Pinned Recommendations</h3>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-
-<pre><code>&lt;!-- 精选卡片 1：书 --&gt;
-&lt;div class=&quot;trace-card&quot; data-type=&quot;book&quot; style=&quot;position:relative;cursor:pointer;&quot;&gt;
-  &lt;div style=&quot;position:absolute;top:-10px;right:20px;width:60px;height:24px;background:rgba(248,216,219,0.8);transform:rotate(2deg);z-index:10;&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;hand-drawn-border&quot; style=&quot;background:var(--color-surface);box-shadow:6px 6px 0 var(--color-primary);padding:24px;transition:transform 0.2s;&quot; onmouseenter=&quot;this.style.transform=&#39;translate(-4px,-4px)&#39;&quot; onmouseleave=&quot;this.style.transform=&#39;&#39;&quot;&gt;
-    &lt;div style=&quot;aspect-ratio:3/4;margin-bottom:8px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;&quot;&gt;
-      &lt;span class=&quot;material-symbols-outlined&quot; style=&quot;font-size:48px;color:var(--color-outline-variant);&quot;&gt;menu_book&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div style=&quot;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;&quot;&gt;
-      &lt;span style=&quot;padding:2px 8px;border-radius:9999px;font-size:12px;font-weight:600;border:1px solid var(--color-primary);background:rgba(208,233,216,0.4);font-family:var(--font-label);&quot;&gt;Fiction&lt;/span&gt;
-      &lt;span style=&quot;padding:2px 8px;border-radius:9999px;font-size:12px;font-weight:600;border:1px solid var(--color-primary);background:rgba(248,216,219,0.4);font-family:var(--font-label);&quot;&gt;Magical Realism&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;h4 style=&quot;font-family:var(--font-display);font-size:20px;font-weight:500;margin-bottom:4px;&quot;&gt;The Midnight Library&lt;/h4&gt;
-    &lt;p style=&quot;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--color-on-surface-variant);&quot;&gt;A beautiful exploration of regret and the paths we choose in life.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- 精选卡片 2：电影 --&gt;
-&lt;div class=&quot;trace-card&quot; data-type=&quot;film&quot; style=&quot;position:relative;cursor:pointer;margin-top:16px;&quot;&gt;
-  &lt;div style=&quot;position:absolute;top:-10px;right:20px;width:60px;height:24px;background:rgba(208,233,216,0.8);transform:rotate(2deg);z-index:10;&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;hand-drawn-border&quot; style=&quot;background:var(--color-surface);box-shadow:6px 6px 0 var(--color-primary);padding:24px;transition:transform 0.2s;&quot; onmouseenter=&quot;this.style.transform=&#39;translate(-4px,-4px)&#39;&quot; onmouseleave=&quot;this.style.transform=&#39;&#39;&quot;&gt;
-    &lt;div style=&quot;aspect-ratio:3/4;margin-bottom:8px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;&quot;&gt;
-      &lt;span class=&quot;material-symbols-outlined&quot; style=&quot;font-size:48px;color:var(--color-outline-variant);&quot;&gt;movie&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div style=&quot;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;&quot;&gt;
-      &lt;span style=&quot;padding:2px 8px;border-radius:9999px;font-size:12px;font-weight:600;border:1px solid var(--color-primary);background:rgba(180,204,188,0.4);font-family:var(--font-label);&quot;&gt;Indie&lt;/span&gt;
-      &lt;span style=&quot;padding:2px 8px;border-radius:9999px;font-size:12px;font-weight:600;border:1px solid var(--color-primary);background:rgba(228,226,225,0.4);font-family:var(--font-label);&quot;&gt;Cinema&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;h4 style=&quot;font-family:var(--font-display);font-size:20px;font-weight:500;margin-bottom:4px;&quot;&gt;Aftersun&lt;/h4&gt;
-    &lt;p style=&quot;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--color-on-surface-variant);&quot;&gt;A poignant and heartbreaking portrait of a father-daughter bond.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-</section>
-
-<!-- Recent Entries 列表 -->
-<section style="margin-bottom:64px;">
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
-    <div style="display:flex;align-items:center;gap:8px;">
-      <span class="material-symbols-outlined" style="color:var(--color-secondary);">history</span>
-      <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Recent Entries</h3>
+    <!-- Category filters（无 All） -->
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;">
+      <button onclick="filterTraces('book',this)" class="trace-filter-btn active" data-color="#c4a07c" style="display:flex;align-items:center;gap:6px;color:#fff;border-radius:9999px;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;background:#c4a07c;">
+        <span class="material-symbols-outlined" style="font-size:18px;">auto_stories</span> Books
+      </button>
+      <button onclick="filterTraces('film',this)" class="trace-filter-btn" data-color="#8a9b8b" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;background:none;transition:all 0.2s;">
+        <span class="material-symbols-outlined" style="font-size:18px;">movie</span> Films
+      </button>
+      <button onclick="filterTraces('game',this)" class="trace-filter-btn" data-color="#b08a9b" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;background:none;transition:all 0.2s;">
+        <span class="material-symbols-outlined" style="font-size:18px;">sports_esports</span> Games
+      </button>
+      <button onclick="filterTraces('music',this)" class="trace-filter-btn" data-color="#a0a8c0" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;background:none;transition:all 0.2s;">
+        <span class="material-symbols-outlined" style="font-size:18px;">music_note</span> Music
+      </button>
     </div>
-  </div>
-  <div style="display:flex;flex-direction:column;gap:0;">
 
-<pre><code>&lt;!-- Entry: Game --&gt;
-&lt;div class=&quot;trace-card&quot; data-type=&quot;game&quot; style=&quot;display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;&quot; onmouseenter=&quot;this.style.background=&#39;var(--color-surface-container-low)&#39;&quot; onmouseleave=&quot;this.style.background=&#39;transparent&#39;&quot;&gt;
-  &lt;div style=&quot;width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;&quot;&gt;
-    &lt;span class=&quot;material-symbols-outlined&quot; style=&quot;font-size:32px;color:var(--color-outline-variant);&quot;&gt;sports_esports&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;flex:1;&quot;&gt;
-    &lt;div style=&quot;display:flex;align-items:center;justify-content:space-between;&quot;&gt;
-      &lt;h5 style=&quot;font-family:var(--font-body);font-size:18px;font-weight:600;&quot;&gt;Tunic&lt;/h5&gt;
-      &lt;span style=&quot;font-family:var(--font-label);font-size:14px;color:var(--color-on-surface-variant);&quot;&gt;Nov 12&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div style=&quot;display:flex;gap:8px;margin:4px 0;&quot;&gt;
-      &lt;span style=&quot;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(222,191,194,0.3);font-family:var(--font-label);&quot;&gt;Puzzle&lt;/span&gt;
-      &lt;span style=&quot;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(208,233,216,0.3);font-family:var(--font-label);&quot;&gt;Adventure&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;p style=&quot;font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;&quot;&gt;&quot;A love letter to classic instruction manuals.&quot;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+    <!-- Pinned Recommendations（缩小，一排 5 个） -->
+    <section style="margin-bottom:64px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
+        <span class="material-symbols-outlined" style="color:var(--color-secondary);">keep</span>
+        <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Pinned Recommendations</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
 
-&lt;!-- Entry: Music --&gt;
-&lt;div class=&quot;trace-card&quot; data-type=&quot;music&quot; style=&quot;display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;&quot; onmouseenter=&quot;this.style.background=&#39;var(--color-surface-container-low)&#39;&quot; onmouseleave=&quot;this.style.background=&#39;transparent&#39;&quot;&gt;
-  &lt;div style=&quot;width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;&quot;&gt;
-    &lt;span class=&quot;material-symbols-outlined&quot; style=&quot;font-size:32px;color:var(--color-outline-variant);&quot;&gt;album&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;flex:1;&quot;&gt;
-    &lt;div style=&quot;display:flex;align-items:center;justify-content:space-between;&quot;&gt;
-      &lt;h5 style=&quot;font-family:var(--font-body);font-size:18px;font-weight:600;&quot;&gt;Promises&lt;/h5&gt;
-      &lt;span style=&quot;font-family:var(--font-label);font-size:14px;color:var(--color-on-surface-variant);&quot;&gt;Nov 10&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div style=&quot;display:flex;gap:8px;margin:4px 0;&quot;&gt;
-      &lt;span style=&quot;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(228,226,225,0.3);font-family:var(--font-label);&quot;&gt;Ambient&lt;/span&gt;
-      &lt;span style=&quot;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(180,204,188,0.3);font-family:var(--font-label);&quot;&gt;Jazz&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;p style=&quot;font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;&quot;&gt;&quot;Floating through space with Floating Points and Pharoah Sanders.&quot;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+        <!-- Pinned 1: Book -->
+        <div class="trace-card" data-type="book" style="cursor:pointer;">
+          <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+            <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+              <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">menu_book</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+              <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-primary);background:rgba(208,233,216,0.4);font-family:var(--font-label);">Fiction</span>
+            </div>
+            <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">The Midnight Library</h4>
+            <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">8.5/10.0</span>
+          </div>
+        </div>
 
-&lt;!-- Entry: Book --&gt;
-&lt;div class=&quot;trace-card&quot; data-type=&quot;book&quot; style=&quot;display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;&quot; onmouseenter=&quot;this.style.background=&#39;var(--color-surface-container-low)&#39;&quot; onmouseleave=&quot;this.style.background=&#39;transparent&#39;&quot;&gt;
-  &lt;div style=&quot;width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;&quot;&gt;
-    &lt;span class=&quot;material-symbols-outlined&quot; style=&quot;font-size:32px;color:var(--color-outline-variant);&quot;&gt;menu_book&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;flex:1;&quot;&gt;
-    &lt;div style=&quot;display:flex;align-items:center;justify-content:space-between;&quot;&gt;
-      &lt;h5 style=&quot;font-family:var(--font-body);font-size:18px;font-weight:600;&quot;&gt;On Earth We&#39;re Briefly Gorgeous&lt;/h5&gt;
-      &lt;span style=&quot;font-family:var(--font-label);font-size:14px;color:var(--color-on-surface-variant);&quot;&gt;Nov 05&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div style=&quot;display:flex;gap:8px;margin:4px 0;&quot;&gt;
-      &lt;span style=&quot;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(248,216,219,0.3);font-family:var(--font-label);&quot;&gt;Memoir&lt;/span&gt;
-      &lt;span style=&quot;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(200,198,198,0.3);font-family:var(--font-label);&quot;&gt;Poetry&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;p style=&quot;font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;&quot;&gt;&quot;Every sentence feels like it was carved out of light.&quot;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-</section>
+        <!-- Pinned 2: Film -->
+        <div class="trace-card" data-type="film" style="cursor:pointer;">
+          <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+            <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+              <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">movie</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+              <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-primary);background:rgba(180,204,188,0.4);font-family:var(--font-label);">Indie</span>
+            </div>
+            <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">Aftersun</h4>
+            <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">9.0/10.0</span>
+          </div>
+        </div>
 
-<!-- Editor's Note -->
-<div style="position:relative;padding:32px;background:var(--color-surface-container);border:2px solid var(--color-primary);border-radius:8px;margin-bottom:64px;overflow:hidden;">
-  <div style="position:absolute;inset-y:0;right:0;width:32px;background-image:radial-gradient(var(--color-primary) 0.5px,transparent 0.5px);background-size:4px 4px;opacity:0.1;pointer-events:none;"></div>
-  <h6 style="font-family:var(--font-label);font-size:16px;font-weight:500;color:var(--color-primary);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
-    <span class="material-symbols-outlined" style="font-size:18px;">edit_note</span>
-    Editor's Note
-  </h6>
-  <p style="font-family:var(--font-label);font-size:16px;font-weight:500;line-height:1.6;color:var(--color-on-surface-variant);">
-    This month has been particularly reflective. I find myself returning to stories that explore the concept of "home"—whether it's a physical place or a person. If you're looking for something slow, start with the music section.
-  </p>
-</div>
+        <!-- Pinned 3: Book -->
+        <div class="trace-card" data-type="book" style="cursor:pointer;">
+          <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+            <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+              <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">menu_book</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+              <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-primary);background:rgba(248,216,219,0.4);font-family:var(--font-label);">Fiction</span>
+            </div>
+            <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">Klara and the Sun</h4>
+            <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">7.5/10.0</span>
+          </div>
+        </div>
 
-<script>
-function filterTraces(type, btn) {
-  // 更新按钮状态
-  document.querySelectorAll('[onclick^="filterTraces"]').forEach(b => {
-    b.style.background = 'none';
-    b.style.color = 'var(--color-on-surface-variant)';
-    b.style.borderRadius = '12px';
-  });
-  btn.style.background = 'var(--color-tertiary-fixed)';
-  btn.style.color = 'var(--color-on-tertiary-fixed)';
-  btn.style.borderRadius = '9999px';
+        <!-- Pinned 4: Game -->
+        <div class="trace-card" data-type="game" style="cursor:pointer;">
+          <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+            <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+              <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">sports_esports</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+              <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-primary);background:rgba(222,191,194,0.4);font-family:var(--font-label);">Adventure</span>
+            </div>
+            <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">Hollow Knight</h4>
+            <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">9.5/10.0</span>
+          </div>
+        </div>
 
-  // 过滤卡片
-  document.querySelectorAll('.trace-card').forEach(card => {
-    if (type === 'all' || card.dataset.type === type) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
+        <!-- Pinned 5: Music -->
+        <div class="trace-card" data-type="music" style="cursor:pointer;">
+          <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+            <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+              <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">album</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+              <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-primary);background:rgba(208,233,216,0.4);font-family:var(--font-label);">Indie</span>
+            </div>
+            <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">Punisher</h4>
+            <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">8.0/10.0</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Recent Entries（含评分） -->
+    <section style="margin-bottom:64px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="material-symbols-outlined" style="color:var(--color-secondary);">history</span>
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Recent Entries</h3>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+
+        <!-- Entry: Game -->
+        <div class="trace-card" data-type="game" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+          <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">sports_esports</span>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">Tunic</h5>
+              <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">9.0/10.0</span>
+            </div>
+            <div style="display:flex;gap:8px;margin:4px 0;">
+              <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(222,191,194,0.3);font-family:var(--font-label);">Puzzle</span>
+              <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(208,233,216,0.3);font-family:var(--font-label);">Adventure</span>
+            </div>
+            <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"A love letter to classic instruction manuals."</p>
+          </div>
+        </div>
+
+        <!-- Entry: Music -->
+        <div class="trace-card" data-type="music" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+          <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">album</span>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">Promises</h5>
+              <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">8.5/10.0</span>
+            </div>
+            <div style="display:flex;gap:8px;margin:4px 0;">
+              <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(228,226,225,0.3);font-family:var(--font-label);">Ambient</span>
+              <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(180,204,188,0.3);font-family:var(--font-label);">Jazz</span>
+            </div>
+            <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"Floating through space with Floating Points and Pharoah Sanders."</p>
+          </div>
+        </div>
+
+        <!-- Entry: Book -->
+        <div class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+          <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">menu_book</span>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">On Earth We're Briefly Gorgeous</h5>
+              <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">7.5/10.0</span>
+            </div>
+            <div style="display:flex;gap:8px;margin:4px 0;">
+              <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(248,216,219,0.3);font-family:var(--font-label);">Memoir</span>
+              <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(200,198,198,0.3);font-family:var(--font-label);">Poetry</span>
+            </div>
+            <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"Every sentence feels like it was carved out of light."</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Editor's Note -->
+    <div style="position:relative;padding:32px;background:var(--color-surface-container);border:2px solid var(--color-primary);border-radius:8px;margin-bottom:64px;overflow:hidden;">
+      <div style="position:absolute;inset-y:0;right:0;width:32px;background-image:radial-gradient(var(--color-primary) 0.5px,transparent 0.5px);background-size:4px 4px;opacity:0.1;pointer-events:none;"></div>
+      <h6 style="font-family:var(--font-label);font-size:16px;font-weight:500;color:var(--color-primary);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
+        <span class="material-symbols-outlined" style="font-size:18px;">edit_note</span>
+        Editor's Note
+      </h6>
+      <p style="font-family:var(--font-label);font-size:16px;font-weight:500;line-height:1.6;color:var(--color-on-surface-variant);">
+        This month has been particularly reflective. I find myself returning to stories that explore the concept of "home"—whether it's a physical place or a person. If you're looking for something slow, start with the music section.
+      </p>
+    </div>
+
+    <script>
+    let currentType = 'book';
+    let currentQuery = '';
+
+    function applyFilters() {
+      document.querySelectorAll('.trace-card').forEach(card => {
+        const matchType = card.dataset.type === currentType;
+        const name = (card.querySelector('h4') || card.querySelector('h5') || {}).textContent || '';
+        const matchSearch = !currentQuery || name.toLowerCase().includes(currentQuery);
+        card.style.display = (matchType && matchSearch) ? '' : 'none';
+      });
     }
-  });
-}
-</script>
 
-    </article>
+    function filterTraces(type, btn) {
+      currentType = type;
+      document.querySelectorAll('.trace-filter-btn').forEach(b => {
+        b.style.background = 'none';
+        b.style.color = 'var(--color-on-surface-variant)';
+        b.style.borderRadius = '12px';
+        b.classList.remove('active');
+      });
+      btn.style.background = btn.dataset.color || 'var(--color-tertiary-fixed)';
+      btn.style.color = '#fff';
+      btn.style.borderRadius = '9999px';
+      btn.classList.add('active');
+      applyFilters();
+    }
+
+    function searchTraces() {
+      currentQuery = document.getElementById('traces-search').value.toLowerCase().trim();
+      applyFilters();
+    }
+    </script>
 
   </div>
 </main>
@@ -274,25 +323,23 @@ function filterTraces(type, btn) {
       <p class="footer-copy">© 2026 John Doe. Handcrafted with care and caffeine.</p>
     </div>
 
-    <!-- Links -->
-    <div class="footer-links">
-      <a href="/atom.xml">RSS</a>
-      
-      
-      
-    </div>
-
-    <!-- Icon row -->
+    <!-- Icon row：RedNote / GitHub / Email -->
     <div class="footer-icons">
       
-        <a class="footer-icon pastel-wash-mint" href="/atom.xml" title="RSS">
-          <span class="material-symbols-outlined" style="font-size:16px;">rss_feed</span>
+        <a class="footer-icon pastel-wash-pink" href="https://xhslink.com/m/4Vj9GcC5PAY" target="_blank" rel="noopener" title="RedNote">
+          <span class="material-symbols-outlined" style="font-size:16px;">bookmark</span>
         </a>
       
       
-      <a class="footer-icon pastel-wash-lavender" href="mailto:" title="Email">
-        <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
-      </a>
+        <a class="footer-icon pastel-wash-mint" href="https://github.com/jintianbaihe" target="_blank" rel="noopener" title="GitHub">
+          <span class="material-symbols-outlined" style="font-size:16px;">code</span>
+        </a>
+      
+      
+        <a class="footer-icon pastel-wash-lavender" href="mailto:jintianbaihe@outlook.com" title="Email">
+          <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
+        </a>
+      
     </div>
 
   </div>

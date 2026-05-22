@@ -24,21 +24,21 @@
     });
   }
 
-  // ── Archive page: category filter ─────────────────────────────
+  // ── 分类筛选（Notes 页面） — 如果页面有 applyNotesFilters 则委托 ──
   const filterBtns = document.querySelectorAll('.filter-btn');
   const postItems  = document.querySelectorAll('.post-item');
 
-  if (filterBtns.length && postItems.length) {
+  if (filterBtns.length && postItems.length && typeof window.applyNotesFilters !== 'function') {
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Update active button
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
         const category = btn.dataset.category || 'all';
 
         postItems.forEach(item => {
-          if (category === 'all' || item.dataset.category === category) {
+          const itemCat = item.dataset.category || 'all';
+          if (category === 'all' || itemCat === category) {
             item.style.display = '';
           } else {
             item.style.display = 'none';
