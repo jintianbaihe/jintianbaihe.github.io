@@ -22,11 +22,10 @@ social:
   email: "jintianbaihe@outlook.com"
 
 # 打赏 / 赞助（About 页面 Buy Me a Coffee 板块）———— 至少填一个才会显示
-# donate:
-#   buymeacoffee: "https://www.buymeacoffee.com/yourname"
-#   ko_fi: "https://ko-fi.com/yourname"
-#   wechat: /images/wechat-qr.jpg
-#   alipay: /images/alipay-qr.jpg
+donate:
+  # buymeacoffee: "https://www.buymeacoffee.com/yourname"
+  wechat: /images/donates/wechat-qr.jpg
+  alipay: /images/donates/alipay-qr.jpg
 
 # 作者信息
 author:
@@ -36,11 +35,11 @@ author:
 
 # 首页 Hero 区域
 hero:
-  greeting: "Hello!"
-  title_prefix: "Hello, I'm"
+  greeting: "Hi!"
+  title_prefix: "Hi, I'm"
   highlight_name: "Yoka"
-  title_suffix: ". I craft stories with code."
-  description: "I believe that technology should feel as personal and tactile as a page in a sketchbook. Welcome to my digital corner of observations."
+  title_suffix: ". Welcome to my little world."
+  description: "Here you'll find: my random thoughts, my daydreams, my tutorials, my creations, my book/movie/music/game diaries... Hope you feel at home here!"
   image: /images/hero.jpg
   image_alt: "Author portrait"
 

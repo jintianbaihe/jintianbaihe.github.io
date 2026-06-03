@@ -27,8 +27,7 @@
         <span class="hero-badge"><%= hero.greeting || 'Hello!' %></span>
         <h1 class="hero-title">
           <%= hero.title_prefix || "Hello, I'm" %>
-          <span class="scribble-underline"><%= hero.highlight_name || config.author %></span>.
-          I craft <span class="highlight"><%= (hero.title_suffix || 'stories with code.').replace(/^I craft\s*/i,'') %></span>
+          <span class="scribble-underline"><%= hero.highlight_name || config.author %></span><span class="highlight"><%= hero.title_suffix || '. I craft stories with code.' %></span>
         </h1>
         <p class="hero-desc"><%= hero.description || config.description %></p>
         <a href="#content" class="hero-scroll-link">
