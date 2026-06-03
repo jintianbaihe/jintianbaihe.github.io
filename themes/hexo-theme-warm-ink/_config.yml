@@ -1,0 +1,91 @@
+# Warm Ink & Macaron Theme Config
+# ================================
+
+# 博客名称（显示在导航栏）
+blog_name: "Yoka"
+
+# 博客副标题
+subtitle: "A Digital Sketchbook"
+
+# 导航菜单
+menu:
+  Traces: /traces
+  Notes: /notes
+  Projects: /projects
+  About Me: /about
+
+# 社交链接
+social:
+  rss: /atom.xml
+  rednote: "https://xhslink.com/m/4Vj9GcC5PAY"
+  github: "https://github.com/jintianbaihe"
+  email: "jintianbaihe@outlook.com"
+
+# 打赏 / 赞助（About 页面 Buy Me a Coffee 板块）———— 至少填一个才会显示
+# donate:
+#   buymeacoffee: "https://www.buymeacoffee.com/yourname"
+#   ko_fi: "https://ko-fi.com/yourname"
+#   wechat: /images/wechat-qr.jpg
+#   alipay: /images/alipay-qr.jpg
+
+# 作者信息
+author:
+  name: "Yoka"
+  bio: "I believe that technology should feel as personal and tactile as a page in a sketchbook."
+  avatar: /images/avatar.jpg
+
+# 首页 Hero 区域
+hero:
+  greeting: "Hello!"
+  title_prefix: "Hello, I'm"
+  highlight_name: "Yoka"
+  title_suffix: ". I craft stories with code."
+  description: "I believe that technology should feel as personal and tactile as a page in a sketchbook. Welcome to my digital corner of observations."
+  image: /images/hero.jpg
+  image_alt: "Author portrait"
+
+# 首页 Bento 卡片
+bento_cards:
+  - title: "Traces"
+    desc: "A curated log of books, music, and physical objects that spark joy."
+    link: /traces
+    link_text: "See Log"
+    icon: "album"
+    color: "lavender"
+  - title: "Notes"
+    desc: "Long-form essays on design philosophy, intentionality, and the slow web."
+    link: /notes
+    link_text: "Read Essays"
+    icon: "description"
+    color: "mint"
+  - title: "Projects"
+    desc: "Open-source experiments and personal tools crafted with a charcoal soul."
+    link: /projects
+    link_text: "View Projects"
+    icon: "brush"
+    color: "pink"
+  - title: "About Me"
+    desc: "My journey from ink to bits, and why I still prefer a fountain pen."
+    link: /about
+    link_text: "My Story"
+    icon: "favorite"
+    color: "secondary"
+
+# Newsletter
+newsletter:
+  enabled: true
+  title: "Let's stay in touch"
+  desc: "I send out a monthly newsletter called \"The Unfinished Sketch\" with curated links and private essays."
+  placeholder: "your@email.com"
+  button: "Join the list"
+  action: ""
+
+# 文章页设置
+post:
+  show_date: true
+  show_tags: true
+  show_toc: true
+
+# 版权年份
+copyright_year: 2026
+footer_note: "Handcrafted with care and caffeine."

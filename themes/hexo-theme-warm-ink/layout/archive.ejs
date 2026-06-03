@@ -1,0 +1,129 @@
+<%
+  const posts = page.posts;
+
+  /* 与 traces 页面互斥的分类 — notes 页面不展示这些 */
+  const traceCats = ['books', 'movies', 'games', 'music'];
+
+  /* 预设分类标签 */
+  const categoryConfig = {
+    all:     { label: 'All Entries', color: 'var(--color-primary)' },
+    sparks:  { label: 'Sparks',      color: '#c4a07c' },
+    reflections: { label: 'Reflections', color: '#8a9b8b' },
+    skills:  { label: 'Skills',      color: '#b08a9b' },
+  };
+%>
+
+<main class="page-main">
+  <div class="container">
+
+    <!-- ── Page hero ── -->
+    <section class="page-hero">
+      <h1>Writings &amp; Musings</h1>
+      <p>A digital garden of half-baked thoughts, detailed tutorials, and gentle observations on life.</p>
+    </section>
+
+    <!-- ── Search ── -->
+    <div style="margin-bottom:24px;position:relative;">
+      <span class="material-symbols-outlined" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--color-outline);font-size:20px;">search</span>
+      <input type="text" id="notes-search" placeholder="Search articles by title..."
+        style="width:100%;padding:14px 16px 14px 48px;border:1.5px solid var(--color-outline-variant);border-radius:12px;font-family:var(--font-body);font-size:15px;background:var(--color-surface-container-low);color:var(--color-on-surface);outline:none;transition:border-color 0.2s;box-sizing:border-box;"
+        onfocus="this.style.borderColor='var(--color-primary)'"
+        onblur="this.style.borderColor='var(--color-outline-variant)'"
+        oninput="searchNotes()">
+    </div>
+
+    <!-- ── Category Filters ── -->
+    <div class="category-filters">
+      <% Object.keys(categoryConfig).forEach((key, i) => {
+        const cfg = categoryConfig[key];
+      %>
+        <button class="filter-btn<%= i === 0 ? ' active' : '' %>"
+                data-category="<%= key %>"
+                data-color="<%= cfg.color %>"
+                style="--active-color:<%= cfg.color %>">
+          <%= cfg.label %>
+        </button>
+      <% }) %>
+    </div>
+
+    <!-- ── Post List ── -->
+    <div class="post-list">
+      <%
+        /* 过滤掉属于 traces 分类的文章，保持 notes / traces 互斥 */
+        const filteredPosts = posts.toArray().filter(post => {
+          if (post.categories && post.categories.data && post.categories.data.length) {
+            const primaryCat = post.categories.data[0].name.toLowerCase();
+            if (traceCats.includes(primaryCat)) return false;
+          }
+          return true;
+        });
+
+        filteredPosts.forEach(post => {
+          const cat = (post.categories && post.categories.length)
+            ? post.categories.data[0].name.toLowerCase()
+            : (post.tags && post.tags.length ? post.tags.data[0].name.toLowerCase() : '');
+          const cfg = categoryConfig[cat] || categoryConfig.all;
+      %>
+        <article class="post-item" data-category="<%= cat || 'all' %>">
+          <div class="post-item-left">
+            <span class="bullet-macaron" style="background:<%= cfg.color %>;margin-top:8px;"></span>
+            <div>
+              <div class="post-item-meta">
+                <% if (cat && categoryConfig[cat]) { %>
+                  <span class="post-category <%= cat %>"><%= categoryConfig[cat].label %></span>
+                  <span class="dot-divider">•</span>
+                <% } %>
+                <span class="post-date"><%= date(post.date, 'MMM D, YYYY') %></span>
+              </div>
+              <a href="<%- url_for(post.path) %>">
+                <h2 class="post-item-title"><%= post.title %></h2>
+              </a>
+            </div>
+          </div>
+          <a href="<%- url_for(post.path) %>" class="post-item-right" style="text-decoration:none;color:inherit;">
+            <span class="material-symbols-outlined post-arrow">arrow_forward</span>
+          </a>
+        </article>
+      <% }) %>
+    </div>
+
+    <!-- ── Pagination ── -->
+    <% if (page.total > 1) { %>
+    <nav class="pagination">
+      <%- paginator({ prev_text: '← Prev', next_text: 'Next →', mid_size: 2 }) %>
+    </nav>
+    <% } %>
+
+  </div>
+
+  <script>
+  let notesCurrentCategory = 'all';
+
+  window.searchNotes = function() { applyNotesFilters(); };
+  window.applyNotesFilters = function() {
+    const query = (document.getElementById('notes-search') || {}).value || '';
+    const q = query.toLowerCase().trim();
+    document.querySelectorAll('.post-item').forEach(item => {
+      const title = (item.querySelector('.post-item-title') || {}).textContent || '';
+      const cat = item.dataset.category || 'all';
+      const matchSearch = !q || title.toLowerCase().includes(q);
+      const matchCat = notesCurrentCategory === 'all' || cat === notesCurrentCategory;
+      item.style.display = (matchSearch && matchCat) ? '' : 'none';
+    });
+  };
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.filter-btn');
+    if (btn) {
+      // 更新按钮 active 状态
+      document.querySelectorAll('.filter-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+
+      notesCurrentCategory = btn.dataset.category || 'all';
+      applyNotesFilters();
+    }
+  });
+  </script>
+</main>

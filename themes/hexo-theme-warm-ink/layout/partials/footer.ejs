@@ -1,0 +1,37 @@
+<%
+  const blogName   = theme.blog_name  || config.title || 'Ink & Paper';
+  const copyYear   = theme.copyright_year || new Date().getFullYear();
+  const footerNote = theme.footer_note || 'Made with care.';
+  const social     = theme.social || {};
+%>
+
+<footer class="site-footer">
+  <div class="container">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <img src="<%- url_for('/images/logo.png') %>" ... style="height:32px;width:auto;mix-blend-mode:multiply;"/>
+      <p class="footer-copy">© <%= copyYear %> <%= config.author %>. <%= footerNote %></p>
+    </div>
+
+    <!-- Icon row：RedNote / GitHub / Email -->
+    <div class="footer-icons">
+      <% if (social.rednote) { %>
+        <a class="footer-icon pastel-wash-pink" href="<%= social.rednote %>" target="_blank" rel="noopener" title="RedNote">
+          <span class="material-symbols-outlined" style="font-size:16px;">bookmark</span>
+        </a>
+      <% } %>
+      <% if (social.github) { %>
+        <a class="footer-icon pastel-wash-mint" href="<%= social.github %>" target="_blank" rel="noopener" title="GitHub">
+          <span class="material-symbols-outlined" style="font-size:16px;">code</span>
+        </a>
+      <% } %>
+      <% if (social.email) { %>
+        <a class="footer-icon pastel-wash-lavender" href="mailto:<%= social.email %>" title="Email">
+          <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
+        </a>
+      <% } %>
+    </div>
+
+  </div>
+</footer>

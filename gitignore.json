@@ -1,0 +1,14 @@
+# 依赖和缓存
+node_modules/
+.deploy_git/
+.deploy*/
+db.json
+*.log
+.tmp*
+
+# 生成的静态文件 (这是最核心的一行)
+public/
+
+# 系统文件 (可选)
+.DS_Store
+Thumbs.db

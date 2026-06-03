@@ -1,0 +1,156 @@
+<%
+  const post = page;
+
+  /* ── 分类体系 ── */
+  const traceCats = ['books', 'movies', 'games', 'music'];
+  const primaryCat = (post.categories && post.categories.length)
+    ? post.categories.data[0].name.toLowerCase() : '';
+  const isTracePost = traceCats.includes(primaryCat);
+
+  /* 第一个分类（显示用） */
+  const cat = (post.categories && post.categories.length)
+    ? post.categories.data[0].name : '';
+  const catSlug = cat.toLowerCase();
+
+  /* ── 限定同一分类体系下的 prev / next ── */
+  const allPosts = site.posts.toArray().sort((a, b) => b.date - a.date);
+  const groupPosts = isTracePost
+    ? allPosts.filter(p => {
+        if (!p.categories || !p.categories.data || !p.categories.data.length) return false;
+        return p.categories.data.some(c => traceCats.includes(c.name.toLowerCase()));
+      })
+    : allPosts.filter(p => {
+        if (!p.categories || !p.categories.data || !p.categories.data.length) return true;
+        return !p.categories.data.some(c => traceCats.includes(c.name.toLowerCase()));
+      });
+  const idx = groupPosts.findIndex(p => p._id === post._id);
+  const groupPrev = idx < groupPosts.length - 1 ? groupPosts[idx + 1] : null;
+  const groupNext = idx > 0 ? groupPosts[idx - 1] : null;
+
+  /* Tag 颜色 */
+  function tagClass(name) {
+    const n = (name || '').toLowerCase();
+    if (n.includes('essay'))    return 'essay';
+    if (n.includes('tutorial')) return 'tutorial';
+    if (n.includes('life'))     return 'life';
+    return '';
+  }
+
+  /* ── traces 文章元数据字段映射 ── */
+  const metaFieldMap = {
+    author:    { icon: 'edit',            label: 'Author' },
+    director:  { icon: 'movie',           label: 'Director' },
+    artist:    { icon: 'artist',          label: 'Artist' },
+    developer: { icon: 'sports_esports',  label: 'Developer' },
+    published: { icon: 'calendar_today',  label: 'Published' },
+    release:   { icon: 'calendar_today',  label: 'Release' },
+    publisher: { icon: 'business',        label: 'Publisher' },
+    label:     { icon: 'album',           label: 'Label' },
+    platform:  { icon: 'devices',         label: 'Platform' },
+    cast:      { icon: 'group',           label: 'Cast' },
+    runtime:   { icon: 'schedule',        label: 'Runtime' },
+    pages:     { icon: 'description',     label: 'Pages' },
+    isbn:      { icon: 'tag',             label: 'ISBN' },
+  };
+
+  /* 收集当前文章已有的元数据字段 */
+  const traceMeta = [];
+  if (isTracePost) {
+    Object.keys(metaFieldMap).forEach(key => {
+      if (post[key] !== undefined && post[key] !== '') {
+        traceMeta.push({ key, value: post[key], icon: metaFieldMap[key].icon, label: metaFieldMap[key].label });
+      }
+    });
+    // 如果有 rating，追加在最前面（保留一位小数）
+    if (post.rating !== undefined && post.rating !== '') {
+      traceMeta.unshift({ key: 'rating', value: parseFloat(post.rating).toFixed(1) + '/10.0', icon: 'star', label: 'Rating' });
+    }
+  }
+%>
+
+<main class="page-main">
+  <div class="container">
+
+    <!-- ── Post Header ── -->
+    <header class="post-header">
+      <div class="post-header-meta">
+        <% if (cat) { %>
+          <span class="post-tag <%= tagClass(cat) %>"><%= cat %></span>
+        <% } %>
+        <% /* traces 文章只显示分类，不显示 Fiction/Philosophy 等详情标签 */ %>
+        <% if (!isTracePost) { %>
+          <% if (post.tags && post.tags.length) {
+            post.tags.forEach(tag => { %>
+              <span class="post-tag <%= tagClass(tag.name) %>"><%= tag.name %></span>
+            <% })
+          } %>
+        <% } %>
+        <span class="post-date" style="font-family:var(--font-label);font-size:14px;color:var(--color-on-surface-variant);">
+          <%= date(post.date, 'MMMM D, YYYY') %>
+        </span>
+      </div>
+
+      <h1><%= post.title %></h1>
+
+      <% if (post.description) { %>
+        <p class="post-header-desc"><%= post.description %></p>
+      <% } %>
+    </header>
+
+    <% /* ── Traces 元数据 ── */ %>
+    <% if (isTracePost && traceMeta.length > 0) { %>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2px 10px;margin-bottom:32px;font-family:var(--font-label);font-size:13px;color:var(--color-on-surface-variant);">
+      <% traceMeta.forEach((m, i) => { %>
+        <% if (i > 0) { %><span style="opacity:0.3;font-weight:300;">·</span><% } %>
+        <span style="display:inline-flex;align-items:center;gap:3px;">
+          <span class="material-symbols-outlined" style="font-size:14px;opacity:0.5;"><%= m.icon %></span>
+          <span style="opacity:0.6;"><%= m.label %></span>
+          <span style="opacity:0.85;"><%= m.value %></span>
+        </span>
+      <% }) %>
+    </div>
+    <% } %>
+
+    <!-- ── Cover Image ── -->
+    <% /* show_cover 为 false 时隐藏，默认显示 */ %>
+    <% if (post.cover && post.show_cover !== false) { %>
+      <img class="post-cover" src="<%- url_for(post.cover) %>" alt="<%= post.title %>" />
+    <% } %>
+
+    <!-- ── Post Body ── -->
+    <article class="post-body">
+      <%- post.content %>
+    </article>
+
+    <!-- ── Tags ── -->
+    <% if (post.tags && post.tags.length) { %>
+    <div class="post-tags mt-md">
+      <% post.tags.forEach(tag => { %>
+        <a href="<%- url_for(tag.path) %>" class="post-tag-chip">#<%= tag.name %></a>
+      <% }) %>
+    </div>
+    <% } %>
+
+    <!-- ── Prev / Next Nav（限定同一分类体系）── -->
+    <nav class="post-nav">
+      <% if (groupPrev) { %>
+        <div class="post-nav-item prev">
+          <span class="post-nav-label">← Previous</span>
+          <a href="<%- url_for(groupPrev.path) %>">
+            <div class="post-nav-title"><%= groupPrev.title %></div>
+          </a>
+        </div>
+      <% } else { %><div class="post-nav-item"></div><% } %>
+
+      <% if (groupNext) { %>
+        <div class="post-nav-item next">
+          <span class="post-nav-label">Next →</span>
+          <a href="<%- url_for(groupNext.path) %>">
+            <div class="post-nav-title"><%= groupNext.title %></div>
+          </a>
+        </div>
+      <% } else { %><div class="post-nav-item"></div><% } %>
+    </nav>
+
+  </div>
+</main>

@@ -1,0 +1,157 @@
+<%
+  const author = theme.author || {};
+  const social  = theme.social  || {};
+%>
+
+<main class="page-main">
+  <div class="container">
+
+    <!-- Centered Avatar -->
+    <section style="display:flex;flex-direction:column;align-items:center;gap:32px;margin-bottom:48px;">
+      <div style="position:relative;">
+        <div class="hand-drawn-border sketch-shadow" style="padding:8px;display:inline-block;transform:rotate(2deg);transition:transform 0.5s;">
+          <% if (author.avatar) { %>
+            <img src="<%- url_for(author.avatar) %>" alt="<%= author.name || config.author %>"
+              style="width:192px;height:192px;object-fit:cover;display:block;filter:grayscale(0.1);"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div style="display:none;width:192px;height:192px;background:var(--color-surface-container);align-items:center;justify-content:center;">
+              <span class="material-symbols-outlined" style="font-size:64px;color:var(--color-outline);">person</span>
+            </div>
+          <% } else { %>
+            <div style="width:192px;height:192px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+              <span class="material-symbols-outlined" style="font-size:64px;color:var(--color-outline);">person</span>
+            </div>
+          <% } %>
+        </div>
+        <div style="position:absolute;bottom:-16px;right:-16px;width:48px;height:48px;border-radius:50%;background:var(--color-tertiary-fixed);display:flex;align-items:center;justify-content:center;border:1.5px solid var(--color-primary);box-shadow:2px 2px 0 var(--color-primary);">
+          <span class="material-symbols-outlined" style="font-size:20px;color:var(--color-on-tertiary-fixed);font-variation-settings:'FILL' 1;">favorite</span>
+        </div>
+      </div>
+
+      <!-- Title + Bio -->
+      <div style="text-align:center;max-width:480px;">
+        <h1 style="font-family:var(--font-display);font-size:48px;font-weight:600;line-height:1.1;letter-spacing:-0.02em;color:var(--color-primary);margin-bottom:16px;position:relative;display:inline-block;">
+          <%= page.title || 'About Me' %>
+          <div style="position:absolute;bottom:-4px;left:0;width:100%;height:4px;background:var(--color-secondary-container);opacity:0.6;transform:rotate(-1deg);border-radius:2px;"></div>
+        </h1>
+        <% if (author.bio) { %>
+          <p style="font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--color-on-surface-variant);margin-top:16px;">
+            <%= author.bio %>
+          </p>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- Trait cards -->
+    <section style="display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:64px;">
+      <div style="display:grid;grid-template-columns:1fr;gap:24px;">
+        <!-- Digital Craft -->
+        <div class="hand-drawn-border" style="position:relative;padding:24px;background:var(--color-background);box-shadow:4px 4px 0 var(--color-primary);transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)';this.style.boxShadow='6px 6px 0 var(--color-primary)';" onmouseleave="this.style.transform='';this.style.boxShadow='4px 4px 0 var(--color-primary)';">
+          <div style="position:absolute;top:-6px;right:10px;width:40px;height:12px;background:var(--color-tertiary-fixed);opacity:0.8;transform:rotate(-15deg);"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span class="material-symbols-outlined" style="color:var(--color-primary);font-variation-settings:'FILL' 1;">terminal</span>
+            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;color:var(--color-primary);">Digital Craft</h3>
+          </div>
+          <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--color-on-surface-variant);">
+            I treat code like bookbinding—every line is an intentional stitch. I build minimal, fast, and soulful digital experiences.
+          </p>
+        </div>
+        <!-- Human Centric -->
+        <div class="hand-drawn-border" style="position:relative;padding:24px;background:var(--color-background);box-shadow:4px 4px 0 var(--color-primary);transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)';this.style.boxShadow='6px 6px 0 var(--color-primary)';" onmouseleave="this.style.transform='';this.style.boxShadow='4px 4px 0 var(--color-primary)';">
+          <div style="position:absolute;top:-6px;right:10px;width:40px;height:12px;background:var(--color-secondary-fixed);opacity:0.8;transform:rotate(-15deg);"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span class="material-symbols-outlined" style="color:var(--color-primary);font-variation-settings:'FILL' 1;">face_6</span>
+            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;color:var(--color-primary);">Human Centric</h3>
+          </div>
+          <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--color-on-surface-variant);">
+            Technology should serve the human pace of life, not the other way around. My work prioritizes calm and clarity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section style="margin-bottom:64px;">
+      <div style="padding:32px;background:var(--color-surface-container-low);border-left:4px solid rgba(26,26,26,0.2);position:relative;font-style:italic;">
+        <div style="position:absolute;top:16px;right:16px;opacity:0.1;">
+          <span class="material-symbols-outlined" style="font-size:64px;">format_quote</span>
+        </div>
+        <p style="font-family:var(--font-label);font-size:16px;line-height:1.6;color:var(--color-on-surface-variant);">
+          "I believe in the beauty of things that take time to grow. In a world of instant feeds, I choose the deliberate scratch of ink on paper."
+        </p>
+      </div>
+    </section>
+
+    <!-- ☕ Buy Me a Coffee -->
+    <% const donate = theme.donate || {}; %>
+    <% if (donate.buymeacoffee || donate.ko_fi || donate.wechat || donate.alipay) { %>
+    <section style="margin-bottom:64px;text-align:center;">
+      <div class="hand-drawn-border" style="display:inline-block;padding:32px 48px;background:var(--color-surface-container-low);box-shadow:4px 4px 0 var(--color-primary);max-width:400px;width:100%;box-sizing:border-box;">
+        <span class="material-symbols-outlined" style="font-size:40px;color:#ff813f;">coffee</span>
+        <h2 style="font-family:var(--font-display);font-size:24px;font-weight:500;color:var(--color-primary);margin:12px 0 8px;">Buy Me a Coffee</h2>
+        <p style="font-family:var(--font-body);font-size:14px;line-height:1.6;color:var(--color-on-surface-variant);margin-bottom:20px;">
+          If you enjoy my work, consider supporting me with a coffee. It fuels the late-night writing sessions.
+        </p>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <% if (donate.buymeacoffee) { %>
+            <a href="<%= donate.buymeacoffee %>" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#ff813f;color:#fff;padding:10px 24px;border-radius:8px;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;box-shadow:2px 2px 0 rgba(0,0,0,0.2);transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-1px,-1px)'" onmouseleave="this.style.transform=''">
+              <span class="material-symbols-outlined" style="font-size:18px;">coffee</span> Buy Me a Coffee
+            </a>
+          <% } %>
+          <% if (donate.ko_fi) { %>
+            <a href="<%= donate.ko_fi %>" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#29abe0;color:#fff;padding:10px 24px;border-radius:8px;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;box-shadow:2px 2px 0 rgba(0,0,0,0.2);transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-1px,-1px)'" onmouseleave="this.style.transform=''">
+              <span class="material-symbols-outlined" style="font-size:18px;">loyalty</span> Support on Ko-fi
+            </a>
+          <% } %>
+          <% if (donate.wechat || donate.alipay) { %>
+            <div style="display:flex;gap:16px;margin-top:8px;">
+              <% if (donate.wechat) { %>
+                <div style="text-align:center;">
+                  <img src="<%- url_for(donate.wechat) %>" alt="WeChat Pay" style="width:120px;height:120px;object-fit:contain;border-radius:8px;border:1px solid var(--color-outline-variant);" />
+                  <span style="display:block;font-family:var(--font-label);font-size:12px;color:var(--color-on-surface-variant);margin-top:4px;">WeChat</span>
+                </div>
+              <% } %>
+              <% if (donate.alipay) { %>
+                <div style="text-align:center;">
+                  <img src="<%- url_for(donate.alipay) %>" alt="Alipay" style="width:120px;height:120px;object-fit:contain;border-radius:8px;border:1px solid var(--color-outline-variant);" />
+                  <span style="display:block;font-family:var(--font-label);font-size:12px;color:var(--color-on-surface-variant);margin-top:4px;">Alipay</span>
+                </div>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </section>
+    <% } %>
+
+    <!-- Connect -->
+    <section style="margin-bottom:64px;">
+      <h2 style="font-family:var(--font-display);font-size:24px;font-weight:500;color:var(--color-primary);margin-bottom:24px;">Let's Connect</h2>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+
+        <% if (social.rednote) { %>
+        <a href="<%= social.rednote %>" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:16px;color:var(--color-on-surface-variant);text-decoration:none;transition:color 0.2s;" onmouseenter="this.style.color='var(--color-primary)'" onmouseleave="this.style.color='var(--color-on-surface-variant)'">
+          <span class="material-symbols-outlined">bookmark</span>
+          RedNote
+        </a>
+        <% } %>
+
+        <% if (social.github) { %>
+        <a href="<%= social.github %>" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:16px;color:var(--color-on-surface-variant);text-decoration:none;transition:color 0.2s;" onmouseenter="this.style.color='var(--color-primary)'" onmouseleave="this.style.color='var(--color-on-surface-variant)'">
+          <span class="material-symbols-outlined">code</span>
+          GitHub
+        </a>
+        <% } %>
+
+        <% if (social.email) { %>
+        <a href="mailto:<%= social.email %>" style="display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:16px;color:var(--color-on-surface-variant);text-decoration:none;transition:color 0.2s;" onmouseenter="this.style.color='var(--color-primary)'" onmouseleave="this.style.color='var(--color-on-surface-variant)'">
+          <span class="material-symbols-outlined">mail</span>
+          <%= social.email %>
+        </a>
+        <% } %>
+
+      </div>
+    </section>
+
+  </div>
+</main>

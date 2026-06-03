@@ -1,0 +1,111 @@
+<main class="page-main">
+  <div class="container">
+
+    <!-- Hero -->
+    <section style="margin-bottom:64px;position:relative;">
+      <div style="position:absolute;left:-32px;top:0;width:8px;height:96px;background:var(--color-tertiary-fixed);display:none;" class="desktop-accent"></div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(36px,6vw,48px);font-weight:600;line-height:1.1;letter-spacing:-0.02em;color:var(--color-primary);margin-bottom:8px;">Built with heart.</h1>
+      <p style="font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--color-on-surface-variant);max-width:600px;">
+        A collection of digital artifacts, experimental tools, and personal explorations crafted with a focus on simplicity and human-centered design.
+      </p>
+    </section>
+
+    <!-- Projects Bento Grid -->
+    <div style="display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:48px;">
+
+      <!-- Project 1: Featured large card -->
+      <div class="hand-drawn-border" style="background:white;padding:8px;position:relative;overflow:hidden;box-shadow:4px 4px 0 var(--color-primary);transition:transform 0.2s;" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform=''">
+        <div style="position:absolute;top:16px;right:16px;z-index:10;background:var(--color-secondary-fixed);padding:4px 12px;font-family:var(--font-label);font-size:14px;font-weight:600;color:var(--color-on-secondary-fixed);transform:rotate(-2deg);">Web App</div>
+        <div style="aspect-ratio:16/9;background:var(--color-surface-container-high);border-radius:8px;margin-bottom:8px;overflow:hidden;border:1px solid rgba(26,26,26,0.1);display:flex;align-items:center;justify-content:center;">
+          <span class="material-symbols-outlined" style="font-size:48px;color:var(--color-outline-variant);">web</span>
+        </div>
+        <div style="padding:8px;">
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;color:var(--color-primary);margin-bottom:8px;">Paper Trails</h3>
+          <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--color-on-surface-variant);margin-bottom:24px;">
+            A focused writing application that strips away the noise, leaving only you and your thoughts on a digital sheet of endless paper.
+          </p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="#" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-primary);color:var(--color-on-primary);padding:8px 16px;border-radius:8px;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;box-shadow:2px 2px 0 var(--color-secondary-fixed);">
+              <span class="material-symbols-outlined" style="font-size:18px;">open_in_new</span> Live Demo
+            </a>
+            <a href="#" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--color-primary);color:var(--color-primary);padding:8px 16px;border-radius:8px;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;background:transparent;">
+              <span class="material-symbols-outlined" style="font-size:18px;">code</span> Source
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 & 3 in a row -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <!-- InkSet.css -->
+        <div class="hand-drawn-border" style="background:white;padding:8px;position:relative;box-shadow:4px 4px 0 var(--color-primary);transition:transform 0.2s;display:flex;flex-direction:column;" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform=''">
+          <div style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:var(--color-tertiary-fixed);border:1px solid rgba(26,26,26,0.2);display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:16px;color:var(--color-tertiary);">auto_fix_high</span>
+          </div>
+          <div style="aspect-ratio:1;background:rgba(180,204,188,0.3);border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(26,26,26,0.05);">
+            <span class="material-symbols-outlined" style="font-size:48px;color:var(--color-tertiary);">brush</span>
+          </div>
+          <div style="margin-top:auto;">
+            <p style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-primary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Tooling</p>
+            <h4 style="font-family:var(--font-display);font-size:24px;font-weight:500;color:var(--color-primary);margin-bottom:8px;">InkSet.css</h4>
+            <p style="font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--color-on-surface-variant);margin-bottom:8px;">A tiny CSS library for hand-drawn borders.</p>
+            <a href="https://github.com" target="_blank" style="font-family:var(--font-label);font-size:14px;font-weight:600;color:var(--color-primary);text-decoration:underline;text-decoration-color:var(--color-secondary-container);text-decoration-thickness:4px;text-underline-offset:4px;">View Github</a>
+          </div>
+        </div>
+
+        <!-- Drafted -->
+        <div class="hand-drawn-border" style="background:var(--color-surface-container-low);padding:8px;position:relative;box-shadow:4px 4px 0 var(--color-primary);transition:transform 0.2s;" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform=''">
+          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:48px;height:4px;background:var(--color-secondary);"></div>
+          <div style="aspect-ratio:1;background:rgba(222,191,194,0.4);border-radius:8px;margin-bottom:8px;overflow:hidden;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:48px;color:var(--color-outline-variant);">text_fields</span>
+          </div>
+          <h4 style="font-family:var(--font-display);font-size:24px;font-weight:500;color:var(--color-primary);margin-bottom:8px;">Drafted</h4>
+          <p style="font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--color-on-surface-variant);margin-bottom:8px;">Experimental font pair utility for readers.</p>
+          <div style="display:flex;gap:8px;">
+            <button style="padding:4px;background:none;border:none;cursor:pointer;border-radius:4px;" onmouseenter="this.style.background='var(--color-surface-container)'" onmouseleave="this.style.background='none'">
+              <span class="material-symbols-outlined" style="color:var(--color-primary);">download</span>
+            </button>
+            <button style="padding:4px;background:none;border:none;cursor:pointer;border-radius:4px;" onmouseenter="this.style.background='var(--color-surface-container)'" onmouseleave="this.style.background='none'">
+              <span class="material-symbols-outlined" style="color:var(--color-primary);">star</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4: Silent Beats (wide) -->
+      <div class="hand-drawn-border" style="background:white;padding:12px;display:flex;flex-direction:column;gap:24px;box-shadow:4px 4px 0 var(--color-primary);position:relative;transition:transform 0.2s;" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform=''">
+        <div style="border-radius:8px;background:var(--color-surface-container-high);overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;border:1px solid rgba(26,26,26,0.05);">
+          <span class="material-symbols-outlined" style="font-size:48px;color:var(--color-outline-variant);">graphic_eq</span>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:8px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--color-error);display:inline-block;animation:pulse 1.5s infinite;"></span>
+            <span style="font-family:var(--font-label);font-size:14px;font-weight:600;color:var(--color-on-surface-variant);">Active Experiment</span>
+          </div>
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;color:var(--color-primary);">Silent Beats</h3>
+          <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--color-on-surface-variant);">
+            A generative audio-visual project that translates ambient noise into gentle charcoal sketches in real-time.
+          </p>
+          <button style="display:inline-flex;align-items:center;gap:4px;background:none;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;color:var(--color-primary);padding:0;">
+            Details <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Quote -->
+    <section style="border-left:4px solid var(--color-secondary-fixed);padding-left:32px;position:relative;padding-top:8px;padding-bottom:8px;margin-bottom:64px;">
+      <div style="position:absolute;left:-5px;top:0;width:8px;height:8px;border-radius:50%;background:var(--color-secondary);"></div>
+      <p style="font-family:var(--font-label);font-size:16px;font-weight:500;font-style:italic;color:var(--color-on-surface-variant);line-height:1.6;">
+        "Many of these projects are 'works in progress'—small seeds planted in the digital garden. I believe in public learning and the beauty of the unfinished."
+      </p>
+      <p style="font-family:var(--font-label);font-size:14px;font-weight:600;color:var(--color-primary);margin-top:8px;">— The Maker</p>
+    </section>
+
+    <style>
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    </style>
+
+  </div>
+</main>

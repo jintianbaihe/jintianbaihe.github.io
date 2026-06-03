@@ -1,0 +1,210 @@
+<%
+  /* ── Trace category config ── */
+  const traceCats = ['books', 'movies', 'games', 'music'];
+  const typeMap = {
+    books:  { type: 'book',  icon: 'auto_stories',   label: 'Books', color: '#c4a07c', tagBg: 'rgba(208,233,216,0.4)' },
+    movies: { type: 'film',  icon: 'movie',           label: 'Films', color: '#8a9b8b', tagBg: 'rgba(180,204,188,0.4)' },
+    games:  { type: 'game',  icon: 'sports_esports',  label: 'Games', color: '#b08a9b', tagBg: 'rgba(222,191,194,0.4)' },
+    music:  { type: 'music', icon: 'music_note',      label: 'Music', color: '#a0a8c0', tagBg: 'rgba(228,226,225,0.3)' },
+  };
+
+  /* ── Get trace posts ── */
+  const tracePosts = site.posts.toArray().filter(post => {
+    if (!post.categories || !post.categories.data || !post.categories.data.length) return false;
+    return post.categories.data.some(cat => traceCats.includes(cat.name));
+  }).sort((a, b) => b.date - a.date);
+
+  function getTraceType(post) {
+    if (!post.categories || !post.categories.data) return null;
+    for (const cat of post.categories.data) {
+      if (typeMap[cat.name]) return typeMap[cat.name];
+    }
+    return null;
+  }
+
+  const pinned = tracePosts.filter(p => p.pinned);
+  const recent = tracePosts.filter(p => !p.pinned);
+
+  /* ── Tag background colors pool ── */
+  const tagColors = [
+    'rgba(208,233,216,0.4)', 'rgba(248,216,219,0.4)',
+    'rgba(222,191,194,0.4)', 'rgba(180,204,188,0.4)',
+    'rgba(228,226,225,0.3)', 'rgba(200,198,198,0.3)',
+  ];
+  function tagBg(idx) { return tagColors[idx % tagColors.length]; }
+%>
+
+<main class="page-main">
+  <div class="container">
+
+    <!-- Page hero -->
+    <section class="page-hero">
+      <h1><%= page.title %></h1>
+      <p><%= page.description || 'A curated log of books, films, music, and games that spark joy.' %></p>
+    </section>
+
+    <!-- Search -->
+    <div style="margin-bottom:24px;position:relative;">
+      <span class="material-symbols-outlined" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--color-outline);font-size:20px;">search</span>
+      <input type="text" id="traces-search" placeholder="Search books, films, music, games..."
+        style="width:100%;padding:14px 16px 14px 48px;border:1.5px solid var(--color-outline-variant);border-radius:12px;font-family:var(--font-body);font-size:15px;background:var(--color-surface-container-low);color:var(--color-on-surface);outline:none;transition:border-color 0.2s;box-sizing:border-box;"
+        onfocus="this.style.borderColor='var(--color-primary)'"
+        onblur="this.style.borderColor='var(--color-outline-variant)'"
+        oninput="searchTraces()">
+    </div>
+
+    <!-- Category filters -->
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;">
+      <% Object.values(typeMap).forEach((t, i) => { %>
+        <button onclick="filterTraces('<%= t.type %>',this)" class="trace-filter-btn<%= i === 0 ? ' active' : '' %>" data-color="<%= t.color %>" style="display:flex;align-items:center;gap:6px;<%= i === 0 ? 'color:#fff;border-radius:9999px;background:' + t.color + ';' : 'color:var(--color-on-surface-variant);border-radius:12px;background:none;' %>padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+          <span class="material-symbols-outlined" style="font-size:18px;"><%= t.icon %></span> <%= t.label %>
+        </button>
+      <% }) %>
+    </div>
+
+    <% if (tracePosts.length === 0) { %>
+      <!-- Empty state -->
+      <section style="text-align:center;padding:64px 0;margin-bottom:64px;">
+        <span class="material-symbols-outlined" style="font-size:64px;color:var(--color-outline-variant);">auto_stories</span>
+        <p style="font-family:var(--font-body);font-size:16px;color:var(--color-on-surface-variant);margin-top:16px;">
+          No traces yet. Create a post with category <code>books</code>, <code>movies</code>, <code>games</code>, or <code>music</code> to get started.
+        </p>
+      </section>
+    <% } else { %>
+
+      <% if (pinned.length > 0) { %>
+      <!-- Pinned Recommendations -->
+      <section style="margin-bottom:64px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
+          <span class="material-symbols-outlined" style="color:var(--color-secondary);">keep</span>
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Pinned Recommendations</h3>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(<%= Math.min(pinned.length, 5) %>,1fr);gap:16px;">
+          <% pinned.slice(0, 5).forEach((item, idx) => {
+            const t = getTraceType(item);
+            if (!t) return;
+          %>
+          <a href="<%- url_for(item.path) %>" class="trace-card" data-type="<%= t.type %>" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                <% if (item.cover) { %>
+                  <img src="<%- url_for(item.cover) %>" alt="<%= item.title %>" style="width:100%;height:100%;object-fit:cover;" />
+                <% } else { %>
+                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);"><%= t.icon %></span>
+                <% } %>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                <% if (item.tags && item.tags.data) { item.tags.data.slice(0, 2).forEach((tag, ti) => { %>
+                  <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-primary);background:<%= tagBg(ti) %>;font-family:var(--font-label);"><%= tag.name %></span>
+                <% })} %>
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;"><%= item.title %></h4>
+              <% if (item.rating) { %>
+                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);"><%= parseFloat(item.rating).toFixed(1) %>/10.0</span>
+              <% } %>
+            </div>
+          </a>
+          <% }) %>
+        </div>
+      </section>
+      <% } %>
+
+      <!-- Recent Entries -->
+      <section style="margin-bottom:64px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:var(--color-secondary);">history</span>
+            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Recent Entries</h3>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <% recent.forEach((item, idx) => {
+            const t = getTraceType(item);
+            if (!t) return;
+          %>
+          <a href="<%- url_for(item.path) %>" class="trace-card" data-type="<%= t.type %>" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              <% if (item.cover) { %>
+                <img src="<%- url_for(item.cover) %>" alt="<%= item.title %>" style="width:100%;height:100%;object-fit:cover;" />
+              <% } else { %>
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);"><%= t.icon %></span>
+              <% } %>
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;"><%= item.title %></h5>
+                <% if (item.rating) { %>
+                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);"><%= parseFloat(item.rating).toFixed(1) %>/10.0</span>
+                <% } %>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                <% if (item.tags && item.tags.data) { item.tags.data.slice(0, 3).forEach((tag, ti) => { %>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:<%= tagBg(ti) %>;font-family:var(--font-label);"><%= tag.name %></span>
+                <% })} %>
+              </div>
+              <% if (item.description) { %>
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"<%= item.description %>"</p>
+              <% } else if (item.excerpt) { %>
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"<%= strip_html(item.excerpt).substring(0, 120) %>..."</p>
+              <% } %>
+            </div>
+          </a>
+          <% }) %>
+        </div>
+      </section>
+
+    <% } %>
+
+    <!-- Editor's Note -->
+    <div style="position:relative;padding:32px;background:var(--color-surface-container);border:2px solid var(--color-primary);border-radius:8px;margin-bottom:64px;overflow:hidden;">
+      <div style="position:absolute;inset-y:0;right:0;width:32px;background-image:radial-gradient(var(--color-primary) 0.5px,transparent 0.5px);background-size:4px 4px;opacity:0.1;pointer-events:none;"></div>
+      <h6 style="font-family:var(--font-label);font-size:16px;font-weight:500;color:var(--color-primary);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
+        <span class="material-symbols-outlined" style="font-size:18px;">edit_note</span>
+        Editor's Note
+      </h6>
+      <p style="font-family:var(--font-label);font-size:16px;font-weight:500;line-height:1.6;color:var(--color-on-surface-variant);">
+        <% if (tracePosts.length > 0) { %>
+          Currently tracking <strong><%= tracePosts.length %></strong> entries
+          <% if (pinned.length > 0) { %>&mdash;<strong><%= pinned.length %></strong> pinned as all-time favorites.<% } else { %>.<% } %>
+        <% } else { %>
+          A space slowly filling with books, films, music, and games. Check back soon.
+        <% } %>
+      </p>
+    </div>
+
+    <script>
+    let currentType = '<%= Object.values(typeMap)[0] ? Object.values(typeMap)[0].type : "book" %>';
+    let currentQuery = '';
+
+    function applyFilters() {
+      document.querySelectorAll('.trace-card').forEach(card => {
+        const matchType = card.dataset.type === currentType;
+        const name = (card.querySelector('h4') || card.querySelector('h5') || {}).textContent || '';
+        const matchSearch = !currentQuery || name.toLowerCase().includes(currentQuery);
+        card.style.display = (matchType && matchSearch) ? '' : 'none';
+      });
+    }
+
+    function filterTraces(type, btn) {
+      currentType = type;
+      document.querySelectorAll('.trace-filter-btn').forEach(b => {
+        b.style.background = 'none';
+        b.style.color = 'var(--color-on-surface-variant)';
+        b.style.borderRadius = '12px';
+        b.classList.remove('active');
+      });
+      btn.style.background = btn.dataset.color || 'var(--color-tertiary-fixed)';
+      btn.style.color = '#fff';
+      btn.style.borderRadius = '9999px';
+      btn.classList.add('active');
+      applyFilters();
+    }
+
+    function searchTraces() {
+      currentQuery = document.getElementById('traces-search').value.toLowerCase().trim();
+      applyFilters();
+    }
+    </script>
+
+  </div>
+</main>

@@ -1,0 +1,35 @@
+<%
+  /* 取主题配置里的菜单，兼容 hexo 风格 */
+  const themeMenu = theme.menu || {};
+  const blogName  = theme.blog_name || config.title || 'Ink & Paper';
+%>
+
+<header class="site-header">
+  <div class="container">
+
+    <!-- Logo -->
+    <a href="/" class="site-logo">
+      <img src="<%- url_for('/images/logo.png') %>" alt="..." class="site-logo-img" />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="site-nav">
+      <% Object.keys(themeMenu).forEach(name => { %>
+        <a href="<%- url_for(themeMenu[name]) %>"><%= name %></a>
+      <% }) %>
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button class="nav-menu-btn" aria-label="Toggle menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <nav class="mobile-nav">
+    <% Object.keys(themeMenu).forEach(name => { %>
+      <a href="<%- url_for(themeMenu[name]) %>"><%= name %></a>
+    <% }) %>
+  </nav>
+</header>
