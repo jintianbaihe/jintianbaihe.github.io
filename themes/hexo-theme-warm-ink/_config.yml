@@ -71,14 +71,14 @@ bento_cards:
     icon: "favorite"
     color: "secondary"
 
-# Newsletter
-newsletter:
-  enabled: true
-  title: "Let's stay in touch"
-  desc: "I send out a monthly newsletter called \"The Unfinished Sketch\" with curated links and private essays."
-  placeholder: "your@email.com"
-  button: "Join the list"
-  action: ""
+# Newsletter — 目前导航栏无 Subscribe 入口，以下配置暂不生效
+# newsletter:
+#   enabled: true
+#   title: "Let's stay in touch"
+#   desc: "I send out a monthly newsletter."
+#   placeholder: "your@email.com"
+#   button: "Join the list"
+#   action: ""
 
 # 文章页设置
 post:

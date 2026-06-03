@@ -226,17 +226,6 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   border-bottom: 2px solid var(--color-secondary-container);
 }
-.nav-subscribe {
-  margin-left: 16px;
-  padding: 6px 16px;
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  font-family: var(--font-label);
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-}
 .nav-menu-btn {
   display: flex;
   background: none;
@@ -559,62 +548,6 @@ img { max-width: 100%; display: block; }
   transform: rotate(6deg);
 }
 @media (min-width: 768px) { .featured-sticky-note { display: block; } }
-
-/* ---------- INDEX — Newsletter ---------- */
-.newsletter-section {
-  margin: var(--space-lg) 0;
-  padding: var(--space-md) var(--space-gutter);
-  background: var(--color-secondary-fixed);
-  border-top: 2px solid var(--color-primary);
-  border-bottom: 2px solid var(--color-primary);
-  text-align: center;
-}
-.newsletter-section h2 {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 16px;
-}
-.newsletter-section p {
-  color: var(--color-on-secondary-fixed-variant);
-  font-size: 16px;
-  margin-bottom: 24px;
-  max-width: 340px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.newsletter-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 420px;
-  margin: 0 auto;
-}
-@media (min-width: 768px) { .newsletter-form { flex-direction: row; } }
-.newsletter-input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid var(--color-primary);
-  padding: 8px 0;
-  font-family: var(--font-body);
-  font-size: 16px;
-  outline: none;
-  color: var(--color-on-surface);
-  transition: border-color 0.2s;
-}
-.newsletter-input::placeholder { color: rgba(87, 65, 68, 0.5); }
-.newsletter-input:focus { border-color: var(--color-secondary); }
-.newsletter-btn {
-  padding: 8px 32px;
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  font-family: var(--font-label);
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-}
 
 /* ---------- ARCHIVE / BLOG LIST ---------- */
 .page-hero { margin-bottom: var(--space-lg); }
