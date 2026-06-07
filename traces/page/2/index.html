@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    
+      Traces | Yoka
+    
+  </title>
+  <meta name="description" content="A curated log of books, films, music, and games that spark joy." />
+
+  <!-- Fonts (preconnect for speed) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Work+Sans:wght@400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Theme stylesheet -->
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  <!-- RSS -->
+  
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Yoka RSS" />
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body>
+
+  <!-- ── Header / Nav ── -->
+  
+
+<header class="site-header">
+  <div class="container">
+
+    <!-- Logo -->
+    <a href="/" class="site-logo">
+      <img src="/images/logo.png" alt="..." class="site-logo-img" />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="site-nav">
+      
+        <a href="/traces">Traces</a>
+      
+        <a href="/notes">Notes</a>
+      
+        <a href="/projects">Projects</a>
+      
+        <a href="/about">About Me</a>
+      
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button class="nav-menu-btn" aria-label="Toggle menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <nav class="mobile-nav">
+    
+      <a href="/traces">Traces</a>
+    
+      <a href="/notes">Notes</a>
+    
+      <a href="/projects">Projects</a>
+    
+      <a href="/about">About Me</a>
+    
+  </nav>
+</header>
+
+
+  <!-- ── Page Content ── -->
+  
+
+<main class="page-main">
+  <div class="container">
+
+    <!-- Page hero -->
+    <section class="page-hero">
+      <h1>Traces</h1>
+      <p>A curated log of books, films, music, and games that spark joy.</p>
+    </section>
+
+    <!-- Search -->
+    <div style="margin-bottom:24px;position:relative;">
+      <span class="material-symbols-outlined" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--color-outline);font-size:20px;">search</span>
+      <input type="text" id="traces-search" placeholder="Search books, films, music, games..."
+        style="width:100%;padding:14px 16px 14px 48px;border:1.5px solid var(--color-outline-variant);border-radius:12px;font-family:var(--font-body);font-size:15px;background:var(--color-surface-container-low);color:var(--color-on-surface);outline:none;transition:border-color 0.2s;box-sizing:border-box;"
+        onfocus="this.style.borderColor='var(--color-primary)'"
+        onblur="this.style.borderColor='var(--color-outline-variant)'"
+        oninput="searchTraces()">
+    </div>
+
+    <!-- Category filters -->
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;">
+      
+        <button onclick="filterTraces('book',this)" class="trace-filter-btn active" data-color="#c4a07c" style="display:flex;align-items:center;gap:6px;color:#fff;border-radius:9999px;background:#c4a07c;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+          <span class="material-symbols-outlined" style="font-size:18px;">auto_stories</span> Books
+        </button>
+      
+        <button onclick="filterTraces('film',this)" class="trace-filter-btn" data-color="#8a9b8b" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+          <span class="material-symbols-outlined" style="font-size:18px;">movie</span> Films
+        </button>
+      
+        <button onclick="filterTraces('game',this)" class="trace-filter-btn" data-color="#b08a9b" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+          <span class="material-symbols-outlined" style="font-size:18px;">sports_esports</span> Games
+        </button>
+      
+        <button onclick="filterTraces('music',this)" class="trace-filter-btn" data-color="#a0a8c0" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+          <span class="material-symbols-outlined" style="font-size:18px;">music_note</span> Music
+        </button>
+      
+    </div>
+
+    
+
+      
+      <!-- Pinned Recommendations -->
+      <section style="margin-bottom:64px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
+          <span class="material-symbols-outlined" style="color:var(--color-secondary);">keep</span>
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Pinned Recommendations</h3>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
+          
+          <a href="/2025/10/15/%E6%B5%81%E4%BF%97%E5%9C%B0/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                
+                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">流俗地</h4>
+              
+                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">10.0/10.0</span>
+              
+            </div>
+          </a>
+          
+          <a href="/2023/01/02/%E6%B5%AA%E5%AE%A2%E8%A1%8C-1/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                
+                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">浪客行 1</h4>
+              
+                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">10.0/10.0</span>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/12/31/%E6%8E%A8%E6%8B%BF/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                
+                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">推拿</h4>
+              
+                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">10.0/10.0</span>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/01/16/%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                
+                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">我与地坛</h4>
+              
+                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">10.0/10.0</span>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/01/16/%E8%8D%92%E5%8E%9F%E7%8B%BC/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                
+                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">荒原狼</h4>
+              
+                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">10.0/10.0</span>
+              
+            </div>
+          </a>
+          
+        </div>
+      </section>
+      
+
+      <!-- Recent Entries -->
+      <section style="margin-bottom:64px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:var(--color-secondary);">history</span>
+            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Recent Entries</h3>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          
+          <a href="/2025/09/15/%E6%82%89%E8%BE%BE%E5%A4%9A/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">悉达多</h5>
+                
+                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
+                
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2025/09/14/%E6%AE%B5%E6%B0%B8%E5%B9%B3%E6%8A%95%E8%B5%84%E9%97%AE%E7%AD%94%E5%BD%95%EF%BC%88%E6%8A%95%E8%B5%84%E9%80%BB%E8%BE%91%E7%AF%87%EF%BC%89/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">段永平投资问答录（投资逻辑篇）</h5>
+                
+                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
+                
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"好书，但感觉不啰嗦能少一半篇幅，推荐AI辅助阅读"</p>
+              
+            </div>
+          </a>
+          
+          <a href="/2025/03/06/%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C-(%E7%AC%AC%E4%BA%8C%E8%BE%91)/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">价值投资实战手册 (第二辑)</h5>
+                
+                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
+                
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"好书，亲身实践有所收获，特来感谢"</p>
+              
+            </div>
+          </a>
+          
+          <a href="/2024/06/28/%E9%87%91%E9%94%81%E8%AE%B0/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">金锁记</h5>
+                
+                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
+                
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2023/04/13/%E5%85%AB%E5%AD%97%E5%91%BD%E7%90%86%E5%AD%B8%E5%9F%BA%E7%A4%8E%E6%95%99%E7%A8%8B/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">八字命理學基礎教程</h5>
+                
+                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
+                
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"四柱八字领域啃这3本就行"</p>
+              
+            </div>
+          </a>
+          
+          <a href="/2023/01/10/%E6%9C%88%E4%BA%AE%E5%BF%98%E8%A8%98%E4%BA%86/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">月亮忘記了</h5>
+                
+                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
+                
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2023/01/06/%E5%AF%82%E5%AF%9E%E5%B8%B6%E6%88%91%E5%8E%BB%E6%95%A3%E6%AD%A5/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">寂寞帶我去散步</h5>
+                
+                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
+                
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"还是那么爱听别人说故事和碎碎念。多情，率性，幽默又总是流露出寂寞，阿升就像潮乎乎湿哒哒的水汽一般，真是迷人呐......"</p>
+              
+            </div>
+          </a>
+          
+          <a href="/2023/01/03/%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">小镇喧嚣</h5>
+                
+                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
+                
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"奢求一个对当今乡镇状况如此细致客观的研究"</p>
+              
+            </div>
+          </a>
+          
+          <a href="/2023/01/02/%E3%83%AB%E3%83%83%E3%82%AF%E3%83%90%E3%83%83%E3%82%AF/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">ルックバック</h5>
+                
+                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
+                
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+            </div>
+          </a>
+          
+        </div>
+      </section>
+
+    
+
+    
+    
+    <nav class="pagination" style="margin-bottom:48px;">
+      <a class="extend prev" rel="prev" href="/traces/">← Prev</a><a class="page-number" href="/traces/">1</a><span class="page-number current">2</span><a class="page-number" href="/traces/page/3/">3</a><a class="page-number" href="/traces/page/4/">4</a><a class="extend next" rel="next" href="/traces/page/3/">Next →</a>
+    </nav>
+    
+
+    <!-- Editor's Note -->
+    <div style="position:relative;padding:32px;background:var(--color-surface-container);border:2px solid var(--color-primary);border-radius:8px;margin-bottom:64px;overflow:hidden;">
+      <div style="position:absolute;inset-y:0;right:0;width:32px;background-image:radial-gradient(var(--color-primary) 0.5px,transparent 0.5px);background-size:4px 4px;opacity:0.1;pointer-events:none;"></div>
+      <h6 style="font-family:var(--font-label);font-size:16px;font-weight:500;color:var(--color-primary);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
+        <span class="material-symbols-outlined" style="font-size:18px;">edit_note</span>
+        Editor's Note
+      </h6>
+      <p style="font-family:var(--font-label);font-size:16px;font-weight:500;line-height:1.6;color:var(--color-on-surface-variant);">
+        
+          If anything here resonates, <a href="/about" style="color:var(--color-primary);text-decoration:underline;text-decoration-color:var(--color-secondary-container);text-underline-offset:3px;">buy me a coffee</a> — no pressure, just a friendly nudge :)
+        
+      </p>
+    </div>
+
+    <script>
+    let currentType = 'book';
+    let currentQuery = '';
+
+    function applyFilters() {
+      document.querySelectorAll('.trace-card').forEach(card => {
+        const matchType = card.dataset.type === currentType;
+        const name = (card.querySelector('h4') || card.querySelector('h5') || {}).textContent || '';
+        const matchSearch = !currentQuery || name.toLowerCase().includes(currentQuery);
+        card.style.display = (matchType && matchSearch) ? '' : 'none';
+      });
+    }
+
+    function filterTraces(type, btn) {
+      currentType = type;
+      document.querySelectorAll('.trace-filter-btn').forEach(b => {
+        b.style.background = 'none';
+        b.style.color = 'var(--color-on-surface-variant)';
+        b.style.borderRadius = '12px';
+        b.classList.remove('active');
+      });
+      btn.style.background = btn.dataset.color || 'var(--color-tertiary-fixed)';
+      btn.style.color = '#fff';
+      btn.style.borderRadius = '9999px';
+      btn.classList.add('active');
+      applyFilters();
+    }
+
+    function searchTraces() {
+      currentQuery = document.getElementById('traces-search').value.toLowerCase().trim();
+      applyFilters();
+    }
+
+    // 页面初始加载即按默认类型筛选
+    applyFilters();
+    </script>
+
+  </div>
+</main>
+
+
+  <!-- ── Footer ── -->
+  
+
+<footer class="site-footer">
+  <div class="container">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <img src="/images/logo.png" ... style="height:32px;width:auto;mix-blend-mode:multiply;"/>
+      <p class="footer-copy">© 2026 Yoka. Handcrafted with care and caffeine.</p>
+    </div>
+
+    <!-- Icon row：RedNote / GitHub / Email -->
+    <div class="footer-icons">
+      
+        <a class="footer-icon pastel-wash-pink" href="https://xhslink.com/m/4Vj9GcC5PAY" target="_blank" rel="noopener" title="RedNote">
+          <span class="material-symbols-outlined" style="font-size:16px;">bookmark</span>
+        </a>
+      
+      
+        <a class="footer-icon pastel-wash-mint" href="https://github.com/jintianbaihe" target="_blank" rel="noopener" title="GitHub">
+          <span class="material-symbols-outlined" style="font-size:16px;">code</span>
+        </a>
+      
+      
+        <a class="footer-icon pastel-wash-lavender" href="mailto:jintianbaihe@outlook.com" title="Email">
+          <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
+        </a>
+      
+    </div>
+
+  </div>
+</footer>
+
+
+  <!-- Theme JS -->
+  
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
