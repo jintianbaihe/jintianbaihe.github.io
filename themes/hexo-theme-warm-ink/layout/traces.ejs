@@ -8,8 +8,8 @@
     music:  { type: 'music', icon: 'music_note',      label: 'Music', color: '#a0a8c0', tagBg: 'rgba(228,226,225,0.3)' },
   };
 
-  /* ── Get trace posts ── */
-  const tracePosts = site.posts.toArray().filter(post => {
+  /* ── 全部 traces 文章（用于统计 + 钉选，不随分页变化）── */
+  const allTracePosts = site.posts.toArray().filter(post => {
     if (!post.categories || !post.categories.data || !post.categories.data.length) return false;
     return post.categories.data.some(cat => traceCats.includes(cat.name));
   }).sort((a, b) => b.date - a.date);
@@ -22,8 +22,12 @@
     return null;
   }
 
-  const pinned = tracePosts.filter(p => p.pinned);
-  const recent = tracePosts.filter(p => !p.pinned);
+  const pinned = allTracePosts.filter(p => p.pinned);
+
+  /* ── 当前分页文章（由 traces-generator 提供，排除钉选避免重复）── */
+  const pagePosts = page.posts && page.posts.toArray ? page.posts.toArray() : (Array.isArray(page.posts) ? page.posts : []);
+  const pinnedIds = new Set(pinned.map(p => p._id));
+  const recent = pagePosts.filter(p => !pinnedIds.has(p._id));
 
   /* ── Tag background colors pool ── */
   const tagColors = [
@@ -62,7 +66,7 @@
       <% }) %>
     </div>
 
-    <% if (tracePosts.length === 0) { %>
+    <% if (allTracePosts.length === 0) { %>
       <!-- Empty state -->
       <section style="text-align:center;padding:64px 0;margin-bottom:64px;">
         <span class="material-symbols-outlined" style="font-size:64px;color:var(--color-outline-variant);">auto_stories</span>
@@ -155,6 +159,13 @@
 
     <% } %>
 
+    <% /* ── Pagination（超过 10 条才显示）── */ %>
+    <% if (page.total > 1) { %>
+    <nav class="pagination" style="margin-bottom:48px;">
+      <%- paginator({ prev_text: '← Prev', next_text: 'Next →', mid_size: 2 }) %>
+    </nav>
+    <% } %>
+
     <!-- Editor's Note -->
     <div style="position:relative;padding:32px;background:var(--color-surface-container);border:2px solid var(--color-primary);border-radius:8px;margin-bottom:64px;overflow:hidden;">
       <div style="position:absolute;inset-y:0;right:0;width:32px;background-image:radial-gradient(var(--color-primary) 0.5px,transparent 0.5px);background-size:4px 4px;opacity:0.1;pointer-events:none;"></div>
@@ -163,9 +174,8 @@
         Editor's Note
       </h6>
       <p style="font-family:var(--font-label);font-size:16px;font-weight:500;line-height:1.6;color:var(--color-on-surface-variant);">
-        <% if (tracePosts.length > 0) { %>
-          Currently tracking <strong><%= tracePosts.length %></strong> entries
-          <% if (pinned.length > 0) { %>&mdash;<strong><%= pinned.length %></strong> pinned as all-time favorites.<% } else { %>.<% } %>
+        <% if (allTracePosts.length > 0) { %>
+          If anything here resonates, <a href="/about" style="color:var(--color-primary);text-decoration:underline;text-decoration-color:var(--color-secondary-container);text-underline-offset:3px;">buy me a coffee</a> — no pressure, just a friendly nudge :)
         <% } else { %>
           A space slowly filling with books, films, music, and games. Check back soon.
         <% } %>
@@ -204,6 +214,9 @@
       currentQuery = document.getElementById('traces-search').value.toLowerCase().trim();
       applyFilters();
     }
+
+    // 页面初始加载即按默认类型筛选
+    applyFilters();
     </script>
 
   </div>

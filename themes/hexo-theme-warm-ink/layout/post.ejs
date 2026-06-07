@@ -42,7 +42,6 @@
     director:  { icon: 'movie',           label: 'Director' },
     artist:    { icon: 'artist',          label: 'Artist' },
     developer: { icon: 'sports_esports',  label: 'Developer' },
-    published: { icon: 'calendar_today',  label: 'Published' },
     release:   { icon: 'calendar_today',  label: 'Release' },
     publisher: { icon: 'business',        label: 'Publisher' },
     label:     { icon: 'album',           label: 'Label' },
@@ -108,6 +107,16 @@
           <span style="opacity:0.85;"><%= m.value %></span>
         </span>
       <% }) %>
+    </div>
+    <% } %>
+
+    <% /* ── 豆瓣链接 ── */ %>
+    <% if (isTracePost && post.douban) { %>
+    <div style="margin-bottom:24px;">
+      <a href="<%= post.douban %>" target="_blank" rel="noopener" style="font-family:var(--font-label);font-size:13px;color:var(--color-on-surface-variant);text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:color 0.2s;" onmouseenter="this.style.color='var(--color-primary)'" onmouseleave="this.style.color='var(--color-on-surface-variant)'">
+        <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+        查看更多 on Douban
+      </a>
     </div>
     <% } %>
 

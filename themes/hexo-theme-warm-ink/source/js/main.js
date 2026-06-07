@@ -4,77 +4,58 @@
   'use strict';
 
   // ── Mobile nav toggle ──────────────────────────────────────────
-  const menuBtn = document.querySelector('.nav-menu-btn');
-  const mobileNav = document.querySelector('.mobile-nav');
+  var menuBtn = document.querySelector('.nav-menu-btn');
+  var mobileNav = document.querySelector('.mobile-nav');
   if (menuBtn && mobileNav) {
-    menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click', function () {
       mobileNav.classList.toggle('open');
-      const icon = menuBtn.querySelector('.material-symbols-outlined');
+      var icon = menuBtn.querySelector('.material-symbols-outlined');
       if (icon) icon.textContent = mobileNav.classList.contains('open') ? 'close' : 'menu';
     });
   }
 
   // ── Hero parallax (index page only) ───────────────────────────
-  const heroImg = document.querySelector('.hero-image-frame img');
+  var heroImg = document.querySelector('.hero-image-frame img');
   if (heroImg) {
-    document.addEventListener('mousemove', (e) => {
-      const moveX = (e.clientX - window.innerWidth  / 2) / 60;
-      const moveY = (e.clientY - window.innerHeight / 2) / 60;
-      heroImg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    document.addEventListener('mousemove', function (e) {
+      var moveX = (e.clientX - window.innerWidth  / 2) / 60;
+      var moveY = (e.clientY - window.innerHeight / 2) / 60;
+      heroImg.style.transform = 'translate(' + moveX + 'px, ' + moveY + 'px)';
     });
   }
 
-  // ── 分类筛选（Notes 页面） — 如果页面有 applyNotesFilters 则委托 ──
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const postItems  = document.querySelectorAll('.post-item');
-
+  // ── 分类筛选（Notes 页面）—— 优先委托页面内联脚本 ─────────────
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var postItems  = document.querySelectorAll('.post-item');
   if (filterBtns.length && postItems.length && typeof window.applyNotesFilters !== 'function') {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-
-        const category = btn.dataset.category || 'all';
-
-        postItems.forEach(item => {
-          const itemCat = item.dataset.category || 'all';
-          if (category === 'all' || itemCat === category) {
-            item.style.display = '';
-          } else {
-            item.style.display = 'none';
-          }
+        var category = btn.dataset.category || 'all';
+        postItems.forEach(function (item) {
+          var itemCat = item.dataset.category || 'all';
+          item.style.display = (category === 'all' || itemCat === category) ? '' : 'none';
         });
       });
     });
   }
 
-  // ── Smooth scroll for anchor links ────────────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
+  // ── Same-page anchor smooth scroll ─────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var el = document.querySelector(a.getAttribute('href'));
+      if (el) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 
-  // ── Newsletter form (basic client-side guard) ──────────────────
-  const newsletterForm = document.querySelector('.newsletter-form');
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-      const input = newsletterForm.querySelector('.newsletter-input');
-      if (!input || !input.value.includes('@')) {
-        e.preventDefault();
-        input && input.focus();
-      }
-    });
-  }
-
   // ── Highlight current nav link ─────────────────────────────────
-  const currentPath = window.location.pathname;
-  document.querySelectorAll('.site-nav a, .mobile-nav a').forEach(link => {
-    const href = link.getAttribute('href');
+  var currentPath = window.location.pathname;
+  document.querySelectorAll('.site-nav a, .mobile-nav a').forEach(function (link) {
+    var href = link.getAttribute('href');
     if (href && href !== '/' && currentPath.startsWith(href)) {
       link.classList.add('active');
     } else if (href === '/' && currentPath === '/') {

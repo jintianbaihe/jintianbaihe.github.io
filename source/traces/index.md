@@ -1,4 +1,0 @@
----
-title: Traces
-layout: traces
----

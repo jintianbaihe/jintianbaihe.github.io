@@ -4,6 +4,14 @@
   /* 与 traces 页面互斥的分类 — notes 页面不展示这些 */
   const traceCats = ['books', 'movies', 'games', 'music'];
 
+  /* 全部可见 notes 文章总数（用于判断是否需要分页） */
+  const totalNotes = site.posts.toArray().filter(post => {
+    if (post.categories && post.categories.data && post.categories.data.length) {
+      return !post.categories.data.some(c => traceCats.includes(c.name.toLowerCase()));
+    }
+    return true;
+  }).length;
+
   /* 预设分类标签 */
   const categoryConfig = {
     all:     { label: 'All Entries', color: 'var(--color-primary)' },
@@ -87,8 +95,8 @@
       <% }) %>
     </div>
 
-    <!-- ── Pagination ── -->
-    <% if (page.total > 1) { %>
+    <!-- ── Pagination（内容超过 10 条才显示）── -->
+    <% if (page.total > 1 && totalNotes > 10) { %>
     <nav class="pagination">
       <%- paginator({ prev_text: '← Prev', next_text: 'Next →', mid_size: 2 }) %>
     </nav>
