@@ -42,13 +42,13 @@
     <!-- Desktop nav -->
     <nav class="site-nav">
       
-        <a href="/traces">Traces</a>
+        <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
       
-        <a href="/notes">Notes</a>
+        <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
       
-        <a href="/projects">Projects</a>
+        <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
       
-        <a href="/about">About Me</a>
+        <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
       
     </nav>
 
@@ -62,13 +62,13 @@
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
     
-      <a href="/traces">Traces</a>
+      <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
     
-      <a href="/notes">Notes</a>
+      <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
     
-      <a href="/projects">Projects</a>
+      <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
     
-      <a href="/about">About Me</a>
+      <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
     
   </nav>
 </header>
@@ -99,19 +99,19 @@
     <!-- Category filters -->
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;">
       
-        <button onclick="filterTraces('book',this)" class="trace-filter-btn active" data-color="#c4a07c" style="display:flex;align-items:center;gap:6px;color:#fff;border-radius:9999px;background:#c4a07c;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+        <button onclick="filterTraces('book',this)" class="trace-filter-btn active" data-color="var(--macaron-orange)" style="display:flex;align-items:center;gap:6px;color:#fff;border-radius:9999px;background:var(--macaron-orange);padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
           <span class="material-symbols-outlined" style="font-size:18px;">auto_stories</span> Books
         </button>
       
-        <button onclick="filterTraces('film',this)" class="trace-filter-btn" data-color="#8a9b8b" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+        <button onclick="filterTraces('film',this)" class="trace-filter-btn" data-color="var(--macaron-blue)" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
           <span class="material-symbols-outlined" style="font-size:18px;">movie</span> Films
         </button>
       
-        <button onclick="filterTraces('game',this)" class="trace-filter-btn" data-color="#b08a9b" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+        <button onclick="filterTraces('game',this)" class="trace-filter-btn" data-color="var(--macaron-green)" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
           <span class="material-symbols-outlined" style="font-size:18px;">sports_esports</span> Games
         </button>
       
-        <button onclick="filterTraces('music',this)" class="trace-filter-btn" data-color="#a0a8c0" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+        <button onclick="filterTraces('music',this)" class="trace-filter-btn" data-color="var(--macaron-pink)" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
           <span class="material-symbols-outlined" style="font-size:18px;">music_note</span> Music
         </button>
       
@@ -129,8 +129,10 @@
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
           
           <a href="/2025/10/15/%E6%B5%81%E4%BF%97%E5%9C%B0/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
-            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
-              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+              <!-- 便签顶部小横条（模拟便签本撕边） -->
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 
                   <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
                 
@@ -138,16 +140,15 @@
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
                 
               </div>
-              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">流俗地</h4>
-              
-                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">10.0/10.0</span>
-              
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;">流俗地</h4>
             </div>
           </a>
           
-          <a href="/2023/01/02/%E6%B5%AA%E5%AE%A2%E8%A1%8C-1/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
-            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
-              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+          <a href="/2023/01/02/%E6%B5%AA%E5%AE%A2%E8%A1%8C/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+              <!-- 便签顶部小横条（模拟便签本撕边） -->
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 
                   <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
                 
@@ -155,16 +156,15 @@
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
                 
               </div>
-              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">浪客行</h4>
-              
-                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">10.0/10.0</span>
-              
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;">浪客行</h4>
             </div>
           </a>
           
           <a href="/2022/12/31/%E6%8E%A8%E6%8B%BF/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
-            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
-              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+              <!-- 便签顶部小横条（模拟便签本撕边） -->
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 
                   <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
                 
@@ -172,16 +172,15 @@
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
                 
               </div>
-              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">推拿</h4>
-              
-                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">10.0/10.0</span>
-              
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;">推拿</h4>
             </div>
           </a>
           
           <a href="/2022/01/16/%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
-            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
-              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+              <!-- 便签顶部小横条（模拟便签本撕边） -->
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 
                   <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
                 
@@ -189,16 +188,15 @@
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
                 
               </div>
-              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">我与地坛</h4>
-              
-                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">10.0/10.0</span>
-              
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;">我与地坛</h4>
             </div>
           </a>
           
           <a href="/2022/01/16/%E8%8D%92%E5%8E%9F%E7%8B%BC/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
-            <div class="hand-drawn-border" style="background:var(--color-surface);box-shadow:4px 4px 0 var(--color-primary);padding:12px;transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
-              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:4px;border:1px solid rgba(26,26,26,0.1);background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+              <!-- 便签顶部小横条（模拟便签本撕边） -->
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 
                   <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
                 
@@ -206,10 +204,7 @@
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
                 
               </div>
-              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:2px;">荒原狼</h4>
-              
-                <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:var(--color-on-surface-variant);">10.0/10.0</span>
-              
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;">荒原狼</h4>
             </div>
           </a>
           
@@ -236,17 +231,14 @@
             <div style="flex:1;">
               <div style="display:flex;align-items:center;justify-content:space-between;">
                 <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">Promises</h5>
-                
-                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">8.5/10.0</span>
-                
               </div>
               <div style="display:flex;gap:8px;margin:4px 0;">
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(208,233,216,0.4);font-family:var(--font-label);">Ambient</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">Ambient</span>
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(248,216,219,0.4);font-family:var(--font-label);">Jazz</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-pink);font-family:var(--font-label);">Jazz</span>
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(222,191,194,0.4);font-family:var(--font-label);">Electronic</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-mint);font-family:var(--font-label);">Electronic</span>
                 
               </div>
               
@@ -264,17 +256,14 @@
             <div style="flex:1;">
               <div style="display:flex;align-items:center;justify-content:space-between;">
                 <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">Tunic</h5>
-                
-                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">9.0/10.0</span>
-                
               </div>
               <div style="display:flex;gap:8px;margin:4px 0;">
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(208,233,216,0.4);font-family:var(--font-label);">Puzzle</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">Puzzle</span>
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(248,216,219,0.4);font-family:var(--font-label);">Adventure</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-pink);font-family:var(--font-label);">Adventure</span>
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(222,191,194,0.4);font-family:var(--font-label);">Indie</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-mint);font-family:var(--font-label);">Indie</span>
                 
               </div>
               
@@ -292,15 +281,12 @@
             <div style="flex:1;">
               <div style="display:flex;align-items:center;justify-content:space-between;">
                 <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">Aftersun</h5>
-                
-                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">9.0/10.0</span>
-                
               </div>
               <div style="display:flex;gap:8px;margin:4px 0;">
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(208,233,216,0.4);font-family:var(--font-label);">Indie</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">Indie</span>
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(248,216,219,0.4);font-family:var(--font-label);">Drama</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-pink);font-family:var(--font-label);">Drama</span>
                 
               </div>
               
@@ -318,17 +304,14 @@
             <div style="flex:1;">
               <div style="display:flex;align-items:center;justify-content:space-between;">
                 <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">一一</h5>
-                
-                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
-                
               </div>
               <div style="display:flex;gap:8px;margin:4px 0;">
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(208,233,216,0.4);font-family:var(--font-label);">Drama</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">Drama</span>
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(248,216,219,0.4);font-family:var(--font-label);">Romance</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-pink);font-family:var(--font-label);">Romance</span>
                 
-                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:rgba(222,191,194,0.4);font-family:var(--font-label);">Family</span>
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-mint);font-family:var(--font-label);">Family</span>
                 
               </div>
               
@@ -346,9 +329,6 @@
             <div style="flex:1;">
               <div style="display:flex;align-items:center;justify-content:space-between;">
                 <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">CITY OF ANGELS</h5>
-                
-                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
-                
               </div>
               <div style="display:flex;gap:8px;margin:4px 0;">
                 
@@ -368,9 +348,6 @@
             <div style="flex:1;">
               <div style="display:flex;align-items:center;justify-content:space-between;">
                 <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">社会心理学（第11版，精装彩印）</h5>
-                
-                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
-                
               </div>
               <div style="display:flex;gap:8px;margin:4px 0;">
                 
@@ -390,9 +367,6 @@
             <div style="flex:1;">
               <div style="display:flex;align-items:center;justify-content:space-between;">
                 <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">太白金星有点烦</h5>
-                
-                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
-                
               </div>
               <div style="display:flex;gap:8px;margin:4px 0;">
                 
@@ -410,9 +384,6 @@
             <div style="flex:1;">
               <div style="display:flex;align-items:center;justify-content:space-between;">
                 <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">在细雨中呼喊</h5>
-                
-                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
-                
               </div>
               <div style="display:flex;gap:8px;margin:4px 0;">
                 
@@ -432,9 +403,6 @@
             <div style="flex:1;">
               <div style="display:flex;align-items:center;justify-content:space-between;">
                 <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">经济学的思维方式</h5>
-                
-                  <span style="font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--color-primary);">10.0/10.0</span>
-                
               </div>
               <div style="display:flex;gap:8px;margin:4px 0;">
                 
@@ -537,7 +505,7 @@
         </a>
       
       
-        <a class="footer-icon pastel-wash-lavender" href="mailto:jintianbaihe@outlook.com" title="Email">
+        <a class="footer-icon pastel-wash-blue" href="mailto:jintianbaihe@outlook.com" title="Email">
           <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
         </a>
       

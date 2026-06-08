@@ -42,13 +42,13 @@
     <!-- Desktop nav -->
     <nav class="site-nav">
       
-        <a href="/traces">Traces</a>
+        <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
       
-        <a href="/notes">Notes</a>
+        <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
       
-        <a href="/projects">Projects</a>
+        <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
       
-        <a href="/about">About Me</a>
+        <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
       
     </nav>
 
@@ -62,13 +62,13 @@
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
     
-      <a href="/traces">Traces</a>
+      <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
     
-      <a href="/notes">Notes</a>
+      <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
     
-      <a href="/projects">Projects</a>
+      <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
     
-      <a href="/about">About Me</a>
+      <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
     
   </nav>
 </header>
@@ -113,9 +113,9 @@
 
     <!-- ════ Trait Cards ════ -->
     <section style="display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:64px;">
-      <!-- Card 1 — Mint -->
-      <div class="hand-drawn-border" style="position:relative;padding:28px;background:rgba(208,233,216,0.25);box-shadow:3px 3px 0 var(--color-tertiary-fixed-dim);transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
-        <div style="position:absolute;top:-8px;right:16px;width:36px;height:10px;background:var(--color-tertiary-fixed);opacity:0.9;transform:rotate(-12deg);border-radius:2px;"></div>
+      <!-- Card 1 — Mint (green) -->
+      <div class="hand-drawn-border" style="position:relative;padding:28px;background:var(--pastel-mint);box-shadow:3px 3px 0 var(--macaron-green);transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+        <div style="position:absolute;top:-8px;right:16px;width:36px;height:10px;background:var(--macaron-green);opacity:0.5;transform:rotate(-12deg);border-radius:2px;"></div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
           <span class="material-symbols-outlined" style="color:var(--color-primary);font-variation-settings:'FILL' 1;font-size:22px;">terminal</span>
           <h3 style="font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--color-primary);">Digital Craft</h3>
@@ -126,8 +126,8 @@
       </div>
 
       <!-- Card 2 — Pink -->
-      <div class="hand-drawn-border" style="position:relative;padding:28px;background:rgba(248,216,219,0.25);box-shadow:3px 3px 0 var(--color-secondary-fixed-dim);transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
-        <div style="position:absolute;top:-8px;right:16px;width:36px;height:10px;background:var(--color-secondary-fixed);opacity:0.9;transform:rotate(-12deg);border-radius:2px;"></div>
+      <div class="hand-drawn-border" style="position:relative;padding:28px;background:var(--pastel-pink);box-shadow:3px 3px 0 var(--macaron-pink);transition:transform 0.2s;" onmouseenter="this.style.transform='translate(-2px,-2px)'" onmouseleave="this.style.transform=''">
+        <div style="position:absolute;top:-8px;right:16px;width:36px;height:10px;background:var(--macaron-pink);opacity:0.5;transform:rotate(-12deg);border-radius:2px;"></div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
           <span class="material-symbols-outlined" style="color:var(--color-primary);font-variation-settings:'FILL' 1;font-size:22px;">face_6</span>
           <h3 style="font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--color-primary);">Human Centric</h3>
@@ -140,7 +140,7 @@
 
     <!-- ════ Quote ════ -->
     <section style="margin-bottom:64px;">
-      <div style="padding:32px;background:rgba(222,191,194,0.15);border-left:4px solid var(--color-secondary-fixed-dim);position:relative;">
+      <div style="padding:32px;background:var(--pastel-blue);border-left:4px solid var(--macaron-blue);position:relative;">
         <div style="position:absolute;top:12px;right:16px;opacity:0.08;">
           <span class="material-symbols-outlined" style="font-size:56px;">format_quote</span>
         </div>
@@ -152,33 +152,39 @@
 
     <!-- ════ ☕ Buy Me a Coffee ════ -->
     
-    <section style="margin-bottom:64px;text-align:center;">
-      <div style="padding:48px 24px;background:linear-gradient(180deg, rgba(248,216,219,0.18) 0%, rgba(208,233,216,0.10) 100%);border-radius:12px;">
-        <span class="material-symbols-outlined" style="font-size:32px;color:#d4a574;">coffee</span>
-        <h2 style="font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--color-primary);margin:12px 0 6px;">Buy Me a Coffee</h2>
-        <p style="font-family:var(--font-body);font-size:13px;line-height:1.6;color:var(--color-on-surface-variant);max-width:320px;margin:0 auto 20px;">
-          If you enjoy my work, a little coffee goes a long way.
-        </p>
+    <section style="margin-bottom:64px;">
+      <div style="padding:40px 28px;background:var(--color-surface-container-low);border-radius:8px;border-left:3px solid var(--macaron-orange);">
+        <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;">
+          <span class="material-symbols-outlined" style="font-size:24px;color:var(--macaron-orange);flex-shrink:0;margin-top:2px;">coffee</span>
+          <div>
+            <h2 style="font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--color-primary);margin-bottom:8px;">Buy Me a Coffee</h2>
+            <p style="font-family:var(--font-body);font-size:15px;line-height:1.7;color:var(--color-on-surface-variant);max-width:520px;">
+              If you find this helpful, consider buying me a coffee — all sponsors can leave an email and a wish in the note, and I&rsquo;ll send a random digital resource or a personal reply based on it. Thanks for your support!
+            </p>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding-left:40px;">
+          
+          
+        </div>
 
         
-        
-
-        
-          <div style="display:flex;justify-content:center;gap:24px;margin-top:24px;">
+          <div style="display:flex;justify-content:flex-start;gap:24px;margin-top:20px;padding-left:40px;">
             
               <div style="text-align:center;">
-                <div style="width:108px;height:108px;padding:6px;background:#fff;border-radius:12px;display:inline-block;">
-                  <img src="/images/donates/wechat-qr.jpg" alt="WeChat" style="width:100%;height:100%;object-fit:contain;border-radius:8px;" />
+                <div class="hand-drawn-border" style="width:100px;height:100px;padding:5px;background:#fff;display:inline-block;">
+                  <img src="/images/donates/wechat-qr.jpg" alt="WeChat" style="width:100%;height:100%;object-fit:contain;" />
                 </div>
-                <span style="display:block;font-family:var(--font-label);font-size:11px;color:var(--color-on-surface-variant);margin-top:6px;opacity:0.7;">WeChat</span>
+                <span style="display:block;font-family:var(--font-label);font-size:12px;color:var(--color-on-surface-variant);margin-top:6px;">WeChat</span>
               </div>
             
             
               <div style="text-align:center;">
-                <div style="width:108px;height:108px;padding:6px;background:#fff;border-radius:12px;display:inline-block;">
-                  <img src="/images/donates/alipay-qr.jpg" alt="Alipay" style="width:100%;height:100%;object-fit:contain;border-radius:8px;" />
+                <div class="hand-drawn-border" style="width:100px;height:100px;padding:5px;background:#fff;display:inline-block;">
+                  <img src="/images/donates/alipay-qr.jpg" alt="Alipay" style="width:100%;height:100%;object-fit:contain;" />
                 </div>
-                <span style="display:block;font-family:var(--font-label);font-size:11px;color:var(--color-on-surface-variant);margin-top:6px;opacity:0.7;">Alipay</span>
+                <span style="display:block;font-family:var(--font-label);font-size:12px;color:var(--color-on-surface-variant);margin-top:6px;">Alipay</span>
               </div>
             
           </div>
@@ -194,7 +200,7 @@
 
         
         <a href="https://xhslink.com/m/4Vj9GcC5PAY" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:15px;color:var(--color-on-surface-variant);text-decoration:none;padding:8px 0;transition:color 0.2s;" onmouseenter="this.style.color='var(--color-primary)'" onmouseleave="this.style.color='var(--color-on-surface-variant)'">
-          <span style="width:34px;height:34px;border-radius:50%;background:rgba(248,216,219,0.35);display:flex;align-items:center;justify-content:center;">
+          <span style="width:34px;height:34px;border-radius:50%;background:var(--pastel-orange);display:flex;align-items:center;justify-content:center;">
             <span class="material-symbols-outlined" style="font-size:18px;">bookmark</span>
           </span>
           RedNote
@@ -203,7 +209,7 @@
 
         
         <a href="https://github.com/jintianbaihe" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:15px;color:var(--color-on-surface-variant);text-decoration:none;padding:8px 0;transition:color 0.2s;" onmouseenter="this.style.color='var(--color-primary)'" onmouseleave="this.style.color='var(--color-on-surface-variant)'">
-          <span style="width:34px;height:34px;border-radius:50%;background:rgba(208,233,216,0.35);display:flex;align-items:center;justify-content:center;">
+          <span style="width:34px;height:34px;border-radius:50%;background:var(--pastel-mint);display:flex;align-items:center;justify-content:center;">
             <span class="material-symbols-outlined" style="font-size:18px;">code</span>
           </span>
           GitHub
@@ -212,7 +218,7 @@
 
         
         <a href="mailto:jintianbaihe@outlook.com" style="display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:15px;color:var(--color-on-surface-variant);text-decoration:none;padding:8px 0;transition:color 0.2s;" onmouseenter="this.style.color='var(--color-primary)'" onmouseleave="this.style.color='var(--color-on-surface-variant)'">
-          <span style="width:34px;height:34px;border-radius:50%;background:rgba(222,191,194,0.35);display:flex;align-items:center;justify-content:center;">
+          <span style="width:34px;height:34px;border-radius:50%;background:var(--pastel-blue);display:flex;align-items:center;justify-content:center;">
             <span class="material-symbols-outlined" style="font-size:18px;">mail</span>
           </span>
           jintianbaihe@outlook.com
@@ -251,7 +257,7 @@
         </a>
       
       
-        <a class="footer-icon pastel-wash-lavender" href="mailto:jintianbaihe@outlook.com" title="Email">
+        <a class="footer-icon pastel-wash-blue" href="mailto:jintianbaihe@outlook.com" title="Email">
           <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
         </a>
       

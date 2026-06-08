@@ -52,14 +52,29 @@
     });
   });
 
-  // ── Highlight current nav link ─────────────────────────────────
+  // ── Highlight current nav link + macaron accent color ──────────
   var currentPath = window.location.pathname;
   document.querySelectorAll('.site-nav a, .mobile-nav a').forEach(function (link) {
     var href = link.getAttribute('href');
+    var accent = link.getAttribute('data-accent') || '';
     if (href && href !== '/' && currentPath.startsWith(href)) {
       link.classList.add('active');
+      if (accent) link.style.borderBottomColor = accent;
     } else if (href === '/' && currentPath === '/') {
       link.classList.add('active');
+    }
+  });
+
+  // ── Pagination: 4-color cycle + smaller ────────────────────────
+  var macarons = ['var(--macaron-orange)', 'var(--macaron-pink)', 'var(--macaron-green)', 'var(--macaron-blue)'];
+  document.querySelectorAll('.pagination .page-number').forEach(function (el, i) {
+    var c = macarons[i % 4];
+    if (el.classList.contains('current')) {
+      el.style.background = c;
+      el.style.borderColor = c;
+    } else {
+      el.addEventListener('mouseenter', function () { el.style.background = c; el.style.borderColor = c; el.style.color = '#fff'; });
+      el.addEventListener('mouseleave', function () { el.style.background = ''; el.style.borderColor = ''; el.style.color = ''; });
     }
   });
 
