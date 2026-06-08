@@ -35,10 +35,10 @@ author:
 
 # 首页 Hero 区域
 hero:
-  greeting: "Hi!"
-  title_prefix: "Hi, I'm"
+  greeting: "Hello!"
+  title_prefix: "Hello, I'm"
   highlight_name: "Yoka"
-  title_suffix: ". Welcome to my little world."
+  title_suffix: ". Welcome to my little world ~"
   description: "Here you'll find: my random thoughts, my daydreams, my tutorials, my creations, my book/movie/music/game diaries... Hope you feel at home here!"
   image: /images/hero.jpg
   image_alt: "Author portrait"
@@ -50,7 +50,7 @@ bento_cards:
     link: /traces
     link_text: "See Log"
     icon: "album"
-    color: "lavender"
+    color: "blue"
   - title: "Notes"
     desc: "Long-form essays on design philosophy, intentionality, and the slow web."
     link: /notes
@@ -62,13 +62,13 @@ bento_cards:
     link: /projects
     link_text: "View Projects"
     icon: "brush"
-    color: "pink"
+    color: "orange"
   - title: "About Me"
     desc: "My journey from ink to bits, and why I still prefer a fountain pen."
     link: /about
     link_text: "My Story"
     icon: "favorite"
-    color: "secondary"
+    color: "pink"
 
 # Newsletter — 目前导航栏无 Subscribe 入口，以下配置暂不生效
 # newsletter:

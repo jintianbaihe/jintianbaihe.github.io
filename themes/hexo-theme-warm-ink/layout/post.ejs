@@ -60,10 +60,6 @@
         traceMeta.push({ key, value: post[key], icon: metaFieldMap[key].icon, label: metaFieldMap[key].label });
       }
     });
-    // 如果有 rating，追加在最前面（保留一位小数）
-    if (post.rating !== undefined && post.rating !== '') {
-      traceMeta.unshift({ key: 'rating', value: parseFloat(post.rating).toFixed(1) + '/10.0', icon: 'star', label: 'Rating' });
-    }
   }
 %>
 

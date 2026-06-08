@@ -2,6 +2,13 @@
   /* 取主题配置里的菜单，兼容 hexo 风格 */
   const themeMenu = theme.menu || {};
   const blogName  = theme.blog_name || config.title || 'Ink & Paper';
+  /* 页面 → 马卡龙色映射 */
+  const navAccent = {
+    '/traces':   'var(--macaron-blue)',
+    '/notes':    'var(--macaron-green)',
+    '/projects': 'var(--macaron-orange)',
+    '/about':    'var(--macaron-pink)',
+  };
 %>
 
 <header class="site-header">
@@ -14,8 +21,11 @@
 
     <!-- Desktop nav -->
     <nav class="site-nav">
-      <% Object.keys(themeMenu).forEach(name => { %>
-        <a href="<%- url_for(themeMenu[name]) %>"><%= name %></a>
+      <% Object.keys(themeMenu).forEach(name => {
+        const href = url_for(themeMenu[name]);
+        const accent = navAccent[themeMenu[name]] || '';
+      %>
+        <a href="<%- href %>" data-accent="<%= accent %>"><%= name %></a>
       <% }) %>
     </nav>
 
@@ -28,8 +38,11 @@
 
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
-    <% Object.keys(themeMenu).forEach(name => { %>
-      <a href="<%- url_for(themeMenu[name]) %>"><%= name %></a>
+    <% Object.keys(themeMenu).forEach(name => {
+      const href = url_for(themeMenu[name]);
+      const accent = navAccent[themeMenu[name]] || '';
+    %>
+      <a href="<%- href %>" data-accent="<%= accent %>"><%= name %></a>
     <% }) %>
   </nav>
 </header>
