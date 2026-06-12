@@ -1,5 +1,4 @@
 <%
-  /* 取配置 */
   const hero       = theme.hero        || {};
   const bento      = theme.bento_cards || [];
   const posts      = page.posts;
@@ -10,6 +9,14 @@
     pink:   'pastel-wash-pink',
     mint:   'pastel-wash-mint',
     blue:   'pastel-wash-blue',
+  };
+
+  /* bento 卡片 link → i18n key 映射 */
+  const cardI18n = {
+    '/traces':   { title: 'nav.traces',   desc: 'cards.traces',   link: 'cards.tracesLink' },
+    '/notes':    { title: 'nav.notes',    desc: 'cards.notes',    link: 'cards.notesLink' },
+    '/projects': { title: 'nav.projects', desc: 'cards.projects', link: 'cards.projectsLink' },
+    '/about':    { title: 'nav.about',    desc: 'cards.about',    link: 'cards.aboutLink' },
   };
 
   /* 最新一篇文章作为 Featured */
@@ -24,14 +31,14 @@
 
       <!-- Text -->
       <div class="hero-text">
-        <span class="hero-badge"><%= hero.greeting || 'Hello!' %></span>
+        <span class="hero-badge" data-i18n="home.greeting"><%= hero.greeting || 'Hello!' %></span>
         <h1 class="hero-title">
-          <%= hero.title_prefix || "Hello, I'm" %>
-          <span class="scribble-underline"><%= hero.highlight_name || config.author %></span><span class="highlight"><%= hero.title_suffix || '. I craft stories with code.' %></span>
+          <span data-i18n="home.titlePrefix"><%= hero.title_prefix || "Hello, I'm" %></span>
+          <span class="scribble-underline"><%= hero.highlight_name || config.author %></span><span class="highlight" data-i18n="home.titleSuffix"><%= hero.title_suffix || '. Welcome to my little world ~' %></span>
         </h1>
-        <p class="hero-desc"><%= hero.description || config.description %></p>
+        <p class="hero-desc" data-i18n="home.desc"><%= hero.description || config.description %></p>
         <a href="#content" class="hero-scroll-link">
-          Scroll to explore my world
+          <span data-i18n="home.scroll">Scroll to explore my world</span>
           <span class="material-symbols-outlined">arrow_downward</span>
         </a>
       </div>
@@ -57,15 +64,17 @@
   <!-- ════ Bento Grid ════ -->
   <div class="container" id="content">
     <section class="bento-grid">
-      <% bento.forEach(card => { %>
+      <% bento.forEach(card => {
+        const i18n = cardI18n[card.link] || {};
+      %>
         <a href="<%- url_for(card.link) %>" class="bento-card hand-drawn-border active-press">
           <div class="bento-card-icon <%= colorMap[card.color] || 'pastel-wash-mint' %>">
             <span class="material-symbols-outlined text-primary"><%= card.icon %></span>
           </div>
-          <h3 class="bento-card-title"><%= card.title %></h3>
-          <p class="bento-card-desc"><%= card.desc %></p>
+          <h3 class="bento-card-title" data-i18n="<%= i18n.title || '' %>"><%= card.title %></h3>
+          <p class="bento-card-desc" data-i18n="<%= i18n.desc || '' %>"><%= card.desc %></p>
           <div class="bento-card-link">
-            <span><%= card.link_text %></span>
+            <span data-i18n="<%= i18n.link || '' %>"><%= card.link_text %></span>
             <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
           </div>
         </a>
@@ -78,9 +87,9 @@
   <div class="container">
     <section class="featured-section">
       <div class="featured-header">
-        <h2>Latest Scribble</h2>
+        <h2 data-i18n="home.latest">Latest Scribble</h2>
         <span class="featured-date">
-          Entry #<%= page.posts.length %> — <%= date(featured.date, 'MMMM D, YYYY') %>
+          <span data-i18n="home.entry">Entry #</span><%= page.posts.length %> — <%= date(featured.date, 'MMMM D, YYYY') %>
         </span>
       </div>
 
@@ -96,11 +105,11 @@
             <%= featured.excerpt ? strip_html(featured.excerpt).substring(0, 180) + '...' : '' %>
           </p>
           <span class="featured-read-more">
-            Continue reading
+            <span data-i18n="home.continue">Continue reading</span>
             <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
           </span>
         </div>
-        <div class="featured-sticky-note">"Essential reading"</div>
+        <div class="featured-sticky-note" data-i18n="home.essential">"Essential reading"</div>
       </a>
     </section>
   </div>

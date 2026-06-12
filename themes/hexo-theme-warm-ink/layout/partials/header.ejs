@@ -1,13 +1,17 @@
 <%
-  /* 取主题配置里的菜单，兼容 hexo 风格 */
   const themeMenu = theme.menu || {};
   const blogName  = theme.blog_name || config.title || 'Ink & Paper';
-  /* 页面 → 马卡龙色映射 */
   const navAccent = {
     '/traces':   'var(--macaron-blue)',
     '/notes':    'var(--macaron-green)',
     '/projects': 'var(--macaron-orange)',
     '/about':    'var(--macaron-pink)',
+  };
+  const navI18n = {
+    'Traces':   'nav.traces',
+    'Notes':    'nav.notes',
+    'Projects': 'nav.projects',
+    'About Me': 'nav.about',
   };
 %>
 
@@ -24,9 +28,17 @@
       <% Object.keys(themeMenu).forEach(name => {
         const href = url_for(themeMenu[name]);
         const accent = navAccent[themeMenu[name]] || '';
+        const i18nKey = navI18n[name] || '';
       %>
-        <a href="<%- href %>" data-accent="<%= accent %>"><%= name %></a>
+        <a href="<%- href %>" data-accent="<%= accent %>" data-i18n="<%= i18nKey %>"><%= name %></a>
       <% }) %>
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
     </nav>
 
     <!-- Mobile menu button -->
@@ -41,8 +53,16 @@
     <% Object.keys(themeMenu).forEach(name => {
       const href = url_for(themeMenu[name]);
       const accent = navAccent[themeMenu[name]] || '';
+      const i18nKey = navI18n[name] || '';
     %>
-      <a href="<%- href %>" data-accent="<%= accent %>"><%= name %></a>
+      <a href="<%- href %>" data-accent="<%= accent %>" data-i18n="<%= i18nKey %>"><%= name %></a>
     <% }) %>
+    <button id="lang-toggle-m" class="lang-toggle" aria-label="切换语言" style="align-self:flex-start;margin-top:8px;">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
   </nav>
 </header>

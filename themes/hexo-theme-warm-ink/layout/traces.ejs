@@ -3,10 +3,10 @@
   const traceCats = ['books', 'movies', 'games', 'music'];
   /* 4-color macaron: orange=books, blue=movies, green=games, pink=music */
   const typeMap = {
-    books:  { type: 'book',  icon: 'auto_stories',   label: 'Books', color: 'var(--macaron-orange)', tagBg: 'var(--pastel-orange)' },
-    movies: { type: 'film',  icon: 'movie',           label: 'Films', color: 'var(--macaron-blue)',   tagBg: 'var(--pastel-blue)' },
-    games:  { type: 'game',  icon: 'sports_esports',  label: 'Games', color: 'var(--macaron-green)',  tagBg: 'var(--pastel-mint)' },
-    music:  { type: 'music', icon: 'music_note',      label: 'Music', color: 'var(--macaron-pink)',   tagBg: 'var(--pastel-pink)' },
+    books:  { type: 'book',  icon: 'auto_stories',   label: 'Books',  i18n: 'traces.filter.books',  color: 'var(--macaron-orange)', tagBg: 'var(--pastel-orange)' },
+    movies: { type: 'film',  icon: 'movie',           label: 'Films',  i18n: 'traces.filter.films',  color: 'var(--macaron-blue)',   tagBg: 'var(--pastel-blue)' },
+    games:  { type: 'game',  icon: 'sports_esports',  label: 'Games',  i18n: 'traces.filter.games',  color: 'var(--macaron-green)',  tagBg: 'var(--pastel-mint)' },
+    music:  { type: 'music', icon: 'music_note',      label: 'Music',  i18n: 'traces.filter.music',  color: 'var(--macaron-pink)',   tagBg: 'var(--pastel-pink)' },
   };
 
   /* ── 全部 traces 文章（用于统计 + 钉选，不随分页变化）── */
@@ -44,13 +44,13 @@
     <!-- Page hero -->
     <section class="page-hero">
       <h1><%= page.title %></h1>
-      <p><%= page.description || 'A curated log of books, films, music, and games that spark joy.' %></p>
+      <p data-i18n="traces.desc"><%= page.description || '' %></p>
     </section>
 
     <!-- Search -->
     <div style="margin-bottom:24px;position:relative;">
       <span class="material-symbols-outlined" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--color-outline);font-size:20px;">search</span>
-      <input type="text" id="traces-search" placeholder="Search books, films, music, games..."
+      <input type="text" id="traces-search" data-i18n-placeholder="traces.search" placeholder="Search books, films, music, games..."
         style="width:100%;padding:14px 16px 14px 48px;border:1.5px solid var(--color-outline-variant);border-radius:12px;font-family:var(--font-body);font-size:15px;background:var(--color-surface-container-low);color:var(--color-on-surface);outline:none;transition:border-color 0.2s;box-sizing:border-box;"
         onfocus="this.style.borderColor='var(--color-primary)'"
         onblur="this.style.borderColor='var(--color-outline-variant)'"
@@ -61,7 +61,7 @@
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;">
       <% Object.values(typeMap).forEach((t, i) => { %>
         <button onclick="filterTraces('<%= t.type %>',this)" class="trace-filter-btn<%= i === 0 ? ' active' : '' %>" data-color="<%= t.color %>" style="display:flex;align-items:center;gap:6px;<%= i === 0 ? 'color:#fff;border-radius:9999px;background:' + t.color + ';' : 'color:var(--color-on-surface-variant);border-radius:12px;background:none;' %>padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
-          <span class="material-symbols-outlined" style="font-size:18px;"><%= t.icon %></span> <%= t.label %>
+          <span class="material-symbols-outlined" style="font-size:18px;"><%= t.icon %></span> <span data-i18n="<%= t.i18n %>"><%= t.label %></span>
         </button>
       <% }) %>
     </div>
@@ -71,7 +71,7 @@
       <section style="text-align:center;padding:64px 0;margin-bottom:64px;">
         <span class="material-symbols-outlined" style="font-size:64px;color:var(--color-outline-variant);">auto_stories</span>
         <p style="font-family:var(--font-body);font-size:16px;color:var(--color-on-surface-variant);margin-top:16px;">
-          No traces yet. Create a post with category <code>books</code>, <code>movies</code>, <code>games</code>, or <code>music</code> to get started.
+          <span data-i18n="traces.empty">No traces yet. Create a post with category <code>books</code>, <code>movies</code>, <code>games</code>, or <code>music</code> to get started.</span>
         </p>
       </section>
     <% } else { %>
@@ -81,7 +81,7 @@
       <section style="margin-bottom:64px;">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
           <span class="material-symbols-outlined" style="color:var(--color-secondary);">keep</span>
-          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Pinned Recommendations</h3>
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;" data-i18n="traces.pinned">Pinned Recommendations</h3>
         </div>
         <div style="display:grid;grid-template-columns:repeat(<%= Math.min(pinned.length, 5) %>,1fr);gap:16px;">
           <% pinned.slice(0, 5).forEach((item, idx) => {
@@ -117,7 +117,7 @@
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
           <div style="display:flex;align-items:center;gap:8px;">
             <span class="material-symbols-outlined" style="color:var(--color-secondary);">history</span>
-            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Recent Entries</h3>
+            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;" data-i18n="traces.recent">Recent Entries</h3>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:0;">
@@ -158,22 +158,17 @@
     <% /* ── Pagination（超过 10 条才显示）── */ %>
     <% if (page.total > 1) { %>
     <nav class="pagination" style="margin-bottom:48px;">
-      <%- paginator({ prev_text: '← Prev', next_text: 'Next →', mid_size: 2 }) %>
+      <%- paginator({ prev_text: '<span data-i18n="pagination.prev">← Prev</span>', next_text: '<span data-i18n="pagination.next">Next →</span>', mid_size: 2 }) %>
     </nav>
     <% } %>
 
-    <!-- Editor's Note -->
-    <div style="position:relative;padding:32px;background:var(--color-surface-container);border:2px solid var(--color-primary);border-radius:8px;margin-bottom:64px;overflow:hidden;">
-      <div style="position:absolute;inset-y:0;right:0;width:32px;background-image:radial-gradient(var(--color-primary) 0.5px,transparent 0.5px);background-size:4px 4px;opacity:0.1;pointer-events:none;"></div>
-      <h6 style="font-family:var(--font-label);font-size:16px;font-weight:500;color:var(--color-primary);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
-        <span class="material-symbols-outlined" style="font-size:18px;">edit_note</span>
-        Editor's Note
-      </h6>
-      <p style="font-family:var(--font-label);font-size:16px;font-weight:500;line-height:1.6;color:var(--color-on-surface-variant);">
+    <!-- ☕ Support -->
+    <div style="padding:28px 24px;border-radius:8px;margin-bottom:64px;border-left:3px solid var(--macaron-orange);background:var(--color-surface-container-low);">
+      <p style="font-family:var(--font-label);font-size:15px;font-weight:500;line-height:1.7;color:var(--color-on-surface-variant);margin:0;">
         <% if (allTracePosts.length > 0) { %>
-          If anything here resonates, <a href="/about" style="color:var(--color-primary);text-decoration:underline;text-decoration-color:var(--color-secondary-container);text-underline-offset:3px;">buy me a coffee</a> — no pressure, just a friendly nudge :)
+          <span data-i18n="common.coffee">If anything here resonates, <a href="/about" class="coffee-link" style="color:var(--macaron-orange);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;">buy me a coffee</a> — no pressure, just a friendly nudge :)</span>
         <% } else { %>
-          A space slowly filling with books, films, music, and games. Check back soon.
+          <span data-i18n="traces.emptyNote">A space slowly filling with books, films, music, and games. Check back soon.</span>
         <% } %>
       </p>
     </div>

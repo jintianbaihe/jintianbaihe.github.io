@@ -12,12 +12,12 @@
     return true;
   }).length;
 
-  /* 预设分类标签 */
+  /* 预设分类标签（含 i18n key） */
   const categoryConfig = {
-    all:     { label: 'All Entries', color: 'var(--color-primary)' },
-    sparks:  { label: 'Sparks',      color: 'var(--macaron-orange)' },
-    reflections: { label: 'Reflections', color: 'var(--macaron-blue)' },
-    skills:  { label: 'Skills',      color: 'var(--macaron-green)' },
+    all:     { label: 'All Entries', i18n: 'notes.filter.all',         color: 'var(--color-primary)' },
+    sparks:  { label: 'Sparks',      i18n: 'notes.filter.sparks',      color: 'var(--macaron-orange)' },
+    reflections: { label: 'Reflections', i18n: 'notes.filter.reflections', color: 'var(--macaron-blue)' },
+    skills:  { label: 'Skills',      i18n: 'notes.filter.skills',      color: 'var(--macaron-green)' },
   };
 %>
 
@@ -26,14 +26,14 @@
 
     <!-- ── Page hero ── -->
     <section class="page-hero">
-      <h1>Writings &amp; Musings</h1>
-      <p>A digital garden of half-baked thoughts, detailed tutorials, and gentle observations on life.</p>
+      <h1 data-i18n="notes.title">Writings &amp; Musings</h1>
+      <p data-i18n="notes.desc">A digital garden of half-baked thoughts, detailed tutorials, and gentle observations on life.</p>
     </section>
 
     <!-- ── Search ── -->
     <div style="margin-bottom:24px;position:relative;">
       <span class="material-symbols-outlined" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--color-outline);font-size:20px;">search</span>
-      <input type="text" id="notes-search" placeholder="Search articles by title..."
+      <input type="text" id="notes-search" data-i18n-placeholder="notes.search" placeholder="Search articles by title..."
         style="width:100%;padding:14px 16px 14px 48px;border:1.5px solid var(--color-outline-variant);border-radius:12px;font-family:var(--font-body);font-size:15px;background:var(--color-surface-container-low);color:var(--color-on-surface);outline:none;transition:border-color 0.2s;box-sizing:border-box;"
         onfocus="this.style.borderColor='var(--color-primary)'"
         onblur="this.style.borderColor='var(--color-outline-variant)'"
@@ -48,6 +48,7 @@
         <button class="filter-btn<%= i === 0 ? ' active' : '' %>"
                 data-category="<%= key %>"
                 data-color="<%= cfg.color %>"
+                data-i18n="<%= cfg.i18n || '' %>"
                 style="--active-color:<%= cfg.color %>">
           <%= cfg.label %>
         </button>
@@ -78,7 +79,7 @@
             <div>
               <div class="post-item-meta">
                 <% if (cat && categoryConfig[cat]) { %>
-                  <span class="post-category <%= cat %>"><%= categoryConfig[cat].label %></span>
+                  <span class="post-category <%= cat %>" data-i18n="<%= categoryConfig[cat].i18n || '' %>"><%= categoryConfig[cat].label %></span>
                   <span class="dot-divider">•</span>
                 <% } %>
                 <span class="post-date"><%= date(post.date, 'MMM D, YYYY') %></span>
@@ -98,9 +99,16 @@
     <!-- ── Pagination（内容超过 10 条才显示）── -->
     <% if (page.total > 1 && totalNotes > 10) { %>
     <nav class="pagination">
-      <%- paginator({ prev_text: '← Prev', next_text: 'Next →', mid_size: 2 }) %>
+      <%- paginator({ prev_text: '<span data-i18n="pagination.prev">← Prev</span>', next_text: '<span data-i18n="pagination.next">Next →</span>', mid_size: 2 }) %>
     </nav>
     <% } %>
+
+    <!-- ☕ Support -->
+    <div style="padding:28px 24px;border-radius:8px;margin-top:48px;border-left:3px solid var(--macaron-orange);background:var(--color-surface-container-low);">
+      <p style="font-family:var(--font-label);font-size:15px;font-weight:500;line-height:1.7;color:var(--color-on-surface-variant);margin:0;">
+        <span data-i18n="common.coffee">If anything here resonates, <a href="/about" style="color:var(--macaron-orange);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;">buy me a coffee</a> — no pressure, just a friendly nudge :)</span>
+      </p>
+    </div>
 
   </div>
 
