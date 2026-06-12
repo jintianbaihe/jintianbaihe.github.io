@@ -42,14 +42,21 @@
     <!-- Desktop nav -->
     <nav class="site-nav">
       
-        <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+        <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
       
-        <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+        <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
       
-        <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+        <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
       
-        <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+        <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
       
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
     </nav>
 
     <!-- Mobile menu button -->
@@ -62,14 +69,21 @@
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
     
-      <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+      <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
     
-      <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+      <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
     
-      <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+      <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
     
-      <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+      <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
     
+    <button id="lang-toggle-m" class="lang-toggle" aria-label="切换语言" style="align-self:flex-start;margin-top:8px;">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
   </nav>
 </header>
 
@@ -85,14 +99,14 @@
 
       <!-- Text -->
       <div class="hero-text">
-        <span class="hero-badge">Hello!</span>
+        <span class="hero-badge" data-i18n="home.greeting">Hello!</span>
         <h1 class="hero-title">
-          Hello, I&#39;m
-          <span class="scribble-underline">Yoka</span><span class="highlight">. Welcome to my little world ~</span>
+          <span data-i18n="home.titlePrefix">Hello, I&#39;m</span>
+          <span class="scribble-underline">Yoka</span><span class="highlight" data-i18n="home.titleSuffix">. Welcome to my little world ~</span>
         </h1>
-        <p class="hero-desc">Here you&#39;ll find: my random thoughts, my daydreams, my tutorials, my creations, my book/movie/music/game diaries... Hope you feel at home here!</p>
+        <p class="hero-desc" data-i18n="home.desc">Here you&#39;ll find: my random thoughts, my daydreams, my tutorials, my creations, my book/movie/music/game diaries... Hope you feel at home here!</p>
         <a href="#content" class="hero-scroll-link">
-          Scroll to explore my world
+          <span data-i18n="home.scroll">Scroll to explore my world</span>
           <span class="material-symbols-outlined">arrow_downward</span>
         </a>
       </div>
@@ -118,10 +132,10 @@
           <div class="bento-card-icon pastel-wash-blue">
             <span class="material-symbols-outlined text-primary">album</span>
           </div>
-          <h3 class="bento-card-title">Traces</h3>
-          <p class="bento-card-desc">A curated log of books, music, and physical objects that spark joy.</p>
+          <h3 class="bento-card-title" data-i18n="nav.traces">Traces</h3>
+          <p class="bento-card-desc" data-i18n="cards.traces">A curated log of books, music, and physical objects that spark joy.</p>
           <div class="bento-card-link">
-            <span>See Log</span>
+            <span data-i18n="cards.tracesLink">See Log</span>
             <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
           </div>
         </a>
@@ -130,10 +144,10 @@
           <div class="bento-card-icon pastel-wash-mint">
             <span class="material-symbols-outlined text-primary">description</span>
           </div>
-          <h3 class="bento-card-title">Notes</h3>
-          <p class="bento-card-desc">Long-form essays on design philosophy, intentionality, and the slow web.</p>
+          <h3 class="bento-card-title" data-i18n="nav.notes">Notes</h3>
+          <p class="bento-card-desc" data-i18n="cards.notes">Long-form essays on design philosophy, intentionality, and the slow web.</p>
           <div class="bento-card-link">
-            <span>Read Essays</span>
+            <span data-i18n="cards.notesLink">Read Essays</span>
             <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
           </div>
         </a>
@@ -142,10 +156,10 @@
           <div class="bento-card-icon pastel-wash-orange">
             <span class="material-symbols-outlined text-primary">brush</span>
           </div>
-          <h3 class="bento-card-title">Projects</h3>
-          <p class="bento-card-desc">Open-source experiments and personal tools crafted with a charcoal soul.</p>
+          <h3 class="bento-card-title" data-i18n="nav.projects">Projects</h3>
+          <p class="bento-card-desc" data-i18n="cards.projects">Open-source experiments and personal tools crafted with a charcoal soul.</p>
           <div class="bento-card-link">
-            <span>View Projects</span>
+            <span data-i18n="cards.projectsLink">View Projects</span>
             <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
           </div>
         </a>
@@ -154,10 +168,10 @@
           <div class="bento-card-icon pastel-wash-pink">
             <span class="material-symbols-outlined text-primary">favorite</span>
           </div>
-          <h3 class="bento-card-title">About Me</h3>
-          <p class="bento-card-desc">My journey from ink to bits, and why I still prefer a fountain pen.</p>
+          <h3 class="bento-card-title" data-i18n="nav.about">About Me</h3>
+          <p class="bento-card-desc" data-i18n="cards.about">My journey from ink to bits, and why I still prefer a fountain pen.</p>
           <div class="bento-card-link">
-            <span>My Story</span>
+            <span data-i18n="cards.aboutLink">My Story</span>
             <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
           </div>
         </a>
@@ -170,9 +184,9 @@
   <div class="container">
     <section class="featured-section">
       <div class="featured-header">
-        <h2>Latest Scribble</h2>
+        <h2 data-i18n="home.latest">Latest Scribble</h2>
         <span class="featured-date">
-          Entry #10 — 一月 2, 2023
+          <span data-i18n="home.entry">Entry #</span>10 — 一月 2, 2023
         </span>
       </div>
 
@@ -184,11 +198,11 @@
             
           </p>
           <span class="featured-read-more">
-            Continue reading
+            <span data-i18n="home.continue">Continue reading</span>
             <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
           </span>
         </div>
-        <div class="featured-sticky-note">"Essential reading"</div>
+        <div class="featured-sticky-note" data-i18n="home.essential">"Essential reading"</div>
       </a>
     </section>
   </div>

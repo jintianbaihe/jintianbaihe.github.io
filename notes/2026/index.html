@@ -42,14 +42,21 @@
     <!-- Desktop nav -->
     <nav class="site-nav">
       
-        <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+        <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
       
-        <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+        <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
       
-        <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+        <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
       
-        <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+        <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
       
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
     </nav>
 
     <!-- Mobile menu button -->
@@ -62,14 +69,21 @@
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
     
-      <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+      <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
     
-      <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+      <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
     
-      <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+      <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
     
-      <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+      <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
     
+    <button id="lang-toggle-m" class="lang-toggle" aria-label="切换语言" style="align-self:flex-start;margin-top:8px;">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
   </nav>
 </header>
 
@@ -82,14 +96,14 @@
 
     <!-- ── Page hero ── -->
     <section class="page-hero">
-      <h1>Writings &amp; Musings</h1>
-      <p>A digital garden of half-baked thoughts, detailed tutorials, and gentle observations on life.</p>
+      <h1 data-i18n="notes.title">Writings &amp; Musings</h1>
+      <p data-i18n="notes.desc">A digital garden of half-baked thoughts, detailed tutorials, and gentle observations on life.</p>
     </section>
 
     <!-- ── Search ── -->
     <div style="margin-bottom:24px;position:relative;">
       <span class="material-symbols-outlined" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--color-outline);font-size:20px;">search</span>
-      <input type="text" id="notes-search" placeholder="Search articles by title..."
+      <input type="text" id="notes-search" data-i18n-placeholder="notes.search" placeholder="Search articles by title..."
         style="width:100%;padding:14px 16px 14px 48px;border:1.5px solid var(--color-outline-variant);border-radius:12px;font-family:var(--font-body);font-size:15px;background:var(--color-surface-container-low);color:var(--color-on-surface);outline:none;transition:border-color 0.2s;box-sizing:border-box;"
         onfocus="this.style.borderColor='var(--color-primary)'"
         onblur="this.style.borderColor='var(--color-outline-variant)'"
@@ -102,6 +116,7 @@
         <button class="filter-btn active"
                 data-category="all"
                 data-color="var(--color-primary)"
+                data-i18n="notes.filter.all"
                 style="--active-color:var(--color-primary)">
           All Entries
         </button>
@@ -109,6 +124,7 @@
         <button class="filter-btn"
                 data-category="sparks"
                 data-color="var(--macaron-orange)"
+                data-i18n="notes.filter.sparks"
                 style="--active-color:var(--macaron-orange)">
           Sparks
         </button>
@@ -116,6 +132,7 @@
         <button class="filter-btn"
                 data-category="reflections"
                 data-color="var(--macaron-blue)"
+                data-i18n="notes.filter.reflections"
                 style="--active-color:var(--macaron-blue)">
           Reflections
         </button>
@@ -123,6 +140,7 @@
         <button class="filter-btn"
                 data-category="skills"
                 data-color="var(--macaron-green)"
+                data-i18n="notes.filter.skills"
                 style="--active-color:var(--macaron-green)">
           Skills
         </button>
@@ -138,7 +156,7 @@
             <div>
               <div class="post-item-meta">
                 
-                  <span class="post-category sparks">Sparks</span>
+                  <span class="post-category sparks" data-i18n="notes.filter.sparks">Sparks</span>
                   <span class="dot-divider">•</span>
                 
                 <span class="post-date">5月 31, 2026</span>
@@ -159,7 +177,7 @@
             <div>
               <div class="post-item-meta">
                 
-                  <span class="post-category reflections">Reflections</span>
+                  <span class="post-category reflections" data-i18n="notes.filter.reflections">Reflections</span>
                   <span class="dot-divider">•</span>
                 
                 <span class="post-date">5月 24, 2026</span>
@@ -180,7 +198,7 @@
             <div>
               <div class="post-item-meta">
                 
-                  <span class="post-category reflections">Reflections</span>
+                  <span class="post-category reflections" data-i18n="notes.filter.reflections">Reflections</span>
                   <span class="dot-divider">•</span>
                 
                 <span class="post-date">5月 23, 2026</span>
@@ -199,6 +217,13 @@
 
     <!-- ── Pagination（内容超过 10 条才显示）── -->
     
+
+    <!-- ☕ Support -->
+    <div style="padding:28px 24px;border-radius:8px;margin-top:48px;border-left:3px solid var(--macaron-orange);background:var(--color-surface-container-low);">
+      <p style="font-family:var(--font-label);font-size:15px;font-weight:500;line-height:1.7;color:var(--color-on-surface-variant);margin:0;">
+        <span data-i18n="common.coffee">If anything here resonates, <a href="/about" style="color:var(--macaron-orange);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;">buy me a coffee</a> — no pressure, just a friendly nudge :)</span>
+      </p>
+    </div>
 
   </div>
 

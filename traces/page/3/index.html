@@ -42,14 +42,21 @@
     <!-- Desktop nav -->
     <nav class="site-nav">
       
-        <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+        <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
       
-        <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+        <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
       
-        <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+        <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
       
-        <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+        <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
       
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
     </nav>
 
     <!-- Mobile menu button -->
@@ -62,14 +69,21 @@
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
     
-      <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+      <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
     
-      <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+      <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
     
-      <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+      <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
     
-      <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+      <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
     
+    <button id="lang-toggle-m" class="lang-toggle" aria-label="切换语言" style="align-self:flex-start;margin-top:8px;">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
   </nav>
 </header>
 
@@ -83,13 +97,13 @@
     <!-- Page hero -->
     <section class="page-hero">
       <h1>Traces</h1>
-      <p>A curated log of books, films, music, and games that spark joy.</p>
+      <p data-i18n="traces.desc">A curated log of books, films, music, and games that spark joy.</p>
     </section>
 
     <!-- Search -->
     <div style="margin-bottom:24px;position:relative;">
       <span class="material-symbols-outlined" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--color-outline);font-size:20px;">search</span>
-      <input type="text" id="traces-search" placeholder="Search books, films, music, games..."
+      <input type="text" id="traces-search" data-i18n-placeholder="traces.search" placeholder="Search books, films, music, games..."
         style="width:100%;padding:14px 16px 14px 48px;border:1.5px solid var(--color-outline-variant);border-radius:12px;font-family:var(--font-body);font-size:15px;background:var(--color-surface-container-low);color:var(--color-on-surface);outline:none;transition:border-color 0.2s;box-sizing:border-box;"
         onfocus="this.style.borderColor='var(--color-primary)'"
         onblur="this.style.borderColor='var(--color-outline-variant)'"
@@ -100,19 +114,19 @@
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;">
       
         <button onclick="filterTraces('book',this)" class="trace-filter-btn active" data-color="var(--macaron-orange)" style="display:flex;align-items:center;gap:6px;color:#fff;border-radius:9999px;background:var(--macaron-orange);padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
-          <span class="material-symbols-outlined" style="font-size:18px;">auto_stories</span> Books
+          <span class="material-symbols-outlined" style="font-size:18px;">auto_stories</span> <span data-i18n="traces.filter.books">Books</span>
         </button>
       
         <button onclick="filterTraces('film',this)" class="trace-filter-btn" data-color="var(--macaron-blue)" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
-          <span class="material-symbols-outlined" style="font-size:18px;">movie</span> Films
+          <span class="material-symbols-outlined" style="font-size:18px;">movie</span> <span data-i18n="traces.filter.films">Films</span>
         </button>
       
         <button onclick="filterTraces('game',this)" class="trace-filter-btn" data-color="var(--macaron-green)" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
-          <span class="material-symbols-outlined" style="font-size:18px;">sports_esports</span> Games
+          <span class="material-symbols-outlined" style="font-size:18px;">sports_esports</span> <span data-i18n="traces.filter.games">Games</span>
         </button>
       
         <button onclick="filterTraces('music',this)" class="trace-filter-btn" data-color="var(--macaron-pink)" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
-          <span class="material-symbols-outlined" style="font-size:18px;">music_note</span> Music
+          <span class="material-symbols-outlined" style="font-size:18px;">music_note</span> <span data-i18n="traces.filter.music">Music</span>
         </button>
       
     </div>
@@ -124,7 +138,7 @@
       <section style="margin-bottom:64px;">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
           <span class="material-symbols-outlined" style="color:var(--color-secondary);">keep</span>
-          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Pinned Recommendations</h3>
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;" data-i18n="traces.pinned">Pinned Recommendations</h3>
         </div>
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
           
@@ -217,29 +231,10 @@
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
           <div style="display:flex;align-items:center;gap:8px;">
             <span class="material-symbols-outlined" style="color:var(--color-secondary);">history</span>
-            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;">Recent Entries</h3>
+            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;" data-i18n="traces.recent">Recent Entries</h3>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:0;">
-          
-          <a href="/2022/12/31/%E8%99%9A%E6%8B%9F/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
-            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
-              
-                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
-              
-            </div>
-            <div style="flex:1;">
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">虚拟</h5>
-              </div>
-              <div style="display:flex;gap:8px;margin:4px 0;">
-                
-              </div>
-              
-                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"太喜欢毕飞宇笔下戏谑的黑色幽默"</p>
-              
-            </div>
-          </a>
           
           <a href="/2022/11/27/%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
             <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
@@ -330,23 +325,6 @@
             </div>
           </a>
           
-          <a href="/2022/01/16/%E6%97%A0%E4%BA%BA%E7%94%9F%E8%BF%98/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
-            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
-              
-                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
-              
-            </div>
-            <div style="flex:1;">
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">无人生还</h5>
-              </div>
-              <div style="display:flex;gap:8px;margin:4px 0;">
-                
-              </div>
-              
-            </div>
-          </a>
-          
           <a href="/2022/01/16/%E6%A2%A6%E9%87%8C%E8%8A%B1%E8%90%BD%E7%9F%A5%E5%A4%9A%E5%B0%91/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
             <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
               
@@ -381,6 +359,23 @@
             </div>
           </a>
           
+          <a href="/2022/01/16/%E7%99%BE%E5%B9%B4%E5%AD%A4%E7%8B%AC/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">百年孤独</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+            </div>
+          </a>
+          
         </div>
       </section>
 
@@ -389,20 +384,15 @@
     
     
     <nav class="pagination" style="margin-bottom:48px;">
-      <a class="extend prev" rel="prev" href="/traces/page/2/">← Prev</a><a class="page-number" href="/traces/">1</a><a class="page-number" href="/traces/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/traces/page/4/">4</a><a class="extend next" rel="next" href="/traces/page/4/">Next →</a>
+      <a class="extend prev" rel="prev" href="/traces/page/2/">&lt;span data-i18n&#x3D;&quot;pagination.prev&quot;&gt;← Prev&lt;&#x2F;span&gt;</a><a class="page-number" href="/traces/">1</a><a class="page-number" href="/traces/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/traces/page/4/">4</a><a class="extend next" rel="next" href="/traces/page/4/">&lt;span data-i18n&#x3D;&quot;pagination.next&quot;&gt;Next →&lt;&#x2F;span&gt;</a>
     </nav>
     
 
-    <!-- Editor's Note -->
-    <div style="position:relative;padding:32px;background:var(--color-surface-container);border:2px solid var(--color-primary);border-radius:8px;margin-bottom:64px;overflow:hidden;">
-      <div style="position:absolute;inset-y:0;right:0;width:32px;background-image:radial-gradient(var(--color-primary) 0.5px,transparent 0.5px);background-size:4px 4px;opacity:0.1;pointer-events:none;"></div>
-      <h6 style="font-family:var(--font-label);font-size:16px;font-weight:500;color:var(--color-primary);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
-        <span class="material-symbols-outlined" style="font-size:18px;">edit_note</span>
-        Editor's Note
-      </h6>
-      <p style="font-family:var(--font-label);font-size:16px;font-weight:500;line-height:1.6;color:var(--color-on-surface-variant);">
+    <!-- ☕ Support -->
+    <div style="padding:28px 24px;border-radius:8px;margin-bottom:64px;border-left:3px solid var(--macaron-orange);background:var(--color-surface-container-low);">
+      <p style="font-family:var(--font-label);font-size:15px;font-weight:500;line-height:1.7;color:var(--color-on-surface-variant);margin:0;">
         
-          If anything here resonates, <a href="/about" style="color:var(--color-primary);text-decoration:underline;text-decoration-color:var(--color-secondary-container);text-underline-offset:3px;">buy me a coffee</a> — no pressure, just a friendly nudge :)
+          <span data-i18n="common.coffee">If anything here resonates, <a href="/about" class="coffee-link" style="color:var(--macaron-orange);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;">buy me a coffee</a> — no pressure, just a friendly nudge :)</span>
         
       </p>
     </div>

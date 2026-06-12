@@ -42,14 +42,21 @@
     <!-- Desktop nav -->
     <nav class="site-nav">
       
-        <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+        <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
       
-        <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+        <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
       
-        <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+        <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
       
-        <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+        <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
       
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
     </nav>
 
     <!-- Mobile menu button -->
@@ -62,14 +69,21 @@
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
     
-      <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+      <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
     
-      <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+      <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
     
-      <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+      <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
     
-      <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+      <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
     
+    <button id="lang-toggle-m" class="lang-toggle" aria-label="切换语言" style="align-self:flex-start;margin-top:8px;">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
   </nav>
 </header>
 
@@ -144,8 +158,8 @@
       
         <div class="post-nav-item prev">
           <span class="post-nav-label">← Previous</span>
-          <a href="/2023/01/02/%E3%83%AB%E3%83%83%E3%82%AF%E3%83%90%E3%83%83%E3%82%AF/">
-            <div class="post-nav-title">ルックバック</div>
+          <a href="/2023/01/02/%E6%B5%AA%E5%AE%A2%E8%A1%8C/">
+            <div class="post-nav-title">浪客行</div>
           </a>
         </div>
       
@@ -153,8 +167,8 @@
       
         <div class="post-nav-item next">
           <span class="post-nav-label">Next →</span>
-          <a href="/2023/01/10/%E6%9C%88%E4%BA%AE%E5%BF%98%E8%A8%98%E4%BA%86/">
-            <div class="post-nav-title">月亮忘記了</div>
+          <a href="/2023/04/13/%E5%85%AB%E5%AD%97%E5%91%BD%E7%90%86%E5%AD%B8%E5%9F%BA%E7%A4%8E%E6%95%99%E7%A8%8B/">
+            <div class="post-nav-title">八字命理學基礎教程</div>
           </a>
         </div>
       

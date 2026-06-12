@@ -42,14 +42,21 @@
     <!-- Desktop nav -->
     <nav class="site-nav">
       
-        <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+        <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
       
-        <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+        <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
       
-        <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+        <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
       
-        <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+        <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
       
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
     </nav>
 
     <!-- Mobile menu button -->
@@ -62,14 +69,21 @@
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
     
-      <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+      <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
     
-      <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+      <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
     
-      <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+      <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
     
-      <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+      <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
     
+    <button id="lang-toggle-m" class="lang-toggle" aria-label="切换语言" style="align-self:flex-start;margin-top:8px;">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
   </nav>
 </header>
 
@@ -118,9 +132,9 @@
         <div style="position:absolute;top:-8px;right:16px;width:36px;height:10px;background:var(--macaron-green);opacity:0.5;transform:rotate(-12deg);border-radius:2px;"></div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
           <span class="material-symbols-outlined" style="color:var(--color-primary);font-variation-settings:'FILL' 1;font-size:22px;">terminal</span>
-          <h3 style="font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--color-primary);">Digital Craft</h3>
+          <h3 style="font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--color-primary);" data-i18n="about.digitalCraft">Digital Craft</h3>
         </div>
-        <p style="font-family:var(--font-body);font-size:15px;line-height:1.65;color:var(--color-on-surface-variant);">
+        <p style="font-family:var(--font-body);font-size:15px;line-height:1.65;color:var(--color-on-surface-variant);" data-i18n="about.digitalCraftDesc">
           I treat code like bookbinding—every line is an intentional stitch. I build minimal, fast, and soulful digital experiences.
         </p>
       </div>
@@ -130,9 +144,9 @@
         <div style="position:absolute;top:-8px;right:16px;width:36px;height:10px;background:var(--macaron-pink);opacity:0.5;transform:rotate(-12deg);border-radius:2px;"></div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
           <span class="material-symbols-outlined" style="color:var(--color-primary);font-variation-settings:'FILL' 1;font-size:22px;">face_6</span>
-          <h3 style="font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--color-primary);">Human Centric</h3>
+          <h3 style="font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--color-primary);" data-i18n="about.humanCentric">Human Centric</h3>
         </div>
-        <p style="font-family:var(--font-body);font-size:15px;line-height:1.65;color:var(--color-on-surface-variant);">
+        <p style="font-family:var(--font-body);font-size:15px;line-height:1.65;color:var(--color-on-surface-variant);" data-i18n="about.humanCentricDesc">
           Technology should serve the human pace of life, not the other way around. My work prioritizes calm and clarity.
         </p>
       </div>
@@ -144,7 +158,7 @@
         <div style="position:absolute;top:12px;right:16px;opacity:0.08;">
           <span class="material-symbols-outlined" style="font-size:56px;">format_quote</span>
         </div>
-        <p style="font-family:var(--font-label);font-size:16px;font-weight:500;line-height:1.7;color:var(--color-on-surface-variant);font-style:italic;">
+        <p style="font-family:var(--font-label);font-size:16px;font-weight:500;line-height:1.7;color:var(--color-on-surface-variant);font-style:italic;" data-i18n="about.quote">
           "I believe in the beauty of things that take time to grow. In a world of instant feeds, I choose the deliberate scratch of ink on paper."
         </p>
       </div>
@@ -157,8 +171,8 @@
         <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;">
           <span class="material-symbols-outlined" style="font-size:24px;color:var(--macaron-orange);flex-shrink:0;margin-top:2px;">coffee</span>
           <div>
-            <h2 style="font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--color-primary);margin-bottom:8px;">Buy Me a Coffee</h2>
-            <p style="font-family:var(--font-body);font-size:15px;line-height:1.7;color:var(--color-on-surface-variant);max-width:520px;">
+            <h2 style="font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--color-primary);margin-bottom:8px;" data-i18n="about.coffeeTitle">Buy Me a Coffee</h2>
+            <p style="font-family:var(--font-body);font-size:15px;line-height:1.7;color:var(--color-on-surface-variant);max-width:520px;" data-i18n="about.coffeeDesc">
               If you find this helpful, consider buying me a coffee — all sponsors can leave an email and a wish in the note, and I&rsquo;ll send a random digital resource or a personal reply based on it. Thanks for your support!
             </p>
           </div>
@@ -195,7 +209,7 @@
 
     <!-- ════ Connect ════ -->
     <section style="margin-bottom:64px;">
-      <h2 style="font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--color-primary);margin-bottom:20px;">Let's Connect</h2>
+      <h2 style="font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--color-primary);margin-bottom:20px;" data-i18n="about.connect">Let's Connect</h2>
       <div style="display:flex;flex-direction:column;gap:12px;">
 
         

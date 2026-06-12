@@ -42,14 +42,21 @@
     <!-- Desktop nav -->
     <nav class="site-nav">
       
-        <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+        <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
       
-        <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+        <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
       
-        <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+        <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
       
-        <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+        <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
       
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
     </nav>
 
     <!-- Mobile menu button -->
@@ -62,14 +69,21 @@
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
     
-      <a href="/traces" data-accent="var(--macaron-blue)">Traces</a>
+      <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
     
-      <a href="/notes" data-accent="var(--macaron-green)">Notes</a>
+      <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
     
-      <a href="/projects" data-accent="var(--macaron-orange)">Projects</a>
+      <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
     
-      <a href="/about" data-accent="var(--macaron-pink)">About Me</a>
+      <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
     
+    <button id="lang-toggle-m" class="lang-toggle" aria-label="切换语言" style="align-self:flex-start;margin-top:8px;">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
   </nav>
 </header>
 
@@ -162,9 +176,9 @@
     
     <div class="post-tags mt-md">
       
-        <a href="/tags/Indie/" class="post-tag-chip">#Indie</a>
-      
         <a href="/tags/Drama/" class="post-tag-chip">#Drama</a>
+      
+        <a href="/tags/Indie/" class="post-tag-chip">#Indie</a>
       
     </div>
     
@@ -174,8 +188,8 @@
       
         <div class="post-nav-item prev">
           <span class="post-nav-label">← Previous</span>
-          <a href="/2026/05/20/%E4%B8%80%E4%B8%80/">
-            <div class="post-nav-title">一一</div>
+          <a href="/2026/05/13/CITY-OF-ANGELS/">
+            <div class="post-nav-title">CITY OF ANGELS</div>
           </a>
         </div>
       
@@ -183,8 +197,8 @@
       
         <div class="post-nav-item next">
           <span class="post-nav-label">Next →</span>
-          <a href="/2026/05/25/Tunic/">
-            <div class="post-nav-title">Tunic</div>
+          <a href="/2026/05/20/%E4%B8%80%E4%B8%80/">
+            <div class="post-nav-title">一一</div>
           </a>
         </div>
       
