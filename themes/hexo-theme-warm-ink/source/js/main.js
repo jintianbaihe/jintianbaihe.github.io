@@ -12,7 +12,6 @@
       'nav.notes':                '笔记',
       'nav.projects':             '项目',
       'nav.about':                '关于我',
-      'lang.toggle':              'EN',
 
       'home.greeting':             '你好！',
       'home.titlePrefix':          '你好，我是 ',
@@ -26,14 +25,14 @@
 
       'cards.traces':             '书、电影、音乐和游戏的精选记录。',
       'cards.tracesLink':         '查看记录',
-      'cards.notes':              '有关突然的灵感、思考与分享的随笔。',
+      'cards.notes':              '有关突然的灵感、思考与分享。',
       'cards.notesLink':          '阅读随笔',
-      'cards.projects':           '一些尝试与创新项目，不定期更新。',
+      'cards.projects':           '一些具体项目的创新与尝试，不定期更新。',
       'cards.projectsLink':       '浏览项目',
       'cards.about':              '外星驻地球特派员。',
       'cards.aboutLink':          '我的故事',
 
-      'traces.desc':              '一些作品在心中留下的痕迹。书、电影、音乐、游戏，都有。不是碰过的都会写，也不是写了就是最好的。只是恰好有话想说。就这样。',
+      'traces.desc':              '一些作品在心中留下的痕迹。书、电影、音乐、游戏... 不是接触过的都会写，也不是写了就是最好的。只是恰好有话想说。就这样。',
       'traces.filter.books':      '书',
       'traces.filter.films':      '电影',
       'traces.filter.games':      '游戏',
@@ -58,8 +57,11 @@
       'pagination.next':          '下一篇 →',
 
       'about.coffeeTitle':        '请我喝咖啡',
-      'about.coffeeDesc':         '如果你觉得这些内容对你有帮助，可以请我喝杯咖啡——赞助者可以在备注中留下邮箱和愿望，我会根据内容随机发送电子资源或亲自回复。感谢你的支持！',
+      'about.coffeeDesc':         '如果你觉得这些内容对你有帮助，可以请我喝杯咖啡——你可以在备注中留下邮箱和愿望，我会根据内容随机发送电子资源或回复。感谢你的支持！',
       'about.connect':            '联系我',
+      'about.rednote':            '小红书',
+      'about.github':             'GitHub',
+      'about.email':              '邮箱',
       'about.digitalCraft':       '数字工艺',
       'about.digitalCraftDesc':   '我把代码当作手工装订——每一行都是有意识的缝线。我打造极简、快速、有灵魂的数字体验。',
       'about.humanCentric':       '以人为本',
@@ -71,7 +73,6 @@
       'nav.notes':                'Notes',
       'nav.projects':             'Projects',
       'nav.about':                'About Me',
-      'lang.toggle':              '中文',
 
       'home.greeting':             'Hello!',
       'home.titlePrefix':          'Hello, I\'m ',
@@ -119,6 +120,9 @@
       'about.coffeeTitle':        'Buy Me a Coffee',
       'about.coffeeDesc':         'If you find this helpful, consider buying me a coffee — all sponsors can leave an email and a wish in the note, and I\'ll send a random digital resource or a personal reply based on it. Thanks for your support!',
       'about.connect':            'Let\'s Connect',
+      'about.rednote':            'RedNote',
+      'about.github':             'GitHub',
+      'about.email':              'Email',
       'about.digitalCraft':       'Digital Craft',
       'about.digitalCraftDesc':   'I treat code like bookbinding — every line is an intentional stitch. I build minimal, fast, and soulful digital experiences.',
       'about.humanCentric':       'Human Centric',
@@ -132,7 +136,7 @@
   function getLang() {
     var stored = localStorage.getItem(LANG_KEY);
     if (stored === 'zh' || stored === 'en') return stored;
-    return (navigator.language || '').startsWith('zh') ? 'zh' : 'en';
+    return 'zh'; // 默认中文
   }
 
   function setLang(lang) {
@@ -258,6 +262,41 @@
     } else {
       el.addEventListener('mouseenter', function () { el.style.background = c; el.style.borderColor = c; el.style.color = '#fff'; });
       el.addEventListener('mouseleave', function () { el.style.background = ''; el.style.borderColor = ''; el.style.color = ''; });
+    }
+  });
+
+  // ── Back to top button ────────────────────────────────────────
+  var btt = document.getElementById('back-to-top');
+  if (btt) {
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 400) {
+        btt.style.display = 'block';
+        btt.style.opacity = '1';
+      } else {
+        btt.style.opacity = '0';
+        setTimeout(function () { if (window.pageYOffset <= 400) btt.style.display = 'none'; }, 250);
+      }
+    });
+    btt.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── Traces: remember filter across pagination clicks ──────────
+  var FILTER_KEY = 'traces-filter';
+  // Apply stored filter on page load
+  var storedFilter = sessionStorage.getItem(FILTER_KEY);
+  if (storedFilter && document.querySelector('.trace-filter-btn')) {
+    var targetBtn = document.querySelector('.trace-filter-btn[data-type="' + storedFilter + '"]');
+    if (targetBtn && typeof filterTraces === 'function') {
+      filterTraces(storedFilter, targetBtn);
+    }
+  }
+  // Save filter on button click (delegate)
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.trace-filter-btn');
+    if (btn) {
+      sessionStorage.setItem(FILTER_KEY, btn.getAttribute('data-type') || '');
     }
   });
 
