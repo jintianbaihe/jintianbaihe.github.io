@@ -9,11 +9,29 @@
     music:  { type: 'music', icon: 'music_note',      label: 'Music',  i18n: 'traces.filter.music',  color: 'var(--macaron-pink)',   tagBg: 'var(--pastel-pink)' },
   };
 
-  /* ── 全部 traces 文章（用于统计 + 钉选，不随分页变化）── */
+  /* ── 当前分类（从 URL 解析；/traces/ 默认 = books）── */
+  var currentCat = 'books';
+  var pathMatch = (page.path || '').match(/^traces\/(books|movies|games|music)/);
+  if (pathMatch) currentCat = pathMatch[1];
+
+  /* ── 全部 traces 文章（用于统计 + 钉选）── */
   const allTracePosts = site.posts.toArray().filter(post => {
     if (!post.categories || !post.categories.data || !post.categories.data.length) return false;
     return post.categories.data.some(cat => traceCats.includes(cat.name));
   }).sort((a, b) => b.date - a.date);
+
+  /* 钉选只显示当前分类下的（或全部 if no filter） */
+  const pinned = allTracePosts.filter(p => {
+    if (!p.pinned) return false;
+    if (!currentCat) return true;
+    var t = getTraceType(p);
+    return t && t.type && (
+      (currentCat === 'books' && t.type === 'book') ||
+      (currentCat === 'movies' && t.type === 'film') ||
+      (currentCat === 'games' && t.type === 'game') ||
+      (currentCat === 'music' && t.type === 'music')
+    );
+  });
 
   function getTraceType(post) {
     if (!post.categories || !post.categories.data) return null;
@@ -23,12 +41,9 @@
     return null;
   }
 
-  const pinned = allTracePosts.filter(p => p.pinned);
-
-  /* ── 当前分页文章（由 traces-generator 提供，排除钉选避免重复）── */
-  const pagePosts = page.posts && page.posts.toArray ? page.posts.toArray() : (Array.isArray(page.posts) ? page.posts : []);
-  const pinnedIds = new Set(pinned.map(p => p._id));
-  const recent = pagePosts.filter(p => !pinnedIds.has(p._id));
+  /* ── 当前分页文章（由 traces-generator 提供）── */
+  var pagePosts = page.posts && page.posts.toArray ? page.posts.toArray() : (Array.isArray(page.posts) ? page.posts : []);
+  var recent = pagePosts;
 
   /* ── Tag background colors pool (4-color macaron rotation) ── */
   const tagColors = [
@@ -57,12 +72,16 @@
         oninput="searchTraces()">
     </div>
 
-    <!-- Category filters -->
+    <!-- Category filters — links to per-category pages -->
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;">
-      <% Object.values(typeMap).forEach((t, i) => { %>
-        <button onclick="filterTraces('<%= t.type %>',this)" class="trace-filter-btn<%= i === 0 ? ' active' : '' %>" data-color="<%= t.color %>" style="display:flex;align-items:center;gap:6px;<%= i === 0 ? 'color:#fff;border-radius:9999px;background:' + t.color + ';' : 'color:var(--color-on-surface-variant);border-radius:12px;background:none;' %>padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+      <% Object.values(typeMap).forEach((t, i) => {
+        var catKey = Object.keys(typeMap)[i];
+        var isActive = (!currentCat && i === 0) || (currentCat === catKey);
+        var href = catKey === 'books' ? '/traces/' : ('/traces/' + catKey + '/');
+      %>
+        <a href="<%= href %>" class="trace-filter-btn<%= isActive ? ' active' : '' %>" data-color="<%= t.color %>" style="display:inline-flex;align-items:center;gap:6px;<%= isActive ? 'color:#fff;border-radius:9999px;background:' + t.color + ';' : 'color:var(--color-on-surface-variant);border-radius:12px;background:none;' %>padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;">
           <span class="material-symbols-outlined" style="font-size:18px;"><%= t.icon %></span> <span data-i18n="<%= t.i18n %>"><%= t.label %></span>
-        </button>
+        </a>
       <% }) %>
     </div>
 
@@ -94,7 +113,7 @@
               <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
               <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 <% if (item.cover) { %>
-                  <img src="<%- url_for(item.cover) %>" alt="<%= item.title %>" style="width:100%;height:100%;object-fit:cover;" />
+                  <img src="<%- url_for(item.cover) %>" alt="<%= item.title %>" style="width:100%;height:100%;object-fit:contain;" />
                 <% } else { %>
                   <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);"><%= t.icon %></span>
                 <% } %>
@@ -174,40 +193,14 @@
     </div>
 
     <script>
-    let currentType = '<%= Object.values(typeMap)[0] ? Object.values(typeMap)[0].type : "book" %>';
-    let currentQuery = '';
-
-    function applyFilters() {
-      document.querySelectorAll('.trace-card').forEach(card => {
-        const matchType = card.dataset.type === currentType;
-        const name = (card.querySelector('h4') || card.querySelector('h5') || {}).textContent || '';
-        const matchSearch = !currentQuery || name.toLowerCase().includes(currentQuery);
-        card.style.display = (matchType && matchSearch) ? '' : 'none';
-      });
-    }
-
-    function filterTraces(type, btn) {
-      currentType = type;
-      document.querySelectorAll('.trace-filter-btn').forEach(b => {
-        b.style.background = 'none';
-        b.style.color = 'var(--color-on-surface-variant)';
-        b.style.borderRadius = '12px';
-        b.classList.remove('active');
-      });
-      btn.style.background = btn.dataset.color || 'var(--color-tertiary-fixed)';
-      btn.style.color = '#fff';
-      btn.style.borderRadius = '9999px';
-      btn.classList.add('active');
-      applyFilters();
-    }
-
+    // 搜索：在当前页内按标题筛选
     function searchTraces() {
-      currentQuery = document.getElementById('traces-search').value.toLowerCase().trim();
-      applyFilters();
+      var q = (document.getElementById('traces-search').value || '').toLowerCase().trim();
+      document.querySelectorAll('.trace-card').forEach(function(card) {
+        var name = (card.querySelector('h4') || card.querySelector('h5') || {}).textContent || '';
+        card.style.display = (!q || name.toLowerCase().indexOf(q) !== -1) ? '' : 'none';
+      });
     }
-
-    // 页面初始加载即按默认类型筛选
-    applyFilters();
     </script>
 
   </div>

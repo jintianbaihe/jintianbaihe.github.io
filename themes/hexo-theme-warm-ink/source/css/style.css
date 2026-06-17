@@ -708,15 +708,6 @@ img { max-width: 100%; display: block; }
   color: var(--color-on-surface-variant);
 }
 
-/* Post cover image */
-.post-cover {
-  width: 100%;
-  max-height: 400px;
-  object-fit: contain;
-  margin-bottom: var(--space-md);
-}
-@media (min-width: 768px) { .post-cover { max-height: 560px; } }
-
 /* Post body */
 .post-body {
   font-family: var(--font-body);
@@ -922,122 +913,74 @@ img { max-width: 100%; display: block; }
 .lang-toggle.en .lang-toggle-option.right { color: #fff; }
 
 /* ═══════════════════════════════════════
-   Language-specific typography
+   Unified typography (Chinese baseline)
    ═══════════════════════════════════════ */
 
-/* — Chinese reading mode — */
-html[lang="zh-CN"] {
-  --font-body-zh: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
-}
-
-html[lang="zh-CN"] body {
-  font-family: var(--font-body-zh);
+/* global body */
+body {
   font-size: 16px;
   line-height: 1.85;
+  letter-spacing: 0.015em;
 }
 
-/* headings: slightly smaller in Chinese (characters are denser) */
-html[lang="zh-CN"] .hero-title {
+/* headings */
+.hero-title {
   font-size: 32px;
   line-height: 1.3;
   letter-spacing: 0.03em;
 }
-@media (min-width: 768px) { html[lang="zh-CN"] .hero-title { font-size: 42px; } }
+@media (min-width: 768px) { .hero-title { font-size: 42px; } }
 
-html[lang="zh-CN"] .page-hero h1 {
+.page-hero h1 {
   font-size: 30px;
   line-height: 1.3;
   letter-spacing: 0.03em;
 }
-@media (min-width: 768px) { html[lang="zh-CN"] .page-hero h1 { font-size: 40px; } }
+@media (min-width: 768px) { .page-hero h1 { font-size: 40px; } }
 
-/* hero badge */
-html[lang="zh-CN"] .hero-badge { font-size: 13px; letter-spacing: 0.06em; }
+.post-header h1 {
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+}
+@media (min-width: 768px) { .post-header h1 { font-size: 40px; } }
 
-/* hero description: more breathing room */
-html[lang="zh-CN"] .hero-desc {
+.hero-badge { font-size: 13px; letter-spacing: 0.06em; }
+
+/* descriptions */
+.hero-desc {
   font-size: 16px;
   line-height: 1.95;
   letter-spacing: 0.02em;
   max-width: 480px;
 }
-
-/* Chinese text needs wider containers */
-html[lang="zh-CN"] .page-hero p { max-width: 640px; }
-html[lang="zh-CN"] .post-body { max-width: 720px; }
-html[lang="zh-CN"] .bento-card-desc { max-width: 100%; }
-
-/* page hero paragraph（traces / notes 描述文字）：缩小 + 舒适行距 */
-html[lang="zh-CN"] .page-hero p {
+.page-hero p {
   font-size: 15px;
   line-height: 1.95;
   letter-spacing: 0.02em;
+  max-width: 640px;
 }
+.post-header-desc { font-size: 16px; line-height: 1.85; }
+.bento-card-desc { font-size: 15px; line-height: 1.85; letter-spacing: 0.015em; }
 
-/* post body: comfortable long-form reading */
-html[lang="zh-CN"] .post-body {
+/* post body */
+.post-body {
   font-size: 16px;
   line-height: 1.95;
   letter-spacing: 0.015em;
+  max-width: 720px;
 }
-html[lang="zh-CN"] .post-body h2 { font-size: 24px; }
-html[lang="zh-CN"] .post-body h3 { font-size: 19px; }
-html[lang="zh-CN"] .post-body blockquote {
-  font-size: 16px;
-  line-height: 1.85;
-}
+.post-body h2 { font-size: 24px; }
+.post-body h3 { font-size: 19px; }
+.post-body blockquote { font-size: 16px; line-height: 1.85; }
 
-/* post header title */
-html[lang="zh-CN"] .post-header h1 {
-  font-size: 32px;
-  line-height: 1.3;
-  letter-spacing: 0.03em;
-}
-@media (min-width: 768px) { html[lang="zh-CN"] .post-header h1 { font-size: 40px; } }
+/* labels / small text */
+.post-date, .post-item-meta, .filter-btn,
+.nav-menu-btn, .pagination, .footer-copy,
+.post-nav-label, .hero-scroll-link { letter-spacing: 0.03em; }
 
-/* post header description */
-html[lang="zh-CN"] .post-header-desc {
-  font-size: 16px;
-  line-height: 1.85;
-}
-
-/* label / small text */
-html[lang="zh-CN"] .post-date,
-html[lang="zh-CN"] .post-item-meta,
-html[lang="zh-CN"] .filter-btn,
-html[lang="zh-CN"] .nav-menu-btn,
-html[lang="zh-CN"] .pagination,
-html[lang="zh-CN"] .footer-copy,
-html[lang="zh-CN"] .post-nav-label,
-html[lang="zh-CN"] .hero-scroll-link {
-  letter-spacing: 0.03em;
-}
-
-/* bento card description */
-html[lang="zh-CN"] .bento-card-desc {
-  font-size: 15px;
-  line-height: 1.85;
-  letter-spacing: 0.015em;
-}
-
-/* post-item title */
-html[lang="zh-CN"] .post-item-title {
-  letter-spacing: 0.03em;
-}
-
-/* featured card */
-html[lang="zh-CN"] .featured-excerpt {
-  font-size: 15px;
-  line-height: 1.85;
-}
-html[lang="zh-CN"] .featured-sticky-note { letter-spacing: 0.04em; }
-
-/* — English reading mode (slightly tighter, native feel) — */
-html[lang="en"] body {
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-}
+.post-item-title { letter-spacing: 0.03em; }
+.featured-excerpt { font-size: 15px; line-height: 1.85; }
 
 /* ═══════════════════════════════════════
    Mobile responsiveness ( < 768px )

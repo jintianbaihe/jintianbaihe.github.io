@@ -32,7 +32,7 @@
       'cards.about':              '外星驻地球特派员。',
       'cards.aboutLink':          '我的故事',
 
-      'traces.desc':              '一些作品在心中留下的痕迹。书、电影、音乐、游戏... 不是接触过的都会写，也不是写了就是最好的。只是恰好有话想说。就这样。',
+      'traces.desc':              '作品在心中留下的痕迹。书、电影、音乐、游戏... 不是接触过的都会写，也不是写了就是最好的。只是这些恰好有话想说。',
       'traces.filter.books':      '书',
       'traces.filter.films':      '电影',
       'traces.filter.games':      '游戏',
@@ -53,8 +53,8 @@
       'notes.filter.skills':      '技能',
       'notes.search':             '搜索文章...',
 
-      'pagination.prev':          '← 上一篇',
-      'pagination.next':          '下一篇 →',
+      'pagination.prev':          '← 上一页',
+      'pagination.next':          '下一页 →',
 
       'about.coffeeTitle':        '请我喝咖啡',
       'about.coffeeDesc':         '如果你觉得这些内容对你有帮助，可以请我喝杯咖啡——你可以在备注中留下邮箱和愿望，我会根据内容随机发送电子资源或回复。感谢你的支持！',
@@ -66,6 +66,7 @@
       'about.digitalCraftDesc':   '我把代码当作手工装订——每一行都是有意识的缝线。我打造极简、快速、有灵魂的数字体验。',
       'about.humanCentric':       '以人为本',
       'about.humanCentricDesc':   '科技应服务于人的生活节奏，而非反过来。我的作品注重平静与清晰。',
+      'about.bio':                 '我相信科技应该像速写本中的一页一样，具有个人化的触感与温度。',
       'about.quote':              '"我相信缓慢生长之物的美。在即时推送的世界里，我选择墨迹在纸上刻意的划痕。"',
     },
     en: {
@@ -127,6 +128,7 @@
       'about.digitalCraftDesc':   'I treat code like bookbinding — every line is an intentional stitch. I build minimal, fast, and soulful digital experiences.',
       'about.humanCentric':       'Human Centric',
       'about.humanCentricDesc':   'Technology should serve the human pace of life, not the other way around. My work prioritizes calm and clarity.',
+      'about.bio':                 'I believe that technology should feel as personal and tactile as a page in a sketchbook.',
       'about.quote':              '"I believe in the beauty of things that take time to grow. In a world of instant feeds, I choose the deliberate scratch of ink on paper."',
     }
   };
@@ -281,23 +283,5 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-
-  // ── Traces: remember filter across pagination clicks ──────────
-  var FILTER_KEY = 'traces-filter';
-  // Apply stored filter on page load
-  var storedFilter = sessionStorage.getItem(FILTER_KEY);
-  if (storedFilter && document.querySelector('.trace-filter-btn')) {
-    var targetBtn = document.querySelector('.trace-filter-btn[data-type="' + storedFilter + '"]');
-    if (targetBtn && typeof filterTraces === 'function') {
-      filterTraces(storedFilter, targetBtn);
-    }
-  }
-  // Save filter on button click (delegate)
-  document.addEventListener('click', function (e) {
-    var btn = e.target.closest('.trace-filter-btn');
-    if (btn) {
-      sessionStorage.setItem(FILTER_KEY, btn.getAttribute('data-type') || '');
-    }
-  });
 
 })();

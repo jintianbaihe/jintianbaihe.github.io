@@ -42,6 +42,7 @@
     director:  { icon: 'movie',           label: 'Director' },
     artist:    { icon: 'artist',          label: 'Artist' },
     developer: { icon: 'sports_esports',  label: 'Developer' },
+    pub_date:  { icon: 'calendar_today',  label: 'Published' },
     release:   { icon: 'calendar_today',  label: 'Release' },
     publisher: { icon: 'business',        label: 'Publisher' },
     label:     { icon: 'album',           label: 'Label' },
@@ -87,7 +88,8 @@
 
       <h1><%= post.title %></h1>
 
-      <% if (post.description) { %>
+      <% /* notes 保留 description，traces 不显示 */ %>
+      <% if (post.description && !isTracePost) { %>
         <p class="post-header-desc"><%= post.description %></p>
       <% } %>
     </header>
@@ -114,12 +116,6 @@
         查看更多 on Douban
       </a>
     </div>
-    <% } %>
-
-    <!-- ── Cover Image ── -->
-    <% /* show_cover 为 false 时隐藏，默认显示 */ %>
-    <% if (post.cover && post.show_cover !== false) { %>
-      <img class="post-cover" src="<%- url_for(post.cover) %>" alt="<%= post.title %>" />
     <% } %>
 
     <!-- ── Post Body ── -->

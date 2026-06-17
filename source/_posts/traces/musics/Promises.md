@@ -6,7 +6,6 @@ tags:
   - Ambient
   - Jazz
   - Electronic
-rating: 8.5
 description: Floating through space with Floating Points and Pharoah Sanders — a 46-minute journey that transcends genre.
 artist: Floating Points, Pharoah Sanders
 release: 2021
