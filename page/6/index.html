@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    
+      Yoka
+    
+  </title>
+  <meta name="description" content="" />
+
+  <!-- Fonts (preconnect for speed) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Work+Sans:wght@400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Theme stylesheet -->
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  <!-- RSS -->
+  
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Yoka RSS" />
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body>
+
+  <!-- ── Header / Nav ── -->
+  
+
+<header class="site-header">
+  <div class="container">
+
+    <!-- Logo -->
+    <a href="/" class="site-logo">
+      <img src="/images/logo.png" alt="..." class="site-logo-img" />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="site-nav">
+      
+        <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
+      
+        <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
+      
+        <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
+      
+        <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
+      
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
+    </nav>
+
+    <!-- Mobile-visible lang toggle (between logo and hamburger) -->
+    <button id="lang-toggle-mobile" class="lang-toggle lang-toggle-mobile" aria-label="切换语言">
+      <span class="lang-toggle-track">
+        <span class="lang-toggle-thumb"></span>
+        <span class="lang-toggle-option left">中文</span>
+        <span class="lang-toggle-option right">EN</span>
+      </span>
+    </button>
+
+    <!-- Mobile menu button -->
+    <button class="nav-menu-btn" aria-label="Toggle menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <nav class="mobile-nav">
+    
+      <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
+    
+      <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
+    
+      <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
+    
+      <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
+    
+  </nav>
+</header>
+
+
+  <!-- ── Page Content ── -->
+  
+
+<main>
+
+  <!-- ════ Hero ════ -->
+  <div class="container">
+    <section class="hero">
+
+      <!-- Text -->
+      <div class="hero-text">
+        <span class="hero-badge" data-i18n="home.greeting">Hello!</span>
+        <h1 class="hero-title">
+          <span data-i18n="home.titlePrefix">Hello, I&#39;m</span>
+          <span class="scribble-underline">Yoka</span><span class="highlight" data-i18n="home.titleSuffix">. Welcome to my little world ~</span>
+        </h1>
+        <p class="hero-desc" data-i18n="home.desc">Here you&#39;ll find: my random thoughts, my daydreams, my tutorials, my creations, my book/movie/music/game diaries... Hope you feel at home here!</p>
+        <a href="#content" class="hero-scroll-link">
+          <span data-i18n="home.scroll">Scroll to explore my world</span>
+          <span class="material-symbols-outlined">arrow_downward</span>
+        </a>
+      </div>
+
+      <!-- Portrait -->
+      <div class="hero-image-wrap">
+        <div class="hand-drawn-border sketch-shadow hero-image-frame">
+          
+            <img src="/images/hero.jpg" alt="Author portrait" />
+          
+        </div>
+        <div class="hero-washi"></div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ════ Bento Grid ════ -->
+  <div class="container" id="content">
+    <section class="bento-grid">
+      
+        <a href="/traces" class="bento-card hand-drawn-border active-press">
+          <div class="bento-card-icon pastel-wash-blue">
+            <span class="material-symbols-outlined text-primary">album</span>
+          </div>
+          <h3 class="bento-card-title" data-i18n="nav.traces">Traces</h3>
+          <p class="bento-card-desc" data-i18n="cards.traces">A curated log of books, music, and physical objects that spark joy.</p>
+          <div class="bento-card-link">
+            <span data-i18n="cards.tracesLink">See Log</span>
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </div>
+        </a>
+      
+        <a href="/notes" class="bento-card hand-drawn-border active-press">
+          <div class="bento-card-icon pastel-wash-mint">
+            <span class="material-symbols-outlined text-primary">description</span>
+          </div>
+          <h3 class="bento-card-title" data-i18n="nav.notes">Notes</h3>
+          <p class="bento-card-desc" data-i18n="cards.notes">Long-form essays on design philosophy, intentionality, and the slow web.</p>
+          <div class="bento-card-link">
+            <span data-i18n="cards.notesLink">Read Essays</span>
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </div>
+        </a>
+      
+        <a href="/projects" class="bento-card hand-drawn-border active-press">
+          <div class="bento-card-icon pastel-wash-orange">
+            <span class="material-symbols-outlined text-primary">brush</span>
+          </div>
+          <h3 class="bento-card-title" data-i18n="nav.projects">Projects</h3>
+          <p class="bento-card-desc" data-i18n="cards.projects">Open-source experiments and personal tools crafted with a charcoal soul.</p>
+          <div class="bento-card-link">
+            <span data-i18n="cards.projectsLink">View Projects</span>
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </div>
+        </a>
+      
+        <a href="/about" class="bento-card hand-drawn-border active-press">
+          <div class="bento-card-icon pastel-wash-pink">
+            <span class="material-symbols-outlined text-primary">favorite</span>
+          </div>
+          <h3 class="bento-card-title" data-i18n="nav.about">About Me</h3>
+          <p class="bento-card-desc" data-i18n="cards.about">My journey from ink to bits, and why I still prefer a fountain pen.</p>
+          <div class="bento-card-link">
+            <span data-i18n="cards.aboutLink">My Story</span>
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </div>
+        </a>
+      
+    </section>
+  </div>
+
+  <!-- ════ Featured Post ════ -->
+  
+  <div class="container">
+    <section class="featured-section">
+      <div class="featured-header">
+        <h2 data-i18n="home.latest">Latest Scribble</h2>
+        <span class="featured-date">
+          <span data-i18n="home.entry">Entry #</span>10 — 十二月 31, 2022
+        </span>
+      </div>
+
+      <a href="/2022/12/31/%E6%98%A5%E9%A3%8E%E6%B2%89%E9%86%89%E7%9A%84%E5%A4%9C%E6%99%9A/" class="featured-card hand-drawn-border">
+        
+          <div class="featured-img">
+            <img src="/images/traces/covers/movies/%E6%98%A5%E9%A3%8E%E6%B2%89%E9%86%89%E7%9A%84%E5%A4%9C%E6%99%9A.jpg" alt="春风沉醉的夜晚" />
+          </div>
+        
+        <div class="featured-content">
+          <h3 class="featured-title">春风沉醉的夜晚</h3>
+          <p class="featured-excerpt">
+            
+          </p>
+          <span class="featured-read-more">
+            <span data-i18n="home.continue">Continue reading</span>
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </span>
+        </div>
+
+      </a>
+    </section>
+  </div>
+  
+
+
+</main>
+
+
+  <!-- ── Footer ── -->
+  
+
+<footer class="site-footer">
+  <div class="container">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <img src="/images/logo.png" ... style="height:32px;width:auto;mix-blend-mode:multiply;"/>
+      <p class="footer-copy">© 2026 Yoka. Handcrafted with care and caffeine.</p>
+    </div>
+
+    <!-- Icon row：RedNote / GitHub / Email -->
+    <div class="footer-icons">
+      
+        <a class="footer-icon pastel-wash-pink" href="https://xhslink.com/m/4Vj9GcC5PAY" target="_blank" rel="noopener" title="RedNote">
+          <span class="material-symbols-outlined" style="font-size:16px;">bookmark</span>
+        </a>
+      
+      
+        <a class="footer-icon pastel-wash-mint" href="https://github.com/jintianbaihe" target="_blank" rel="noopener" title="GitHub">
+          <span class="material-symbols-outlined" style="font-size:16px;">code</span>
+        </a>
+      
+      
+        <a class="footer-icon pastel-wash-blue" href="mailto:jintianbaihe@outlook.com" title="Email">
+          <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
+        </a>
+      
+    </div>
+
+  </div>
+</footer>
+
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="返回顶部" title="返回顶部" style="display:none;position:fixed;bottom:28px;right:24px;z-index:99;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--color-outline-variant);background:var(--color-surface);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:opacity 0.25s,transform 0.25s;">
+    <span class="material-symbols-outlined" style="font-size:20px;color:var(--color-on-surface-variant);">arrow_upward</span>
+  </button>
+
+  <!-- Theme JS -->
+  
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

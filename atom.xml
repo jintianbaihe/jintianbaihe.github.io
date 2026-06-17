@@ -9,7 +9,22 @@
   <link href="https://jintianbaihe.github.io/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, Yoka</rights>
   <title>Yoka</title>
-  <updated>2026-06-02T14:34:52.258Z</updated>
+  <updated>2026-06-16T12:52:24.906Z</updated>
+  <entry>
+    <author>
+      <name>Yoka</name>
+    </author>
+    <category term="games" scheme="https://jintianbaihe.github.io/categories/games/"/>
+    <category term="Puzzle" scheme="https://jintianbaihe.github.io/tags/Puzzle/"/>
+    <category term="Adventure" scheme="https://jintianbaihe.github.io/tags/Adventure/"/>
+    <category term="Indie" scheme="https://jintianbaihe.github.io/tags/Indie/"/>
+    <id>https://jintianbaihe.github.io/2026/06/16/Tunic/</id>
+    <link href="https://jintianbaihe.github.io/2026/06/16/Tunic/"/>
+    <published>2026-06-15T16:00:00.000Z</published>
+    <summary>A love letter to classic instruction manuals wrapped in an isometric adventure that trusts you to figure things out.</summary>
+    <title>小丑牌</title>
+    <updated>2026-06-16T12:52:24.906Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Yoka</name>
@@ -44,25 +59,7 @@
     <published>2026-05-27T16:00:00.000Z</published>
     <summary>Floating through space with Floating Points and Pharoah Sanders — a 46-minute journey that transcends genre.</summary>
     <title>Promises</title>
-    <updated>2026-06-02T14:43:34.769Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Yoka</name>
-    </author>
-    <category term="games" scheme="https://jintianbaihe.github.io/categories/games/"/>
-    <category term="Puzzle" scheme="https://jintianbaihe.github.io/tags/Puzzle/"/>
-    <category term="Adventure" scheme="https://jintianbaihe.github.io/tags/Adventure/"/>
-    <category term="Indie" scheme="https://jintianbaihe.github.io/tags/Indie/"/>
-    <content>
-      <![CDATA[<p>Playing <em>Tunic</em> feels like being a kid again, discovering a Japanese import game without knowing the language. It’s a game built around the joy of not knowing — and the thrill of figuring things out.</p><h2 id="The-Manual-Is-the-Game"><a href="#The-Manual-Is-the-Game" class="headerlink" title="The Manual Is the Game"></a>The Manual Is the Game</h2><p>The central mechanic is brilliant: you collect pages of an in-game instruction manual written in a fictional language. Each page reveals game mechanics you might have been able to do all along — you just didn’t know it yet. It turns game literacy into a puzzle itself.</p><p>The manual is also a map, a hint system, a lore book, and occasionally, the solution to puzzles hidden in plain sight. The way it layers knowledge is unlike anything else in the medium.</p><h2 id="Combat-World-Design"><a href="#Combat-World-Design" class="headerlink" title="Combat &amp; World Design"></a>Combat &amp; World Design</h2><p>The combat feels like a tighter, more deliberate take on the <em>Zelda&#x2F;Souls</em> formula — simple on the surface but with surprising depth. The isometric world is dense with secrets, many hidden behind perspective tricks or cryptic environmental clues.</p><h2 id="Who-Should-Play"><a href="#Who-Should-Play" class="headerlink" title="Who Should Play"></a>Who Should Play</h2><ul><li>Fans of <em>Zelda</em>, <em>Dark Souls</em>, and <em>Fez</em></li><li>Anyone who misses physical game manuals</li><li>Players who love discovering secrets without waypoints or quest markers</li></ul><blockquote><p>The less you know going in, the better.</p></blockquote>]]>
-    </content>
-    <id>https://jintianbaihe.github.io/2026/05/25/Tunic/</id>
-    <link href="https://jintianbaihe.github.io/2026/05/25/Tunic/"/>
-    <published>2026-05-24T16:00:00.000Z</published>
-    <summary>A love letter to classic instruction manuals wrapped in an isometric adventure that trusts you to figure things out.</summary>
-    <title>Tunic</title>
-    <updated>2026-06-02T14:43:37.553Z</updated>
+    <updated>2026-06-16T12:52:24.916Z</updated>
   </entry>
   <entry>
     <author>
@@ -105,23 +102,6 @@
       <name>Yoka</name>
     </author>
     <category term="movies" scheme="https://jintianbaihe.github.io/categories/movies/"/>
-    <category term="Indie" scheme="https://jintianbaihe.github.io/tags/Indie/"/>
-    <category term="Drama" scheme="https://jintianbaihe.github.io/tags/Drama/"/>
-    <content>
-      <![CDATA[<p>Charlotte Wells’ debut feature is a masterclass in restraint. Set mostly during a father-daughter holiday at a Turkish resort in the late 1990s, the film unfolds as a series of fragmented memories.</p><h2 id="The-Power-of-What’s-Unsaid"><a href="#The-Power-of-What’s-Unsaid" class="headerlink" title="The Power of What’s Unsaid"></a>The Power of What’s Unsaid</h2><p>Paul Mescal delivers a career-defining performance as Calum, a young father hiding profound sadness behind a gentle smile. But the film truly belongs to Frankie Corio as Sophie, whose 11-year-old gaze captures everything and nothing at once.</p><p>What makes <em>Aftersun</em> so devastating is how it trusts its audience. Wells never explains Calum’s pain — we only see it through Sophie’s incomplete understanding, replayed decades later through adult eyes searching for clues she missed.</p><h2 id="Standout-Moments"><a href="#Standout-Moments" class="headerlink" title="Standout Moments"></a>Standout Moments</h2><ul><li>The “Under Pressure” sequence — one of the most emotionally overwhelming scenes I’ve ever experienced</li><li>The recurring motif of the strobe-lit dance floor, Sophie reaching for a father she can never quite reach</li><li>The final pan, which I won’t spoil, but it broke me completely</li></ul><blockquote><p>A film that doesn’t just reward rewatches — it deepens with them.</p></blockquote>]]>
-    </content>
-    <id>https://jintianbaihe.github.io/2026/05/20/Aftersun/</id>
-    <link href="https://jintianbaihe.github.io/2026/05/20/Aftersun/"/>
-    <published>2026-05-19T16:00:00.000Z</published>
-    <summary>A quietly devastating portrait of memory, fatherhood, and the things we can't understand until it's too late.</summary>
-    <title>Aftersun</title>
-    <updated>2026-06-02T14:43:51.463Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Yoka</name>
-    </author>
-    <category term="movies" scheme="https://jintianbaihe.github.io/categories/movies/"/>
     <category term="Drama" scheme="https://jintianbaihe.github.io/tags/Drama/"/>
     <category term="Romance" scheme="https://jintianbaihe.github.io/tags/Romance/"/>
     <category term="Family" scheme="https://jintianbaihe.github.io/tags/Family/"/>
@@ -133,7 +113,7 @@
     <published>2026-05-19T16:00:00.000Z</published>
     <summary>That‘s life.</summary>
     <title>一一</title>
-    <updated>2026-06-12T02:24:07.445Z</updated>
+    <updated>2026-06-16T12:30:51.451Z</updated>
   </entry>
   <entry>
     <author>
@@ -148,7 +128,111 @@
     <published>2026-05-12T16:00:00.000Z</published>
     <summary>虽然这本书争议很大，但我依然认为在网文中，本书对人物心理的理解是相当有深度的，当然可能也是因为我有非常相似经历的原因。有一定私货成分</summary>
     <title>CITY OF ANGELS</title>
-    <updated>2026-06-06T08:51:09.762Z</updated>
+    <updated>2026-06-17T14:24:58.268Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yoka</name>
+    </author>
+    <category term="movies" scheme="https://jintianbaihe.github.io/categories/movies/"/>
+    <category term="中国大陆" scheme="https://jintianbaihe.github.io/tags/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86/"/>
+    <id>https://jintianbaihe.github.io/2026/05/09/%E7%BB%99%E9%98%BF%E5%AC%B7%E7%9A%84%E6%83%85%E4%B9%A6/</id>
+    <link href="https://jintianbaihe.github.io/2026/05/09/%E7%BB%99%E9%98%BF%E5%AC%B7%E7%9A%84%E6%83%85%E4%B9%A6/"/>
+    <published>2026-05-08T16:00:00.000Z</published>
+    <title>给阿嬷的情书</title>
+    <updated>2026-06-17T14:29:09.018Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yoka</name>
+    </author>
+    <category term="movies" scheme="https://jintianbaihe.github.io/categories/movies/"/>
+    <category term="法国" scheme="https://jintianbaihe.github.io/tags/%E6%B3%95%E5%9B%BD/"/>
+    <id>https://jintianbaihe.github.io/2026/04/23/%E5%B7%B4%E9%BB%8E%E5%9C%A3%E6%AF%8D%E9%99%A2-Notre-Dame-de-Paris/</id>
+    <link href="https://jintianbaihe.github.io/2026/04/23/%E5%B7%B4%E9%BB%8E%E5%9C%A3%E6%AF%8D%E9%99%A2-Notre-Dame-de-Paris/"/>
+    <published>2026-04-22T16:00:00.000Z</published>
+    <title>巴黎圣母院 / Notre Dame de Paris</title>
+    <updated>2026-06-17T14:28:28.258Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yoka</name>
+    </author>
+    <category term="movies" scheme="https://jintianbaihe.github.io/categories/movies/"/>
+    <category term="戛纳电影节" scheme="https://jintianbaihe.github.io/tags/%E6%88%9B%E7%BA%B3%E7%94%B5%E5%BD%B1%E8%8A%82/"/>
+    <content>
+      <![CDATA[<blockquote><p>两个深爱但不懂得对方爱的语言又不会沟通的人，下场就是这样…镜头和演员都是极美的。</p></blockquote>]]>
+    </content>
+    <id>https://jintianbaihe.github.io/2026/04/23/%E6%98%A5%E5%85%89%E4%B9%8D%E6%B3%84-%E6%98%A5%E5%85%89%E4%B9%8D%E6%B4%A9/</id>
+    <link href="https://jintianbaihe.github.io/2026/04/23/%E6%98%A5%E5%85%89%E4%B9%8D%E6%B3%84-%E6%98%A5%E5%85%89%E4%B9%8D%E6%B4%A9/"/>
+    <published>2026-04-22T16:00:00.000Z</published>
+    <summary>两个深爱但不懂得对方爱的语言又不会沟通的人，下场就是这样...镜头和演员都是极美的。</summary>
+    <title>春光乍泄 / 春光乍洩</title>
+    <updated>2026-06-17T14:28:41.618Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yoka</name>
+    </author>
+    <category term="movies" scheme="https://jintianbaihe.github.io/categories/movies/"/>
+    <category term="威尼斯电影节" scheme="https://jintianbaihe.github.io/tags/%E5%A8%81%E5%B0%BC%E6%96%AF%E7%94%B5%E5%BD%B1%E8%8A%82/"/>
+    <id>https://jintianbaihe.github.io/2026/04/20/%E4%B8%9C%E9%82%AA%E8%A5%BF%E6%AF%92-%E6%9D%B1%E9%82%AA%E8%A5%BF%E6%AF%92/</id>
+    <link href="https://jintianbaihe.github.io/2026/04/20/%E4%B8%9C%E9%82%AA%E8%A5%BF%E6%AF%92-%E6%9D%B1%E9%82%AA%E8%A5%BF%E6%AF%92/"/>
+    <published>2026-04-19T16:00:00.000Z</published>
+    <title>东邪西毒 / 東邪西毒</title>
+    <updated>2026-06-17T14:27:56.590Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yoka</name>
+    </author>
+    <category term="movies" scheme="https://jintianbaihe.github.io/categories/movies/"/>
+    <category term="台北金马影展" scheme="https://jintianbaihe.github.io/tags/%E5%8F%B0%E5%8C%97%E9%87%91%E9%A9%AC%E5%BD%B1%E5%B1%95/"/>
+    <id>https://jintianbaihe.github.io/2026/04/20/%E5%8E%BB%E5%94%B1%E5%8D%A1%E6%8B%89OK%E5%90%A7%EF%BC%81-%E3%82%AB%E3%83%A9%E3%82%AA%E3%82%B1%E8%A1%8C%E3%81%93!/</id>
+    <link href="https://jintianbaihe.github.io/2026/04/20/%E5%8E%BB%E5%94%B1%E5%8D%A1%E6%8B%89OK%E5%90%A7%EF%BC%81-%E3%82%AB%E3%83%A9%E3%82%AA%E3%82%B1%E8%A1%8C%E3%81%93!/"/>
+    <published>2026-04-19T16:00:00.000Z</published>
+    <title>去唱卡拉OK吧！ / カラオケ行こ!</title>
+    <updated>2026-06-17T14:28:09.271Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yoka</name>
+    </author>
+    <category term="movies" scheme="https://jintianbaihe.github.io/categories/movies/"/>
+    <category term="中国香港" scheme="https://jintianbaihe.github.io/tags/%E4%B8%AD%E5%9B%BD%E9%A6%99%E6%B8%AF/"/>
+    <id>https://jintianbaihe.github.io/2026/04/01/%E6%98%9F%E6%9C%88%E7%AB%A5%E8%AF%9D-%E6%98%9F%E6%9C%88%E7%AB%A5%E8%A9%B1/</id>
+    <link href="https://jintianbaihe.github.io/2026/04/01/%E6%98%9F%E6%9C%88%E7%AB%A5%E8%AF%9D-%E6%98%9F%E6%9C%88%E7%AB%A5%E8%A9%B1/"/>
+    <published>2026-03-31T16:00:00.000Z</published>
+    <title>星月童话 / 星月童話</title>
+    <updated>2026-06-17T14:28:36.664Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yoka</name>
+    </author>
+    <category term="movies" scheme="https://jintianbaihe.github.io/categories/movies/"/>
+    <id>https://jintianbaihe.github.io/2026/03/15/%E6%95%91%E6%8F%B4%E9%AB%98%E6%89%8B-%E7%AC%AC%E4%B8%80%E5%AD%A3-Nathan-for-You-Season-1/</id>
+    <link href="https://jintianbaihe.github.io/2026/03/15/%E6%95%91%E6%8F%B4%E9%AB%98%E6%89%8B-%E7%AC%AC%E4%B8%80%E5%AD%A3-Nathan-for-You-Season-1/"/>
+    <published>2026-03-14T16:00:00.000Z</published>
+    <title>救援高手 第一季 / Nathan for You Season 1</title>
+    <updated>2026-06-17T14:28:34.521Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yoka</name>
+    </author>
+    <category term="reflections" scheme="https://jintianbaihe.github.io/categories/reflections/"/>
+    <content>
+      <![CDATA[<p>整理家中杂物时，翻出了初中痴迷收集的明信片，一大袋整整齐齐，安安静静地睡在那里。<br><br>看着它们，突然记起我上学期间最喜欢去学校门口文具店，看那些漂亮花哨的文具。签字笔，橡皮，修正带，小本子，明信片……这些明信片，每一盒都是我站在店里爱不释手，反复挑选后才带回家的。我还清楚记得10块钱一盒，对当时的我来说，不便宜。<br><br>也正是因为喜爱和珍惜，所以我从不舍得用。总觉得如果缺了一张，就不再是我心里完美的那盒明信片了。于是像恶龙一样守护着自己的宝藏，只会有时候打开盒子，倒出来一张一张欣赏，再心满意足地装回盒子收在一旁。<br><br>究竟是为什么这项爱好渐渐被我遗忘了呢？是因为越来越重的学习压力吗？还是因为恶龙又有了它新的收集目标？我已经记不太清了，只知道如今早已大学毕业的我，再看见这些明信片，却再也不复幼时心中那种悸动。取而代之的是对往日的感叹，和对自己当时怎么没有好好把它们用起来的惋惜。但又想起那些来自曾经同学的明信片，上面写下的祝福我也已经全然陌生了。那份美好的感受只属于那时的我，我没办法也不该阻止感情自然的流淌，流淌，直至被时间磨成我再也认不出的样子。<br><br>于是突然就懂了张悬歌词里“去挥霍和珍惜是同一件事情”。</p>]]>
+    </content>
+    <id>https://jintianbaihe.github.io/2026/02/21/%E5%8E%BB%E7%8F%8D%E6%83%9C%E5%92%8C%E6%8C%A5%E9%9C%8D%E6%98%AF%E5%90%8C%E4%B8%80%E4%BB%B6%E4%BA%8B%E7%B2%BE/</id>
+    <link href="https://jintianbaihe.github.io/2026/02/21/%E5%8E%BB%E7%8F%8D%E6%83%9C%E5%92%8C%E6%8C%A5%E9%9C%8D%E6%98%AF%E5%90%8C%E4%B8%80%E4%BB%B6%E4%BA%8B%E7%B2%BE/"/>
+    <published>2026-02-20T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>整理家中杂物时，翻出了初中痴迷收集的明信片，一大袋整整齐齐，安安静静地睡在那里。<br>	<br>看着它们，突然记起我上学期间最喜欢去学校门口文具店，看那些漂亮花哨的文具。签字笔，橡皮，修正带，小本子，明信片……这些明信片，每一盒都是我站在店里爱不释手，反复挑选后才带回家的]]>
+    </summary>
+    <title>去珍惜和挥霍是同一件事情</title>
+    <updated>2026-06-17T01:46:26.645Z</updated>
   </entry>
   <entry>
     <author>
@@ -163,7 +247,7 @@
     <published>2026-02-06T16:00:00.000Z</published>
     <summary>特别好，容易看进去，讲的也很清楚。我承认国外教科书好了😭</summary>
     <title>社会心理学（第11版，精装彩印）</title>
-    <updated>2026-06-06T08:51:09.771Z</updated>
+    <updated>2026-06-17T14:25:29.447Z</updated>
   </entry>
   <entry>
     <author>
@@ -174,7 +258,7 @@
     <link href="https://jintianbaihe.github.io/2025/12/31/%E5%A4%AA%E7%99%BD%E9%87%91%E6%98%9F%E6%9C%89%E7%82%B9%E7%83%A6/"/>
     <published>2025-12-30T16:00:00.000Z</published>
     <title>太白金星有点烦</title>
-    <updated>2026-06-06T08:51:09.771Z</updated>
+    <updated>2026-06-17T14:25:15.337Z</updated>
   </entry>
   <entry>
     <author>
@@ -189,7 +273,7 @@
     <published>2025-10-14T16:00:00.000Z</published>
     <summary>余华作品中最爱的一本</summary>
     <title>在细雨中呼喊</title>
-    <updated>2026-06-06T08:51:09.772Z</updated>
+    <updated>2026-06-17T14:25:12.979Z</updated>
   </entry>
   <entry>
     <author>
@@ -200,7 +284,7 @@
     <link href="https://jintianbaihe.github.io/2025/10/15/%E6%B5%81%E4%BF%97%E5%9C%B0/"/>
     <published>2025-10-14T16:00:00.000Z</published>
     <title>流俗地</title>
-    <updated>2026-06-06T08:51:09.772Z</updated>
+    <updated>2026-06-17T13:23:39.134Z</updated>
   </entry>
   <entry>
     <author>
@@ -215,96 +299,6 @@
     <published>2025-09-25T16:00:00.000Z</published>
     <summary>很适合建立基础经济学的思维，看完一遍就已经有很多看待生活的新视角了，有机会会再啃几遍</summary>
     <title>经济学的思维方式</title>
-    <updated>2026-06-06T08:51:09.772Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Yoka</name>
-    </author>
-    <category term="books" scheme="https://jintianbaihe.github.io/categories/books/"/>
-    <id>https://jintianbaihe.github.io/2025/09/15/%E6%82%89%E8%BE%BE%E5%A4%9A/</id>
-    <link href="https://jintianbaihe.github.io/2025/09/15/%E6%82%89%E8%BE%BE%E5%A4%9A/"/>
-    <published>2025-09-14T16:00:00.000Z</published>
-    <title>悉达多</title>
-    <updated>2026-06-06T08:51:09.773Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Yoka</name>
-    </author>
-    <category term="books" scheme="https://jintianbaihe.github.io/categories/books/"/>
-    <id>https://jintianbaihe.github.io/2025/09/14/%E6%AE%B5%E6%B0%B8%E5%B9%B3%E6%8A%95%E8%B5%84%E9%97%AE%E7%AD%94%E5%BD%95%EF%BC%88%E6%8A%95%E8%B5%84%E9%80%BB%E8%BE%91%E7%AF%87%EF%BC%89/</id>
-    <link href="https://jintianbaihe.github.io/2025/09/14/%E6%AE%B5%E6%B0%B8%E5%B9%B3%E6%8A%95%E8%B5%84%E9%97%AE%E7%AD%94%E5%BD%95%EF%BC%88%E6%8A%95%E8%B5%84%E9%80%BB%E8%BE%91%E7%AF%87%EF%BC%89/"/>
-    <published>2025-09-13T16:00:00.000Z</published>
-    <summary>好书，但感觉不啰嗦能少一半篇幅，推荐AI辅助阅读</summary>
-    <title>段永平投资问答录（投资逻辑篇）</title>
-    <updated>2026-06-06T11:56:31.679Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Yoka</name>
-    </author>
-    <category term="books" scheme="https://jintianbaihe.github.io/categories/books/"/>
-    <content>
-      <![CDATA[<p>这本书看完，最大的感受是作者是个聪明，认真且真诚的人。印象很深，刚拿到书看作者介绍，看乐了：</p><blockquote><p>唐朝，70后。1994年辞去事业单位公职，1995年进入期货市场。无数个不眠之夜，发奋苦读各类技术分析书籍，终成功爆仓并破产于1996年。终得四字真言：“远离杠杆”。其后的奋斗，都投了房产和股票，收获还算满意。2006年底，关了公司，成为宅男，从此开始享受读书、运动和投资的悠闲生活。</p></blockquote><p>这年头涉及到真金白银的事情，还能这样掏心窝子从0教你为何要价值投资，该怎么挑企业，怎么看财报，怎么估值的。不管这本书里的知识是否有个人局限性（我相信肯定有，不过我的水平看不出来，觉得说的都很有道理哈哈哈哈），都很值得一看了。尤其是最后唐朝给了一个他自己分析茅台的案例，看完我佩服的五体投地，能分析到这个程度，他赚钱我一点不眼红。</p><p>虽然现在市场选择更多了，叙事更复杂了，影响估值的因素也变多了。但是最根本的道理还是没有变。那些前人总结出来的教训“不要做空“，”不要杠杆“，”买股票就是买公司”，句句带血带泪。每次看到有新闻说比特币暴跌，多少多少人爆仓，我都会想到这本书以及其他价值投资理论的忠告。虽然我们大部分普通人做不到完全不投机，但是以价值投资为长远主线，短线里小范围操作投机，我认为是明知且可行的。</p>]]>
-    </content>
-    <id>https://jintianbaihe.github.io/2025/03/06/%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C-(%E7%AC%AC%E4%BA%8C%E8%BE%91)/</id>
-    <link href="https://jintianbaihe.github.io/2025/03/06/%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C-(%E7%AC%AC%E4%BA%8C%E8%BE%91)/"/>
-    <published>2025-03-05T16:00:00.000Z</published>
-    <summary>好书，亲身实践有所收获</summary>
-    <title>价值投资实战手册 (第二辑)</title>
-    <updated>2026-06-07T06:59:44.396Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Yoka</name>
-    </author>
-    <category term="books" scheme="https://jintianbaihe.github.io/categories/books/"/>
-    <id>https://jintianbaihe.github.io/2024/06/28/%E9%87%91%E9%94%81%E8%AE%B0/</id>
-    <link href="https://jintianbaihe.github.io/2024/06/28/%E9%87%91%E9%94%81%E8%AE%B0/"/>
-    <published>2024-06-27T16:00:00.000Z</published>
-    <title>金锁记</title>
-    <updated>2026-06-06T08:51:09.774Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Yoka</name>
-    </author>
-    <category term="books" scheme="https://jintianbaihe.github.io/categories/books/"/>
-    <content>
-      <![CDATA[<p>兼顾了理论和实操的四柱八字教程，作者是理工科出身。因此这本书虽然说玄学，但非常难得的没有说得很玄乎很抽象，而是给出了很清晰的实操方法，配有案例及分析，适合上手。</p><p>作者同系列还有其他两本进阶，没有看过不做评价，不过看大家评论说没有这一本好。我自己是看完这本直接就开始上手看案例分析了，如果还想深入感觉精读古籍会是更好的选择。</p>]]>
-    </content>
-    <id>https://jintianbaihe.github.io/2023/04/13/%E5%85%AB%E5%AD%97%E5%91%BD%E7%90%86%E5%AD%B8%E5%9F%BA%E7%A4%8E%E6%95%99%E7%A8%8B/</id>
-    <link href="https://jintianbaihe.github.io/2023/04/13/%E5%85%AB%E5%AD%97%E5%91%BD%E7%90%86%E5%AD%B8%E5%9F%BA%E7%A4%8E%E6%95%99%E7%A8%8B/"/>
-    <published>2023-04-12T16:00:00.000Z</published>
-    <summary>四柱八字领域入门啃这本就行</summary>
-    <title>八字命理學基礎教程</title>
-    <updated>2026-06-06T11:55:30.296Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Yoka</name>
-    </author>
-    <category term="books" scheme="https://jintianbaihe.github.io/categories/books/"/>
-    <content>
-      <![CDATA[<blockquote><p>奢求一个对当今乡镇状况如此细致客观的研究</p></blockquote>]]>
-    </content>
-    <id>https://jintianbaihe.github.io/2023/01/03/%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3/</id>
-    <link href="https://jintianbaihe.github.io/2023/01/03/%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3/"/>
-    <published>2023-01-02T16:00:00.000Z</published>
-    <summary>奢求一个对当今乡镇状况如此细致客观的研究</summary>
-    <title>小镇喧嚣</title>
-    <updated>2026-06-06T08:51:09.775Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Yoka</name>
-    </author>
-    <category term="books" scheme="https://jintianbaihe.github.io/categories/books/"/>
-    <id>https://jintianbaihe.github.io/2023/01/02/%E3%83%AB%E3%83%83%E3%82%AF%E3%83%90%E3%83%83%E3%82%AF/</id>
-    <link href="https://jintianbaihe.github.io/2023/01/02/%E3%83%AB%E3%83%83%E3%82%AF%E3%83%90%E3%83%83%E3%82%AF/"/>
-    <published>2023-01-01T16:00:00.000Z</published>
-    <title>ルックバック</title>
-    <updated>2026-06-06T08:51:09.776Z</updated>
+    <updated>2026-06-17T14:25:32.107Z</updated>
   </entry>
 </feed>

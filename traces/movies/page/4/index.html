@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    
+      Traces | Yoka
+    
+  </title>
+  <meta name="description" content="" />
+
+  <!-- Fonts (preconnect for speed) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Work+Sans:wght@400;500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Theme stylesheet -->
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  <!-- RSS -->
+  
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Yoka RSS" />
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body>
+
+  <!-- ── Header / Nav ── -->
+  
+
+<header class="site-header">
+  <div class="container">
+
+    <!-- Logo -->
+    <a href="/" class="site-logo">
+      <img src="/images/logo.png" alt="..." class="site-logo-img" />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="site-nav">
+      
+        <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
+      
+        <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
+      
+        <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
+      
+        <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
+      
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
+    </nav>
+
+    <!-- Mobile-visible lang toggle (between logo and hamburger) -->
+    <button id="lang-toggle-mobile" class="lang-toggle lang-toggle-mobile" aria-label="切换语言">
+      <span class="lang-toggle-track">
+        <span class="lang-toggle-thumb"></span>
+        <span class="lang-toggle-option left">中文</span>
+        <span class="lang-toggle-option right">EN</span>
+      </span>
+    </button>
+
+    <!-- Mobile menu button -->
+    <button class="nav-menu-btn" aria-label="Toggle menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <nav class="mobile-nav">
+    
+      <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
+    
+      <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
+    
+      <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
+    
+      <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
+    
+  </nav>
+</header>
+
+
+  <!-- ── Page Content ── -->
+  
+
+<main class="page-main">
+  <div class="container">
+
+    <!-- Page hero -->
+    <section class="page-hero">
+      <h1>Traces</h1>
+      <p data-i18n="traces.desc"></p>
+    </section>
+
+    <!-- Search -->
+    <div style="margin-bottom:24px;position:relative;">
+      <span class="material-symbols-outlined" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--color-outline);font-size:20px;">search</span>
+      <input type="text" id="traces-search" data-i18n-placeholder="traces.search" placeholder="Search books, films, music, games..."
+        style="width:100%;padding:14px 16px 14px 48px;border:1.5px solid var(--color-outline-variant);border-radius:12px;font-family:var(--font-body);font-size:15px;background:var(--color-surface-container-low);color:var(--color-on-surface);outline:none;transition:border-color 0.2s;box-sizing:border-box;"
+        onfocus="this.style.borderColor='var(--color-primary)'"
+        onblur="this.style.borderColor='var(--color-outline-variant)'"
+        oninput="searchTraces()">
+    </div>
+
+    <!-- Category filters — links to per-category pages -->
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;">
+      
+        <a href="/traces/" class="trace-filter-btn" data-color="var(--macaron-orange)" style="display:inline-flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;">
+          <span class="material-symbols-outlined" style="font-size:18px;">auto_stories</span> <span data-i18n="traces.filter.books">Books</span>
+        </a>
+      
+        <a href="/traces/movies/" class="trace-filter-btn active" data-color="var(--macaron-blue)" style="display:inline-flex;align-items:center;gap:6px;color:#fff;border-radius:9999px;background:var(--macaron-blue);padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;">
+          <span class="material-symbols-outlined" style="font-size:18px;">movie</span> <span data-i18n="traces.filter.films">Films</span>
+        </a>
+      
+        <a href="/traces/games/" class="trace-filter-btn" data-color="var(--macaron-green)" style="display:inline-flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;">
+          <span class="material-symbols-outlined" style="font-size:18px;">sports_esports</span> <span data-i18n="traces.filter.games">Games</span>
+        </a>
+      
+        <a href="/traces/music/" class="trace-filter-btn" data-color="var(--macaron-pink)" style="display:inline-flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;">
+          <span class="material-symbols-outlined" style="font-size:18px;">music_note</span> <span data-i18n="traces.filter.music">Music</span>
+        </a>
+      
+    </div>
+
+    
+
+      
+      <!-- Pinned Recommendations -->
+      <section style="margin-bottom:64px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
+          <span class="material-symbols-outlined" style="color:var(--color-secondary);">keep</span>
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;" data-i18n="traces.pinned">Pinned Recommendations</h3>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
+          
+          <a href="/2026/05/09/%E7%BB%99%E9%98%BF%E5%AC%B7%E7%9A%84%E6%83%85%E4%B9%A6/" class="trace-card" data-type="film" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+              <!-- 便签顶部小横条（模拟便签本撕边） -->
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                
+                  <img src="/images/traces/covers/movies/%E7%BB%99%E9%98%BF%E5%AC%B7%E7%9A%84%E6%83%85%E4%B9%A6.jpg" alt="给阿嬷的情书" style="width:100%;height:100%;object-fit:contain;" />
+                
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                
+                  <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-outline-variant);background:var(--pastel-orange);font-family:var(--font-label);">中国大陆</span>
+                
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;">给阿嬷的情书</h4>
+            </div>
+          </a>
+          
+          <a href="/2025/07/29/%E7%94%9C%E8%9C%9C%E8%9C%9C/" class="trace-card" data-type="film" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+              <!-- 便签顶部小横条（模拟便签本撕边） -->
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                
+                  <img src="/images/traces/covers/movies/%E7%94%9C%E8%9C%9C%E8%9C%9C.jpg" alt="甜蜜蜜" style="width:100%;height:100%;object-fit:contain;" />
+                
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                
+                  <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-outline-variant);background:var(--pastel-orange);font-family:var(--font-label);">中国香港</span>
+                
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;">甜蜜蜜</h4>
+            </div>
+          </a>
+          
+          <a href="/2025/04/16/%E8%8B%A6%E5%B0%BD%E6%9F%91%E6%9D%A5%E9%81%87%E8%A7%81%E4%BD%A0-%ED%8F%AD%EC%8B%B9-%EC%86%8D%EC%95%98%EC%88%98%EB%8B%A4/" class="trace-card" data-type="film" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+              <!-- 便签顶部小横条（模拟便签本撕边） -->
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                
+                  <img src="/images/traces/covers/movies/%E8%8B%A6%E5%B0%BD%E6%9F%91%E6%9D%A5%E9%81%87%E8%A7%81%E4%BD%A0-%ED%8F%AD%EC%8B%B9-%EC%86%8D%EC%95%98%EC%88%98%EB%8B%A4.jpg" alt="苦尽柑来遇见你 / 폭싹 속았수다" style="width:100%;height:100%;object-fit:contain;" />
+                
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                
+                  <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-outline-variant);background:var(--pastel-orange);font-family:var(--font-label);">韩国</span>
+                
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;">苦尽柑来遇见你 / 폭싹 속았수다</h4>
+            </div>
+          </a>
+          
+          <a href="/2025/02/11/%E6%9C%88%E5%88%8A%E5%B0%91%E5%A5%B3%E9%87%8E%E5%B4%8E%E5%90%9B-%E6%9C%88%E5%88%8A%E5%B0%91%E5%A5%B3%E9%87%8E%E5%B4%8E%E3%81%8F%E3%82%93/" class="trace-card" data-type="film" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+              <!-- 便签顶部小横条（模拟便签本撕边） -->
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                
+                  <img src="/images/traces/covers/movies/%E6%9C%88%E5%88%8A%E5%B0%91%E5%A5%B3%E9%87%8E%E5%B4%8E%E5%90%9B-%E6%9C%88%E5%88%8A%E5%B0%91%E5%A5%B3%E9%87%8E%E5%B4%8E%E3%81%8F%E3%82%93.jpg" alt="月刊少女野崎君 / 月刊少女野崎くん" style="width:100%;height:100%;object-fit:contain;" />
+                
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                
+                  <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-outline-variant);background:var(--pastel-orange);font-family:var(--font-label);">日本</span>
+                
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;">月刊少女野崎君 / 月刊少女野崎くん</h4>
+            </div>
+          </a>
+          
+          <a href="/2024/11/23/%E5%A5%BD%E4%B8%9C%E8%A5%BF/" class="trace-card" data-type="film" style="cursor:pointer;text-decoration:none;color:inherit;">
+            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+              <!-- 便签顶部小横条（模拟便签本撕边） -->
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                
+                  <img src="/images/traces/covers/movies/%E5%A5%BD%E4%B8%9C%E8%A5%BF.jpg" alt="好东西" style="width:100%;height:100%;object-fit:contain;" />
+                
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
+                
+                  <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-outline-variant);background:var(--pastel-orange);font-family:var(--font-label);">金鸡国产电影展</span>
+                
+              </div>
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;">好东西</h4>
+            </div>
+          </a>
+          
+        </div>
+      </section>
+      
+
+      <!-- Recent Entries -->
+      <section style="margin-bottom:64px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:var(--color-secondary);">history</span>
+            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;" data-i18n="traces.recent">Recent Entries</h3>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          
+          <a href="/2023/01/02/JOJO%E7%9A%84%E5%A5%87%E5%A6%99%E5%86%92%E9%99%A9-%E9%BB%84%E9%87%91%E4%B9%8B%E9%A3%8E-%E3%82%B8%E3%83%A7%E3%82%B8%E3%83%A7%E3%81%AE%E5%A5%87%E5%A6%99%E3%81%AA%E5%86%92%E9%99%BA-%E9%BB%84%E9%87%91%E3%81%AE%E9%A2%A8/" class="trace-card" data-type="film" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/movies/JOJO%E7%9A%84%E5%A5%87%E5%A6%99%E5%86%92%E9%99%A9-%E9%BB%84%E9%87%91%E4%B9%8B%E9%A3%8E-%E3%82%B8%E3%83%A7%E3%82%B8%E3%83%A7%E3%81%AE%E5%A5%87%E5%A6%99%E3%81%AA%E5%86%92%E9%99%BA-%E9%BB%84%E9%87%91%E3%81%AE%E9%A2%A8.jpg" alt="JOJO的奇妙冒险 黄金之风 / ジョジョの奇妙な冒険 黄金の風" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">JOJO的奇妙冒险 黄金之风 / ジョジョの奇妙な冒険 黄金の風</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">日本</span>
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2023/01/01/%E6%B0%B4%E5%BD%A2%E7%89%A9%E8%AF%AD-The-Shape-of-Water/" class="trace-card" data-type="film" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/movies/%E6%B0%B4%E5%BD%A2%E7%89%A9%E8%AF%AD-The-Shape-of-Water.jpg" alt="水形物语 / The Shape of Water" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">水形物语 / The Shape of Water</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">威尼斯电影节</span>
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/12/31/%E6%98%A5%E9%A3%8E%E6%B2%89%E9%86%89%E7%9A%84%E5%A4%9C%E6%99%9A/" class="trace-card" data-type="film" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/movies/%E6%98%A5%E9%A3%8E%E6%B2%89%E9%86%89%E7%9A%84%E5%A4%9C%E6%99%9A.jpg" alt="春风沉醉的夜晚" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">春风沉醉的夜晚</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">戛纳电影节</span>
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/12/23/%E6%9D%83%E5%8A%9B%E7%9A%84%E6%B8%B8%E6%88%8F-%E7%AC%AC%E4%B8%80%E5%AD%A3-Game-of-Thrones-Season-1/" class="trace-card" data-type="film" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/movies/%E6%9D%83%E5%8A%9B%E7%9A%84%E6%B8%B8%E6%88%8F-%E7%AC%AC%E4%B8%80%E5%AD%A3-Game-of-Thrones-Season-1.jpg" alt="权力的游戏 第一季 / Game of Thrones Season 1" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">权力的游戏 第一季 / Game of Thrones Season 1</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">美国</span>
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"虽然是架空世界，但质感和真实历史一样沉重。真相就是善良与荣誉屁用没有。"</p>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/09/08/%E5%90%8E%E5%AE%AB%C2%B7%E7%94%84%E5%AC%9B%E4%BC%A0/" class="trace-card" data-type="film" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/movies/%E5%90%8E%E5%AE%AB%C2%B7%E7%94%84%E5%AC%9B%E4%BC%A0.jpg" alt="后宫·甄嬛传" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">后宫·甄嬛传</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">中国大陆</span>
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/08/27/%E9%87%8D%E5%BA%86%E6%A3%AE%E6%9E%97-%E9%87%8D%E6%85%B6%E6%A3%AE%E6%9E%97/" class="trace-card" data-type="film" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/movies/%E9%87%8D%E5%BA%86%E6%A3%AE%E6%9E%97-%E9%87%8D%E6%85%B6%E6%A3%AE%E6%9E%97.jpg" alt="重庆森林 / 重慶森林" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">重庆森林 / 重慶森林</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">中国香港</span>
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/03/06/%E8%B6%85%E8%84%B1-Detachment/" class="trace-card" data-type="film" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/movies/%E8%B6%85%E8%84%B1-Detachment.jpg" alt="超脱 / Detachment" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">超脱 / Detachment</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">翠贝卡电影节</span>
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"处处是孤独者的荒漠"</p>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/02/09/%E4%B8%80%E5%A4%9C%E9%A3%8E%E6%B5%81-It-Happened-One-Night/" class="trace-card" data-type="film" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/movies/%E4%B8%80%E5%A4%9C%E9%A3%8E%E6%B5%81-It-Happened-One-Night.jpg" alt="一夜风流 / It Happened One Night" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">一夜风流 / It Happened One Night</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">美国</span>
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"最喜欢的也是最纯粹的喜剧电影，究竟是多么扎实的台词，才能经得起时间的考验，让现在的观影者也能开怀大笑且反复回味呀。 还有，没有人能拒绝克拉克盖博"</p>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/02/01/%E5%8E%BB%E4%BB%96%E7%9A%84%E4%B8%96%E7%95%8C-%E7%AC%AC%E4%B8%80%E5%AD%A3-The-End-of-the-Fing-World-Season-1/" class="trace-card" data-type="film" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/movies/%E5%8E%BB%E4%BB%96%E7%9A%84%E4%B8%96%E7%95%8C-%E7%AC%AC%E4%B8%80%E5%AD%A3-The-End-of-the-Fing-World-Season-1.jpg" alt="去他*的世界 第一季 / The End of the F***ing World Season 1" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">去他*的世界 第一季 / The End of the F***ing World Season 1</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">英国</span>
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/01/16/%E5%A4%A7%E4%BD%9B%E6%99%AE%E6%8B%89%E6%96%AF/" class="trace-card" data-type="film" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/movies/%E5%A4%A7%E4%BD%9B%E6%99%AE%E6%8B%89%E6%96%AF.jpg" alt="大佛普拉斯" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">大佛普拉斯</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+                  <span style="padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid var(--color-primary);background:var(--pastel-orange);font-family:var(--font-label);">台北电影节</span>
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"很喜欢很喜欢，高级黑色幽默，这样的影片请越多越好"</p>
+              
+            </div>
+          </a>
+          
+        </div>
+      </section>
+
+    
+
+    
+    
+    <nav class="pagination" style="margin-bottom:48px;">
+      <a class="extend prev" rel="prev" href="/traces/movies/page/3/">&lt;span data-i18n&#x3D;&quot;pagination.prev&quot;&gt;← Prev&lt;&#x2F;span&gt;</a><a class="page-number" href="/traces/movies/">1</a><a class="page-number" href="/traces/movies/page/2/">2</a><a class="page-number" href="/traces/movies/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/traces/movies/page/5/">5</a><a class="extend next" rel="next" href="/traces/movies/page/5/">&lt;span data-i18n&#x3D;&quot;pagination.next&quot;&gt;Next →&lt;&#x2F;span&gt;</a>
+    </nav>
+    
+
+    <!-- ☕ Support -->
+    <div style="padding:28px 24px;border-radius:8px;margin-bottom:64px;border-left:3px solid var(--macaron-orange);background:var(--color-surface-container-low);">
+      <p style="font-family:var(--font-label);font-size:15px;font-weight:500;line-height:1.7;color:var(--color-on-surface-variant);margin:0;">
+        
+          <span data-i18n="common.coffee">If anything here resonates, <a href="/about" class="coffee-link" style="color:var(--macaron-orange);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;">buy me a coffee</a> — no pressure, just a friendly nudge :)</span>
+        
+      </p>
+    </div>
+
+    <script>
+    // 搜索：在当前页内按标题筛选
+    function searchTraces() {
+      var q = (document.getElementById('traces-search').value || '').toLowerCase().trim();
+      document.querySelectorAll('.trace-card').forEach(function(card) {
+        var name = (card.querySelector('h4') || card.querySelector('h5') || {}).textContent || '';
+        card.style.display = (!q || name.toLowerCase().indexOf(q) !== -1) ? '' : 'none';
+      });
+    }
+    </script>
+
+  </div>
+</main>
+
+
+  <!-- ── Footer ── -->
+  
+
+<footer class="site-footer">
+  <div class="container">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <img src="/images/logo.png" ... style="height:32px;width:auto;mix-blend-mode:multiply;"/>
+      <p class="footer-copy">© 2026 Yoka. Handcrafted with care and caffeine.</p>
+    </div>
+
+    <!-- Icon row：RedNote / GitHub / Email -->
+    <div class="footer-icons">
+      
+        <a class="footer-icon pastel-wash-pink" href="https://xhslink.com/m/4Vj9GcC5PAY" target="_blank" rel="noopener" title="RedNote">
+          <span class="material-symbols-outlined" style="font-size:16px;">bookmark</span>
+        </a>
+      
+      
+        <a class="footer-icon pastel-wash-mint" href="https://github.com/jintianbaihe" target="_blank" rel="noopener" title="GitHub">
+          <span class="material-symbols-outlined" style="font-size:16px;">code</span>
+        </a>
+      
+      
+        <a class="footer-icon pastel-wash-blue" href="mailto:jintianbaihe@outlook.com" title="Email">
+          <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
+        </a>
+      
+    </div>
+
+  </div>
+</footer>
+
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="返回顶部" title="返回顶部" style="display:none;position:fixed;bottom:28px;right:24px;z-index:99;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--color-outline-variant);background:var(--color-surface);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:opacity 0.25s,transform 0.25s;">
+    <span class="material-symbols-outlined" style="font-size:20px;color:var(--color-on-surface-variant);">arrow_upward</span>
+  </button>
+
+  <!-- Theme JS -->
+  
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

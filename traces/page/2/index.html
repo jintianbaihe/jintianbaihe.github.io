@@ -8,7 +8,7 @@
       Traces | Yoka
     
   </title>
-  <meta name="description" content="A curated log of books, films, music, and games that spark joy." />
+  <meta name="description" content="" />
 
   <!-- Fonts (preconnect for speed) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -86,13 +86,6 @@
     
       <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
     
-    <button id="lang-toggle-m" class="lang-toggle" aria-label="切换语言" style="align-self:flex-start;margin-top:8px;">
-        <span class="lang-toggle-track">
-          <span class="lang-toggle-thumb"></span>
-          <span class="lang-toggle-option left">中文</span>
-          <span class="lang-toggle-option right">EN</span>
-        </span>
-      </button>
   </nav>
 </header>
 
@@ -106,7 +99,7 @@
     <!-- Page hero -->
     <section class="page-hero">
       <h1>Traces</h1>
-      <p data-i18n="traces.desc">A curated log of books, films, music, and games that spark joy.</p>
+      <p data-i18n="traces.desc"></p>
     </section>
 
     <!-- Search -->
@@ -119,24 +112,24 @@
         oninput="searchTraces()">
     </div>
 
-    <!-- Category filters -->
+    <!-- Category filters — links to per-category pages -->
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;">
       
-        <button onclick="filterTraces('book',this)" class="trace-filter-btn active" data-color="var(--macaron-orange)" style="display:flex;align-items:center;gap:6px;color:#fff;border-radius:9999px;background:var(--macaron-orange);padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+        <a href="/traces/" class="trace-filter-btn active" data-color="var(--macaron-orange)" style="display:inline-flex;align-items:center;gap:6px;color:#fff;border-radius:9999px;background:var(--macaron-orange);padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;">
           <span class="material-symbols-outlined" style="font-size:18px;">auto_stories</span> <span data-i18n="traces.filter.books">Books</span>
-        </button>
+        </a>
       
-        <button onclick="filterTraces('film',this)" class="trace-filter-btn" data-color="var(--macaron-blue)" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+        <a href="/traces/movies/" class="trace-filter-btn" data-color="var(--macaron-blue)" style="display:inline-flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;">
           <span class="material-symbols-outlined" style="font-size:18px;">movie</span> <span data-i18n="traces.filter.films">Films</span>
-        </button>
+        </a>
       
-        <button onclick="filterTraces('game',this)" class="trace-filter-btn" data-color="var(--macaron-green)" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+        <a href="/traces/games/" class="trace-filter-btn" data-color="var(--macaron-green)" style="display:inline-flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;">
           <span class="material-symbols-outlined" style="font-size:18px;">sports_esports</span> <span data-i18n="traces.filter.games">Games</span>
-        </button>
+        </a>
       
-        <button onclick="filterTraces('music',this)" class="trace-filter-btn" data-color="var(--macaron-pink)" style="display:flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;transition:all 0.2s;">
+        <a href="/traces/music/" class="trace-filter-btn" data-color="var(--macaron-pink)" style="display:inline-flex;align-items:center;gap:6px;color:var(--color-on-surface-variant);border-radius:12px;background:none;padding:8px 16px;border:none;cursor:pointer;font-family:var(--font-label);font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;">
           <span class="material-symbols-outlined" style="font-size:18px;">music_note</span> <span data-i18n="traces.filter.music">Music</span>
-        </button>
+        </a>
       
     </div>
 
@@ -157,7 +150,7 @@
               <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
               <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 
-                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                  <img src="/images/traces/covers/books/%E6%B5%81%E9%80%9F%E5%9C%B0.jpg" alt="流俗地" style="width:100%;height:100%;object-fit:contain;" />
                 
               </div>
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
@@ -173,7 +166,7 @@
               <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
               <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 
-                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                  <img src="/images/traces/covers/books/%E6%B5%AA%E5%AE%A2%E8%A1%8C.jpg" alt="浪客行" style="width:100%;height:100%;object-fit:contain;" />
                 
               </div>
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
@@ -189,7 +182,7 @@
               <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
               <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 
-                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                  <img src="/images/traces/covers/books/%E6%8E%A8%E6%8B%BF.jpg" alt="推拿" style="width:100%;height:100%;object-fit:contain;" />
                 
               </div>
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
@@ -199,13 +192,13 @@
             </div>
           </a>
           
-          <a href="/2022/01/16/%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
+          <a href="/2022/06/16/%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B/" class="trace-card" data-type="book" style="cursor:pointer;text-decoration:none;color:inherit;">
             <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
               <!-- 便签顶部小横条（模拟便签本撕边） -->
               <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
               <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 
-                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                  <img src="/images/traces/covers/books/%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B.jpg" alt="我与地坛" style="width:100%;height:100%;object-fit:contain;" />
                 
               </div>
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
@@ -221,7 +214,7 @@
               <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
               <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
                 
-                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                  <img src="/images/traces/covers/books/%E8%8D%92%E5%8E%9F%E7%8B%BC.jpg" alt="荒原狼" style="width:100%;height:100%;object-fit:contain;" />
                 
               </div>
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
@@ -245,125 +238,15 @@
         </div>
         <div style="display:flex;flex-direction:column;gap:0;">
           
-          <a href="/2025/09/15/%E6%82%89%E8%BE%BE%E5%A4%9A/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+          <a href="/2022/12/31/%E6%8E%A8%E6%8B%BF/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
             <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
               
-                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                <img src="/images/traces/covers/books/%E6%8E%A8%E6%8B%BF.jpg" alt="推拿" style="width:100%;height:100%;object-fit:cover;" />
               
             </div>
             <div style="flex:1;">
               <div style="display:flex;align-items:center;justify-content:space-between;">
-                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">悉达多</h5>
-              </div>
-              <div style="display:flex;gap:8px;margin:4px 0;">
-                
-              </div>
-              
-            </div>
-          </a>
-          
-          <a href="/2025/09/14/%E6%AE%B5%E6%B0%B8%E5%B9%B3%E6%8A%95%E8%B5%84%E9%97%AE%E7%AD%94%E5%BD%95%EF%BC%88%E6%8A%95%E8%B5%84%E9%80%BB%E8%BE%91%E7%AF%87%EF%BC%89/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
-            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
-              
-                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
-              
-            </div>
-            <div style="flex:1;">
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">段永平投资问答录（投资逻辑篇）</h5>
-              </div>
-              <div style="display:flex;gap:8px;margin:4px 0;">
-                
-              </div>
-              
-                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"好书，但感觉不啰嗦能少一半篇幅，推荐AI辅助阅读"</p>
-              
-            </div>
-          </a>
-          
-          <a href="/2025/03/06/%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C-(%E7%AC%AC%E4%BA%8C%E8%BE%91)/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
-            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
-              
-                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
-              
-            </div>
-            <div style="flex:1;">
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">价值投资实战手册 (第二辑)</h5>
-              </div>
-              <div style="display:flex;gap:8px;margin:4px 0;">
-                
-              </div>
-              
-                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"好书，亲身实践有所收获"</p>
-              
-            </div>
-          </a>
-          
-          <a href="/2024/06/28/%E9%87%91%E9%94%81%E8%AE%B0/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
-            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
-              
-                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
-              
-            </div>
-            <div style="flex:1;">
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">金锁记</h5>
-              </div>
-              <div style="display:flex;gap:8px;margin:4px 0;">
-                
-              </div>
-              
-            </div>
-          </a>
-          
-          <a href="/2023/04/13/%E5%85%AB%E5%AD%97%E5%91%BD%E7%90%86%E5%AD%B8%E5%9F%BA%E7%A4%8E%E6%95%99%E7%A8%8B/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
-            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
-              
-                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
-              
-            </div>
-            <div style="flex:1;">
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">八字命理學基礎教程</h5>
-              </div>
-              <div style="display:flex;gap:8px;margin:4px 0;">
-                
-              </div>
-              
-                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"四柱八字领域入门啃这本就行"</p>
-              
-            </div>
-          </a>
-          
-          <a href="/2023/01/03/%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
-            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
-              
-                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
-              
-            </div>
-            <div style="flex:1;">
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">小镇喧嚣</h5>
-              </div>
-              <div style="display:flex;gap:8px;margin:4px 0;">
-                
-              </div>
-              
-                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"奢求一个对当今乡镇状况如此细致客观的研究"</p>
-              
-            </div>
-          </a>
-          
-          <a href="/2023/01/02/%E3%83%AB%E3%83%83%E3%82%AF%E3%83%90%E3%83%83%E3%82%AF/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
-            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
-              
-                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
-              
-            </div>
-            <div style="flex:1;">
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">ルックバック</h5>
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">推拿</h5>
               </div>
               <div style="display:flex;gap:8px;margin:4px 0;">
                 
@@ -375,7 +258,7 @@
           <a href="/2022/12/31/%E8%99%9A%E6%8B%9F/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
             <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
               
-                <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);">auto_stories</span>
+                <img src="/images/traces/covers/books/%E8%99%9A%E6%8B%9F.jpg" alt="虚拟" style="width:100%;height:100%;object-fit:cover;" />
               
             </div>
             <div style="flex:1;">
@@ -391,6 +274,112 @@
             </div>
           </a>
           
+          <a href="/2022/06/16/%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/books/%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B.jpg" alt="我与地坛" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">我与地坛</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"在很多时候给我力量"</p>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/01/16/%E4%B8%89%E4%BD%93/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/books/%E4%B8%89%E4%BD%93.jpg" alt="三体" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">三体</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/01/16/%E5%B0%8F%E7%8E%8B%E5%AD%90/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/books/%E5%B0%8F%E7%8E%8B%E5%AD%90.jpg" alt="小王子" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">小王子</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/01/16/%E6%B4%BB%E7%9D%80/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/books/%E6%B4%BB%E7%9D%80.jpg" alt="活着" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">活着</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/01/16/%E7%99%BE%E5%B9%B4%E5%AD%A4%E7%8B%AC/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/books/%E7%99%BE%E5%B9%B4%E5%AD%A4%E7%8B%AC.jpg" alt="百年孤独" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">百年孤独</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+            </div>
+          </a>
+          
+          <a href="/2022/01/16/%E8%8D%92%E5%8E%9F%E7%8B%BC/" class="trace-card" data-type="book" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
+            <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
+              
+                <img src="/images/traces/covers/books/%E8%8D%92%E5%8E%9F%E7%8B%BC.jpg" alt="荒原狼" style="width:100%;height:100%;object-fit:cover;" />
+              
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <h5 style="font-family:var(--font-body);font-size:18px;font-weight:600;">荒原狼</h5>
+              </div>
+              <div style="display:flex;gap:8px;margin:4px 0;">
+                
+              </div>
+              
+                <p style="font-family:var(--font-body);font-size:14px;color:var(--color-on-surface-variant);font-style:italic;">"感谢本书让我懂得了人灵魂的一体多面，学会了处理心中理性与感性的动态平衡"</p>
+              
+            </div>
+          </a>
+          
         </div>
       </section>
 
@@ -399,7 +388,7 @@
     
     
     <nav class="pagination" style="margin-bottom:48px;">
-      <a class="extend prev" rel="prev" href="/traces/">&lt;span data-i18n&#x3D;&quot;pagination.prev&quot;&gt;← Prev&lt;&#x2F;span&gt;</a><a class="page-number" href="/traces/">1</a><span class="page-number current">2</span><a class="page-number" href="/traces/page/3/">3</a><a class="page-number" href="/traces/page/4/">4</a><a class="extend next" rel="next" href="/traces/page/3/">&lt;span data-i18n&#x3D;&quot;pagination.next&quot;&gt;Next →&lt;&#x2F;span&gt;</a>
+      <a class="extend prev" rel="prev" href="/traces/">&lt;span data-i18n&#x3D;&quot;pagination.prev&quot;&gt;← Prev&lt;&#x2F;span&gt;</a><a class="page-number" href="/traces/">1</a><span class="page-number current">2</span>
     </nav>
     
 
@@ -413,40 +402,14 @@
     </div>
 
     <script>
-    let currentType = 'book';
-    let currentQuery = '';
-
-    function applyFilters() {
-      document.querySelectorAll('.trace-card').forEach(card => {
-        const matchType = card.dataset.type === currentType;
-        const name = (card.querySelector('h4') || card.querySelector('h5') || {}).textContent || '';
-        const matchSearch = !currentQuery || name.toLowerCase().includes(currentQuery);
-        card.style.display = (matchType && matchSearch) ? '' : 'none';
-      });
-    }
-
-    function filterTraces(type, btn) {
-      currentType = type;
-      document.querySelectorAll('.trace-filter-btn').forEach(b => {
-        b.style.background = 'none';
-        b.style.color = 'var(--color-on-surface-variant)';
-        b.style.borderRadius = '12px';
-        b.classList.remove('active');
-      });
-      btn.style.background = btn.dataset.color || 'var(--color-tertiary-fixed)';
-      btn.style.color = '#fff';
-      btn.style.borderRadius = '9999px';
-      btn.classList.add('active');
-      applyFilters();
-    }
-
+    // 搜索：在当前页内按标题筛选
     function searchTraces() {
-      currentQuery = document.getElementById('traces-search').value.toLowerCase().trim();
-      applyFilters();
+      var q = (document.getElementById('traces-search').value || '').toLowerCase().trim();
+      document.querySelectorAll('.trace-card').forEach(function(card) {
+        var name = (card.querySelector('h4') || card.querySelector('h5') || {}).textContent || '';
+        card.style.display = (!q || name.toLowerCase().indexOf(q) !== -1) ? '' : 'none';
+      });
     }
-
-    // 页面初始加载即按默认类型筛选
-    applyFilters();
     </script>
 
   </div>

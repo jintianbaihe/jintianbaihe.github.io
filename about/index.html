@@ -86,13 +86,6 @@
     
       <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
     
-    <button id="lang-toggle-m" class="lang-toggle" aria-label="切换语言" style="align-self:flex-start;margin-top:8px;">
-        <span class="lang-toggle-track">
-          <span class="lang-toggle-thumb"></span>
-          <span class="lang-toggle-option left">中文</span>
-          <span class="lang-toggle-option right">EN</span>
-        </span>
-      </button>
   </nav>
 </header>
 
@@ -123,11 +116,11 @@
 
       <div style="text-align:center;max-width:460px;">
         <h1 style="font-family:var(--font-display);font-size:42px;font-weight:600;line-height:1.15;letter-spacing:-0.02em;color:var(--color-primary);margin-bottom:12px;position:relative;display:inline-block;">
-          About Me
+          <span data-i18n="nav.about">About Me</span>
           <div style="position:absolute;bottom:-2px;left:0;width:100%;height:5px;background:var(--color-secondary-container);opacity:0.7;transform:rotate(-1deg);border-radius:3px;"></div>
         </h1>
         
-          <p style="font-family:var(--font-body);font-size:17px;line-height:1.75;color:var(--color-on-surface-variant);margin-top:14px;">
+          <p style="font-family:var(--font-body);font-size:17px;line-height:1.75;color:var(--color-on-surface-variant);margin-top:14px;" data-i18n="about.bio">
             I believe that technology should feel as personal and tactile as a page in a sketchbook.
           </p>
         
