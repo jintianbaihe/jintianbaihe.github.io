@@ -542,21 +542,6 @@ img { max-width: 100%; display: block; }
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
 }
-.featured-sticky-note {
-  display: none;
-  position: absolute;
-  bottom: -16px; right: -16px;
-  padding: 16px;
-  background: var(--color-tertiary-fixed);
-  color: var(--color-on-tertiary-fixed);
-  font-family: var(--font-label);
-  font-size: 16px;
-  font-weight: 500;
-  border: 1px solid var(--color-primary);
-  transform: rotate(6deg);
-}
-@media (min-width: 768px) { .featured-sticky-note { display: block; } }
-
 /* ---------- ARCHIVE / BLOG LIST ---------- */
 .page-hero { margin-bottom: var(--space-lg); }
 .page-hero h1 {

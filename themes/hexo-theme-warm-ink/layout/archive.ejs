@@ -59,7 +59,8 @@
     <div class="post-list">
       <%
         /* 过滤掉属于 traces 分类的文章，保持 notes / traces 互斥 */
-        const filteredPosts = posts.toArray().filter(post => {
+        const postsArr = posts && posts.toArray ? posts.toArray() : (Array.isArray(posts) ? posts : []);
+        const filteredPosts = postsArr.filter(post => {
           if (post.categories && post.categories.data && post.categories.data.length) {
             const primaryCat = post.categories.data[0].name.toLowerCase();
             if (traceCats.includes(primaryCat)) return false;
@@ -97,7 +98,7 @@
     </div>
 
     <!-- ── Pagination（内容超过 10 条才显示）── -->
-    <% if (page.total > 1 && totalNotes > 10) { %>
+    <% if (page.total > 1 && totalNotes > 5) { %>
     <nav class="pagination">
       <%- paginator({ prev_text: '<span data-i18n="pagination.prev">← Prev</span>', next_text: '<span data-i18n="pagination.next">Next →</span>', mid_size: 2 }) %>
     </nav>

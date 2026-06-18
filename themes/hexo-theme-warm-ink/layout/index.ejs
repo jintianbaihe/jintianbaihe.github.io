@@ -88,9 +88,7 @@
     <section class="featured-section">
       <div class="featured-header">
         <h2 data-i18n="home.latest">Latest Scribble</h2>
-        <span class="featured-date">
-          <span data-i18n="home.entry">Entry #</span><%= page.posts.length %> — <%= date(featured.date, 'MMMM D, YYYY') %>
-        </span>
+        <span class="featured-date"><%= date(featured.date, 'MMMM D, YYYY') %></span>
       </div>
 
       <a href="<%- url_for(featured.path) %>" class="featured-card hand-drawn-border">
