@@ -1,11 +1,16 @@
-/* Warm Ink & Macaron — Theme JS (i18n + interactions) */
-
+// ============================================================
+//  Warm Ink & Macaron 主题 JS
+//  包含：中英文切换（i18n）、移动端菜单、视差滚动、
+//        分类筛选、平滑滚动、翻页色彩、返回顶部等交互
+// ============================================================
 (function () {
   'use strict';
 
-  // ═══════════════════════════════════════════
-  //  I18N — Translation tables
-  // ═══════════════════════════════════════════
+  // ═══════════════════════════════════════════════════════
+  //  中英文翻译表（修改 UI 文案只需改这里）
+  //  zh: 中文模式  |  en: 英文模式
+  //  博文内容不翻译，只翻译网页 UI 元素
+  // ═══════════════════════════════════════════════════════
   var I18N = {
     zh: {
       'nav.traces':               '痕迹',
@@ -20,8 +25,6 @@
       'home.scroll':              '探索我的世界',
       'home.latest':              '最新文章',
       'home.continue':            '继续阅读',
-      'home.essential':           '「必读推荐」',
-      'home.entry':               '第 ',
 
       'cards.traces':             '书、电影、音乐和游戏的精选记录。',
       'cards.tracesLink':         '查看记录',
@@ -57,7 +60,7 @@
       'pagination.next':          '下一页 →',
 
       'about.coffeeTitle':        '请我喝咖啡',
-      'about.coffeeDesc':         '如果你觉得这些内容对你有帮助，可以请我喝杯咖啡——你可以在备注中留下邮箱和愿望，我会根据内容随机发送电子资源或回复。感谢你的支持！',
+      'about.coffeeDesc':         '如果这些内容对你有帮助，可以请我喝杯咖啡——你可以在备注中留下邮箱和问题，我会根据内容随机发送电子资源或回复。感谢你的支持！',
       'about.connect':            '联系我',
       'about.rednote':            '小红书',
       'about.github':             'GitHub',
@@ -66,7 +69,7 @@
       'about.digitalCraftDesc':   '我把代码当作手工装订——每一行都是有意识的缝线。我打造极简、快速、有灵魂的数字体验。',
       'about.humanCentric':       '以人为本',
       'about.humanCentricDesc':   '科技应服务于人的生活节奏，而非反过来。我的作品注重平静与清晰。',
-      'about.bio':                 '我相信科技应该像速写本中的一页一样，具有个人化的触感与温度。',
+      'about.bio':                 '外星驻地球特派员👽/21世纪赛博古拉格漫游者/小熊博物馆馆长🐻',
       'about.quote':              '"我相信缓慢生长之物的美。在即时推送的世界里，我选择墨迹在纸上刻意的划痕。"',
     },
     en: {
@@ -82,8 +85,6 @@
       'home.scroll':              'Scroll to explore my world',
       'home.latest':              'Latest Scribble',
       'home.continue':            'Continue reading',
-      'home.essential':           '"Essential reading"',
-      'home.entry':               'Entry #',
 
       'cards.traces':             'A curated log of books, films, music, and games that spark joy.',
       'cards.tracesLink':         'See Log',
@@ -133,8 +134,13 @@
     }
   };
 
+  // ═══════════════════════════════════════════════════════
+  //  语言切换逻辑
+  //  优先读 localStorage，其次默认中文
+  // ═══════════════════════════════════════════════════════
   var LANG_KEY = 'warm-ink-lang';
 
+  // 获取当前语言：有存储用存储，无存储默认中文
   function getLang() {
     var stored = localStorage.getItem(LANG_KEY);
     if (stored === 'zh' || stored === 'en') return stored;
@@ -267,7 +273,9 @@
     }
   });
 
-  // ── Back to top button ────────────────────────────────────────
+  // ═══════════════════════════════════════════════════════
+  //  返回顶部按钮：滚动 400px 后出现
+  // ═══════════════════════════════════════════════════════
   var btt = document.getElementById('back-to-top');
   if (btt) {
     window.addEventListener('scroll', function () {
