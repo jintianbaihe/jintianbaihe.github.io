@@ -987,8 +987,10 @@ body {
   .post-nav { flex-direction: column; gap: 12px; }
   .post-nav-item.next { align-items: flex-start; text-align: left; }
 
-  /* Traces pinned: max 2 columns, not 5 */
-  .trace-card .hand-drawn-border { padding: 8px; }
+  /* Traces pinned: 手机端 2 列，字号舒适 */
+  .pinned-grid { gap: 12px; grid-template-columns: repeat(2, 1fr); }
+  .pinned-grid h4 { font-size: 13px; line-height: 1.35; }
+  .pinned-grid .trace-card > div { padding: 10px; }
 
   /* Bento card compact */
   .bento-card { padding: 20px; }

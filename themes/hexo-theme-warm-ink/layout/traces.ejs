@@ -102,28 +102,28 @@
           <span class="material-symbols-outlined" style="color:var(--color-secondary);">keep</span>
           <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;" data-i18n="traces.pinned">Pinned Recommendations</h3>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(<%= Math.min(pinned.length, 5) %>,1fr);gap:16px;">
+        <div class="pinned-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;">
           <% pinned.slice(0, 5).forEach((item, idx) => {
             const t = getTraceType(item);
             if (!t) return;
           %>
           <a href="<%- url_for(item.path) %>" class="trace-card" data-type="<%= t.type %>" style="cursor:pointer;text-decoration:none;color:inherit;">
-            <div style="position:relative;background:var(--color-surface-container-low);padding:14px 12px 12px;transition:transform 0.15s ease;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
-              <!-- 便签顶部小横条（模拟便签本撕边） -->
-              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--color-outline-variant);border-radius:0 0 3px 3px;"></div>
-              <div style="aspect-ratio:3/4;margin-bottom:6px;overflow:hidden;border-radius:3px;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+            <div style="position:relative;background:var(--color-surface-container-low);border-radius:8px;border:1px solid rgba(196,199,199,0.2);padding:14px 12px 12px;transition:all 0.25s ease;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseenter="this.style.transform='translateY(-3px)';this.style.boxShadow='0 4px 14px rgba(0,0,0,0.07)';" onmouseleave="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)';">
+              <!-- 和纸胶带装饰 -->
+              <div style="position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(-1.5deg);width:28px;height:8px;background:<%= t.tagBg %>;opacity:0.85;filter:saturate(1.3);"></div>
+              <div style="aspect-ratio:3/4;margin-bottom:8px;overflow:hidden;border-radius:5px;background:var(--color-surface-container-low);display:flex;align-items:center;justify-content:center;">
                 <% if (item.cover) { %>
-                  <img src="<%- url_for(item.cover) %>" alt="<%= item.title %>" style="width:100%;height:100%;object-fit:contain;" />
+                  <img src="<%- url_for(item.cover) %>" alt="<%= item.title %>" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain;" />
                 <% } else { %>
-                  <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);"><%= t.icon %></span>
+                  <span class="material-symbols-outlined" style="font-size:32px;color:<%= t.color %>;opacity:0.35;"><%= t.icon %></span>
                 <% } %>
               </div>
               <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;">
                 <% if (item.tags && item.tags.data) { item.tags.data.slice(0, 2).forEach((tag, ti) => { %>
-                  <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;border:1px solid var(--color-outline-variant);background:<%= tagBg(ti) %>;font-family:var(--font-label);"><%= tag.name %></span>
+                  <span style="padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;background:<%= tagBg(ti) %>;font-family:var(--font-label);"><%= tag.name %></span>
                 <% })} %>
               </div>
-              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:500;margin-bottom:0;"><%= item.title %></h4>
+              <h4 style="font-family:var(--font-display);font-size:13px;font-weight:500;margin-bottom:0;line-height:1.3;color:var(--color-on-surface);"><%= item.title %></h4>
             </div>
           </a>
           <% }) %>
@@ -147,7 +147,7 @@
           <a href="<%- url_for(item.path) %>" class="trace-card" data-type="<%= t.type %>" style="display:flex;align-items:center;gap:24px;padding:16px;border-radius:12px;border-bottom:1px solid rgba(196,199,199,0.3);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;" onmouseenter="this.style.background='var(--color-surface-container-low)'" onmouseleave="this.style.background='transparent'">
             <div style="width:64px;height:80px;background:var(--color-surface-container-highest);border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(26,26,26,0.05);display:flex;align-items:center;justify-content:center;">
               <% if (item.cover) { %>
-                <img src="<%- url_for(item.cover) %>" alt="<%= item.title %>" style="width:100%;height:100%;object-fit:cover;" />
+                <img src="<%- url_for(item.cover) %>" alt="<%= item.title %>" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain;" />
               <% } else { %>
                 <span class="material-symbols-outlined" style="font-size:32px;color:var(--color-outline-variant);"><%= t.icon %></span>
               <% } %>
