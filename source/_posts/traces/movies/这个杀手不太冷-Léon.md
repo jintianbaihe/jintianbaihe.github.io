@@ -9,4 +9,4 @@ cover: /images/traces/covers/movies/这个杀手不太冷-Léon.jpg
 tags:
   - 法国
 ---
-> 很喜欢，或许是我叔萝情结的开端
+小时候第一次看的时候

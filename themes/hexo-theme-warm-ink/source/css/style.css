@@ -679,6 +679,9 @@ img { max-width: 100%; display: block; }
 .post-tag.movies   { background: var(--pastel-blue);   color: #3a4a5a; }
 .post-tag.games    { background: var(--pastel-mint);   color: var(--color-on-tertiary-fixed-variant); }
 .post-tag.music    { background: var(--pastel-pink);   color: var(--color-on-secondary-fixed-variant); }
+.post-tag.sparks   { background: var(--pastel-orange); color: #5c4030; }
+.post-tag.reflections { background: var(--pastel-blue); color: #3a4a5a; }
+.post-tag.skills   { background: var(--pastel-mint);   color: var(--color-on-tertiary-fixed-variant); }
 .post-tag.essay    { background: var(--pastel-pink);   color: var(--color-on-secondary-fixed-variant); }
 .post-tag.tutorial { background: var(--pastel-mint);   color: var(--color-on-tertiary-fixed-variant); }
 .post-tag.life     { background: var(--pastel-blue);    color: #3a4a5a; }
@@ -758,7 +761,8 @@ img { max-width: 100%; display: block; }
 }
 .post-body li { margin-bottom: 8px; }
 .post-body img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 4px;
   margin: 24px 0;
 }
