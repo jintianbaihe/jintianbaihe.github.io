@@ -422,6 +422,9 @@ img { max-width: 100%; display: block; }
   cursor: pointer;
   background: var(--color-surface);
   transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .bento-card:hover { box-shadow: 4px 4px 0 var(--color-primary); }
 .bento-card-icon {
@@ -455,6 +458,7 @@ img { max-width: 100%; display: block; }
   font-size: 14px;
   font-weight: 600;
   transition: gap 0.2s;
+  margin-top: auto;
 }
 .bento-card:hover .bento-card-link { gap: 16px; }
 
@@ -671,6 +675,10 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+.post-tag.books    { background: var(--pastel-orange); color: #5c4030; }
+.post-tag.movies   { background: var(--pastel-blue);   color: #3a4a5a; }
+.post-tag.games    { background: var(--pastel-mint);   color: var(--color-on-tertiary-fixed-variant); }
+.post-tag.music    { background: var(--pastel-pink);   color: var(--color-on-secondary-fixed-variant); }
 .post-tag.essay    { background: var(--pastel-pink);   color: var(--color-on-secondary-fixed-variant); }
 .post-tag.tutorial { background: var(--pastel-mint);   color: var(--color-on-tertiary-fixed-variant); }
 .post-tag.life     { background: var(--pastel-blue);    color: #3a4a5a; }

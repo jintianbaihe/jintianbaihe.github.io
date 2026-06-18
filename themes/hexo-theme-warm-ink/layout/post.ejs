@@ -30,6 +30,10 @@
   /* Tag 颜色 */
   function tagClass(name) {
     const n = (name || '').toLowerCase();
+    if (n === 'books')          return 'books';
+    if (n === 'movies')         return 'movies';
+    if (n === 'games')          return 'games';
+    if (n === 'music')          return 'music';
     if (n.includes('essay'))    return 'essay';
     if (n.includes('tutorial')) return 'tutorial';
     if (n.includes('life'))     return 'life';

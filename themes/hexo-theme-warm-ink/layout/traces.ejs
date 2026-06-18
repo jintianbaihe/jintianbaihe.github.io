@@ -58,7 +58,7 @@
 
     <!-- Page hero -->
     <section class="page-hero">
-      <h1><%= page.title %></h1>
+      <h1 data-i18n="traces.title"><%= page.title %></h1>
       <p data-i18n="traces.desc"><%= page.description || '' %></p>
     </section>
 
@@ -103,14 +103,14 @@
           <h3 style="font-family:var(--font-display);font-size:24px;font-weight:500;" data-i18n="traces.pinned">Pinned Recommendations</h3>
         </div>
         <div class="pinned-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;">
-          <% pinned.slice(0, 5).forEach((item, idx) => {
+          <% pinned.slice(0, 4).forEach((item, idx) => {
             const t = getTraceType(item);
             if (!t) return;
           %>
           <a href="<%- url_for(item.path) %>" class="trace-card" data-type="<%= t.type %>" style="cursor:pointer;text-decoration:none;color:inherit;">
             <div style="position:relative;background:var(--color-surface-container-low);border-radius:8px;border:1px solid rgba(196,199,199,0.2);padding:14px 12px 12px;transition:all 0.25s ease;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseenter="this.style.transform='translateY(-3px)';this.style.boxShadow='0 4px 14px rgba(0,0,0,0.07)';" onmouseleave="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)';">
               <!-- 和纸胶带装饰 -->
-              <div style="position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(-1.5deg);width:28px;height:8px;background:<%= t.tagBg %>;opacity:0.85;filter:saturate(1.3);"></div>
+              <div style="position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(-1.5deg);width:36px;height:10px;background:<%= t.tagBg %>;opacity:0.82;filter:saturate(1.2);"></div>
               <div style="aspect-ratio:3/4;margin-bottom:8px;overflow:hidden;border-radius:5px;background:var(--color-surface-container-low);display:flex;align-items:center;justify-content:center;">
                 <% if (item.cover) { %>
                   <img src="<%- url_for(item.cover) %>" alt="<%= item.title %>" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain;" />
