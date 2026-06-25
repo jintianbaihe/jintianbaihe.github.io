@@ -47,7 +47,7 @@
       'traces.empty':             '暂无记录。新建一篇分类为 <code>books</code>、<code>movies</code>、<code>games</code> 或 <code>music</code> 的文章开始吧。',
       'traces.emptyNote':         '一个正在慢慢填满书、电影、音乐、游戏痕迹的空间。敬请期待。',
 
-      'common.coffee':             '如果你有收获，可以<a href="/about" style="color:var(--macaron-orange);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;">请我喝杯咖啡</a> :)',
+      'common.coffee':             '如果你有收获，可以<a href="/about" style="color:var(--macaron-orange);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;">请我喝咖啡</a> :)',
 
       'notes.title':              '文字与随想',
       'notes.desc':               '一个关于观察、学习、思考与哲学的灵感花园。',
@@ -61,17 +61,17 @@
       'pagination.next':          '下一页 →',
 
       'about.coffeeTitle':        '请我喝咖啡',
-      'about.coffeeDesc':         '如果这些内容对你有帮助，可以请我喝杯咖啡——你可以在备注中留下邮箱和问题，我会根据内容随机发送电子资源或回复。感谢你的支持！',
+      'about.coffeeDesc':         '如果这些内容对你有帮助，可以请我喝咖啡——你可以在备注中留下邮箱和问题，我会根据内容随机发送电子资源或回复。感谢你的支持！',
       'about.connect':            '联系我',
       'about.rednote':            '小红书',
       'about.github':             'GitHub',
       'about.email':              '邮箱',
-      'about.digitalCraft':       '安静燃烧，向内生长',
+      'about.digitalCraft':       '向内生长',
       'about.digitalCraftDesc':   '用思考感受世界，用文字整理自己。安静，但不冷漠；敏感，但不脆弱。',
-      'about.humanCentric':       '散发微光，偶有回响',
-      'about.humanCentricDesc':   '分享想分享的，回应想回应的。希望能成为你探索世界的一个视角。',
+      'about.humanCentric':       '向外分享',
+      'about.humanCentricDesc':   '分享想分享的，回应想回应的。希望成为你探索世界的一个小小视角。',
       'about.bio':                 '外星驻地球特派员👽/赛博古拉格漫游者/小熊博物馆馆长🐻/以及，土豆万岁🥔',
-      'about.quote':              '"我相信缓慢生长之物的美。在即时推送的世界里，我选择墨迹在纸上刻意的划痕。"',
+      'about.quote':              '"广告位招租（骗你的，只是这里还没想好写什么）"',
     },
     en: {
       'nav.traces':               'Traces',
