@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
     
-      Hexo
+      Yoka
     
   </title>
   <meta name="description" content="" />
@@ -23,7 +23,7 @@
 
   <!-- RSS -->
   
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Hexo RSS" />
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Yoka RSS" />
   
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body>
@@ -42,18 +42,31 @@
     <!-- Desktop nav -->
     <nav class="site-nav">
       
-        <a href="/traces">Traces</a>
+        <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
       
-        <a href="/notes">Notes</a>
+        <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
       
-        <a href="/projects">Projects</a>
+        <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
       
-        <a href="/about">About Me</a>
+        <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
       
-      
-        <button class="nav-subscribe active-press">Subscribe</button>
-      
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
     </nav>
+
+    <!-- Mobile-visible lang toggle (between logo and hamburger) -->
+    <button id="lang-toggle-mobile" class="lang-toggle lang-toggle-mobile" aria-label="切换语言">
+      <span class="lang-toggle-track">
+        <span class="lang-toggle-thumb"></span>
+        <span class="lang-toggle-option left">中文</span>
+        <span class="lang-toggle-option right">EN</span>
+      </span>
+    </button>
 
     <!-- Mobile menu button -->
     <button class="nav-menu-btn" aria-label="Toggle menu">
@@ -65,13 +78,13 @@
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
     
-      <a href="/traces">Traces</a>
+      <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
     
-      <a href="/notes">Notes</a>
+      <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
     
-      <a href="/projects">Projects</a>
+      <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
     
-      <a href="/about">About Me</a>
+      <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
     
   </nav>
 </header>
@@ -85,14 +98,14 @@
 
     <!-- ── Page hero ── -->
     <section class="page-hero">
-      <h1>Writings &amp; Musings</h1>
-      <p>A digital garden of half-baked thoughts, detailed tutorials, and gentle observations on life.</p>
+      <h1 data-i18n="notes.title">Writings &amp; Musings</h1>
+      <p data-i18n="notes.desc">A digital garden of half-baked thoughts, detailed tutorials, and gentle observations on life.</p>
     </section>
 
     <!-- ── Search ── -->
     <div style="margin-bottom:24px;position:relative;">
       <span class="material-symbols-outlined" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--color-outline);font-size:20px;">search</span>
-      <input type="text" id="notes-search" placeholder="Search articles by title..."
+      <input type="text" id="notes-search" data-i18n-placeholder="notes.search" placeholder="Search articles by title..."
         style="width:100%;padding:14px 16px 14px 48px;border:1.5px solid var(--color-outline-variant);border-radius:12px;font-family:var(--font-body);font-size:15px;background:var(--color-surface-container-low);color:var(--color-on-surface);outline:none;transition:border-color 0.2s;box-sizing:border-box;"
         onfocus="this.style.borderColor='var(--color-primary)'"
         onblur="this.style.borderColor='var(--color-outline-variant)'"
@@ -105,28 +118,32 @@
         <button class="filter-btn active"
                 data-category="all"
                 data-color="var(--color-primary)"
+                data-i18n="notes.filter.all"
                 style="--active-color:var(--color-primary)">
           All Entries
         </button>
       
         <button class="filter-btn"
                 data-category="sparks"
-                data-color="#c4a07c"
-                style="--active-color:#c4a07c">
+                data-color="var(--macaron-orange)"
+                data-i18n="notes.filter.sparks"
+                style="--active-color:var(--macaron-orange)">
           Sparks
         </button>
       
         <button class="filter-btn"
                 data-category="reflections"
-                data-color="#8a9b8b"
-                style="--active-color:#8a9b8b">
+                data-color="var(--macaron-blue)"
+                data-i18n="notes.filter.reflections"
+                style="--active-color:var(--macaron-blue)">
           Reflections
         </button>
       
         <button class="filter-btn"
                 data-category="skills"
-                data-color="#b08a9b"
-                style="--active-color:#b08a9b">
+                data-color="var(--macaron-green)"
+                data-i18n="notes.filter.skills"
+                style="--active-color:var(--macaron-green)">
           Skills
         </button>
       
@@ -137,29 +154,78 @@
       
         <article class="post-item" data-category="sparks">
           <div class="post-item-left">
-            <span class="bullet-macaron" style="background:#c4a07c;margin-top:8px;"></span>
+            <span class="bullet-macaron" style="background:var(--macaron-orange);margin-top:8px;"></span>
             <div>
               <div class="post-item-meta">
                 
-                  <span class="post-category sparks">Sparks</span>
+                  <span class="post-category sparks" data-i18n="notes.filter.sparks">Sparks</span>
                   <span class="dot-divider">•</span>
                 
-                <span class="post-date">May 22, 2026</span>
+                <span class="post-date">5月 31, 2026</span>
               </div>
-              <a href="/2026/05/22/hello-world/">
-                <h2 class="post-item-title">Hello World</h2>
+              <a href="/2026/05/31/%E7%99%BD%E6%97%A5%E6%A2%A6-%E6%88%91%E7%9A%84%E7%9B%B4%E8%A7%89%E4%B8%8E%E9%80%BB%E8%BE%91/">
+                <h2 class="post-item-title">白日梦-我的直觉与逻辑</h2>
               </a>
             </div>
           </div>
-          <a href="/2026/05/22/hello-world/" class="post-item-right" style="text-decoration:none;color:inherit;">
+          <a href="/2026/05/31/%E7%99%BD%E6%97%A5%E6%A2%A6-%E6%88%91%E7%9A%84%E7%9B%B4%E8%A7%89%E4%B8%8E%E9%80%BB%E8%BE%91/" class="post-item-right" style="text-decoration:none;color:inherit;">
+            <span class="material-symbols-outlined post-arrow">arrow_forward</span>
+          </a>
+        </article>
+      
+        <article class="post-item" data-category="reflections">
+          <div class="post-item-left">
+            <span class="bullet-macaron" style="background:var(--macaron-blue);margin-top:8px;"></span>
+            <div>
+              <div class="post-item-meta">
+                
+                  <span class="post-category reflections" data-i18n="notes.filter.reflections">Reflections</span>
+                  <span class="dot-divider">•</span>
+                
+                <span class="post-date">5月 24, 2026</span>
+              </div>
+              <a href="/2026/05/24/%E6%9C%89%E5%85%B3%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF%E6%B5%81%E7%AE%A1%E7%90%86/">
+                <h2 class="post-item-title">有关网络信息流管理</h2>
+              </a>
+            </div>
+          </div>
+          <a href="/2026/05/24/%E6%9C%89%E5%85%B3%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF%E6%B5%81%E7%AE%A1%E7%90%86/" class="post-item-right" style="text-decoration:none;color:inherit;">
+            <span class="material-symbols-outlined post-arrow">arrow_forward</span>
+          </a>
+        </article>
+      
+        <article class="post-item" data-category="reflections">
+          <div class="post-item-left">
+            <span class="bullet-macaron" style="background:var(--macaron-blue);margin-top:8px;"></span>
+            <div>
+              <div class="post-item-meta">
+                
+                  <span class="post-category reflections" data-i18n="notes.filter.reflections">Reflections</span>
+                  <span class="dot-divider">•</span>
+                
+                <span class="post-date">5月 23, 2026</span>
+              </div>
+              <a href="/2026/05/23/%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8E%E5%A5%B3%E6%80%A7%E4%B8%BB%E4%B9%89%E7%9A%84%E5%8F%8D%E6%80%9D/">
+                <h2 class="post-item-title">一些关于女性主义的反思</h2>
+              </a>
+            </div>
+          </div>
+          <a href="/2026/05/23/%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8E%E5%A5%B3%E6%80%A7%E4%B8%BB%E4%B9%89%E7%9A%84%E5%8F%8D%E6%80%9D/" class="post-item-right" style="text-decoration:none;color:inherit;">
             <span class="material-symbols-outlined post-arrow">arrow_forward</span>
           </a>
         </article>
       
     </div>
 
-    <!-- ── Pagination ── -->
+    <!-- ── Pagination（内容超过 10 条才显示）── -->
     
+
+    <!-- ☕ Support -->
+    <div style="padding:28px 24px;border-radius:8px;margin-top:48px;border-left:3px solid var(--macaron-orange);background:var(--color-surface-container-low);">
+      <p style="font-family:var(--font-label);font-size:15px;font-weight:500;line-height:1.7;color:var(--color-on-surface-variant);margin:0;">
+        <span data-i18n="common.coffee">If anything here resonates, <a href="/about" style="color:var(--macaron-orange);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;">buy me a coffee</a> — no pressure, just a friendly nudge :)</span>
+      </p>
+    </div>
 
   </div>
 
@@ -205,7 +271,7 @@
     <!-- Brand -->
     <div class="footer-brand">
       <img src="/images/logo.png" ... style="height:32px;width:auto;mix-blend-mode:multiply;"/>
-      <p class="footer-copy">© 2026 John Doe. Handcrafted with care and caffeine.</p>
+      <p class="footer-copy">© 2026 Yoka. Handcrafted with care and caffeine.</p>
     </div>
 
     <!-- Icon row：RedNote / GitHub / Email -->
@@ -221,7 +287,7 @@
         </a>
       
       
-        <a class="footer-icon pastel-wash-lavender" href="mailto:jintianbaihe@outlook.com" title="Email">
+        <a class="footer-icon pastel-wash-blue" href="mailto:jintianbaihe@outlook.com" title="Email">
           <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
         </a>
       
@@ -230,6 +296,11 @@
   </div>
 </footer>
 
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="返回顶部" title="返回顶部" style="display:none;position:fixed;bottom:28px;right:24px;z-index:99;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--color-outline-variant);background:var(--color-surface);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:opacity 0.25s,transform 0.25s;">
+    <span class="material-symbols-outlined" style="font-size:20px;color:var(--color-on-surface-variant);">arrow_upward</span>
+  </button>
 
   <!-- Theme JS -->
   

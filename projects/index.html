@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
     
-      Projects | Hexo
+      Projects | Yoka
     
   </title>
   <meta name="description" content="" />
@@ -23,7 +23,7 @@
 
   <!-- RSS -->
   
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Hexo RSS" />
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Yoka RSS" />
   
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body>
@@ -42,18 +42,31 @@
     <!-- Desktop nav -->
     <nav class="site-nav">
       
-        <a href="/traces">Traces</a>
+        <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
       
-        <a href="/notes">Notes</a>
+        <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
       
-        <a href="/projects">Projects</a>
+        <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
       
-        <a href="/about">About Me</a>
+        <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
       
-      
-        <button class="nav-subscribe active-press">Subscribe</button>
-      
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换语言">
+        <span class="lang-toggle-track">
+          <span class="lang-toggle-thumb"></span>
+          <span class="lang-toggle-option left">中文</span>
+          <span class="lang-toggle-option right">EN</span>
+        </span>
+      </button>
     </nav>
+
+    <!-- Mobile-visible lang toggle (between logo and hamburger) -->
+    <button id="lang-toggle-mobile" class="lang-toggle lang-toggle-mobile" aria-label="切换语言">
+      <span class="lang-toggle-track">
+        <span class="lang-toggle-thumb"></span>
+        <span class="lang-toggle-option left">中文</span>
+        <span class="lang-toggle-option right">EN</span>
+      </span>
+    </button>
 
     <!-- Mobile menu button -->
     <button class="nav-menu-btn" aria-label="Toggle menu">
@@ -65,13 +78,13 @@
   <!-- Mobile nav drawer -->
   <nav class="mobile-nav">
     
-      <a href="/traces">Traces</a>
+      <a href="/traces" data-accent="var(--macaron-blue)" data-i18n="nav.traces">Traces</a>
     
-      <a href="/notes">Notes</a>
+      <a href="/notes" data-accent="var(--macaron-green)" data-i18n="nav.notes">Notes</a>
     
-      <a href="/projects">Projects</a>
+      <a href="/projects" data-accent="var(--macaron-orange)" data-i18n="nav.projects">Projects</a>
     
-      <a href="/about">About Me</a>
+      <a href="/about" data-accent="var(--macaron-pink)" data-i18n="nav.about">About Me</a>
     
   </nav>
 </header>
@@ -187,6 +200,13 @@
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
     </style>
 
+    <!-- ☕ Support -->
+    <div style="padding:28px 24px;border-radius:8px;margin-top:48px;border-left:3px solid var(--macaron-orange);background:var(--color-surface-container-low);">
+      <p style="font-family:var(--font-label);font-size:15px;font-weight:500;line-height:1.7;color:var(--color-on-surface-variant);margin:0;">
+        <span data-i18n="common.coffee">If anything here resonates, <a href="/about" style="color:var(--macaron-orange);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;">buy me a coffee</a> — no pressure, just a friendly nudge :)</span>
+      </p>
+    </div>
+
   </div>
 </main>
 
@@ -200,7 +220,7 @@
     <!-- Brand -->
     <div class="footer-brand">
       <img src="/images/logo.png" ... style="height:32px;width:auto;mix-blend-mode:multiply;"/>
-      <p class="footer-copy">© 2026 John Doe. Handcrafted with care and caffeine.</p>
+      <p class="footer-copy">© 2026 Yoka. Handcrafted with care and caffeine.</p>
     </div>
 
     <!-- Icon row：RedNote / GitHub / Email -->
@@ -216,7 +236,7 @@
         </a>
       
       
-        <a class="footer-icon pastel-wash-lavender" href="mailto:jintianbaihe@outlook.com" title="Email">
+        <a class="footer-icon pastel-wash-blue" href="mailto:jintianbaihe@outlook.com" title="Email">
           <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
         </a>
       
@@ -225,6 +245,11 @@
   </div>
 </footer>
 
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="返回顶部" title="返回顶部" style="display:none;position:fixed;bottom:28px;right:24px;z-index:99;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--color-outline-variant);background:var(--color-surface);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:opacity 0.25s,transform 0.25s;">
+    <span class="material-symbols-outlined" style="font-size:20px;color:var(--color-on-surface-variant);">arrow_upward</span>
+  </button>
 
   <!-- Theme JS -->
   
